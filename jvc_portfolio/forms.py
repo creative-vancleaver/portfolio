@@ -23,3 +23,13 @@ class DesignForm(forms.ModelForm):
         queryset = Software.objects.all(),
         widget = forms.CheckboxSelectMultiple
     )
+
+class DevelopmentForm(forms.ModelForm):
+    class Meta:
+        model = Development
+        fields = ('title', 'project', 'image', 'description', 'programs')
+
+        programs = forms.ModelMultipleChoiceField(
+            queryset = Program.objects.all(),
+            widget = forms.CheckboxSelectMultiple
+        )

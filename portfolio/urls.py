@@ -25,7 +25,11 @@ urlpatterns = [
     path('', include('jvc_core.urls')),
 
     path('portfolio/', include('jvc_portfolio.urls')),
-]
+
+    path('resume/', include('jvc_resume.urls')),
+
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
 
 # urlpatterns += [
 #     static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT),

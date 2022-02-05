@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Aladin&family=Cairo&family=Cinzel&family=Cinzel+Decorative&family=Comforter&family=Great+Vibes&family=IM+Fell+Great+Primer+SC&family=Megrim&family=Molle:ital@1&family=Open+Sans+Condensed:wght@300&family=Poiret+One&family=Raleway:wght@100&display=swap" rel="stylesheet"> 
+    
+    <style>
+        .bd-placeholder-img {
+            font-size: 1.125rem;
+            text-anchor: middle;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            user-select: none;
+        }
+    
+        @media (min-width: 768px) {
+            .bd-placeholder-img-lg {
+            font-size: 3.5rem;
+            }
+        }
+        </style>
+
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+
+    <title>{% block title %} JVC Design {% endblock title %}</title>
+</head>
+
+<body class="d-flex vh-100 text-center text-white bg-dark hero">
+    
+    <div class="cover-container d-flex vw-100 vh-100 p-3 mx-auto flex-column">
+
+        <header class="mb-auto">
+        <div>
+            <h3 class="float-md-start mb-0">JVC Design</h3>
+            <nav class="nav nav-masthead justify-content-center float-md-end">
+            <a class="nav-link active" aria-current="page" href="{% url 'home' %}">Home</a>
+            <a class="nav-link" href="#">Resume</a>
+            <a class="nav-link" href="#">Contact</a>
+            </nav>
+        </div>
+        </header>
+
+        <main class="px-3">
+
+        {% block content %}{% endblock content %}
+
+        </main>
+
+        <footer class="mt-auto text-white-50">
+        <p>&COPY; Jacob Van Cleave</p>
+        </footer>
+
+    </div>
+    
+</body>
+
+</html>

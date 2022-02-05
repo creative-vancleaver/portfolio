@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     # MY APPS
     'jvc_core',
     'jvc_portfolio',
+    'jvc_resume',
 ]
 
 MIDDLEWARE = [

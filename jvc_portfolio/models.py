@@ -28,16 +28,16 @@ class Project(models.Model):
 class Software(models.Model):
 
     # CAN EASILY ADD TO CHOICES AS I LEARN/USE THEM
-    PHOTOSHOP = 'PS'
-    ILLUSTRATOR = 'AI'
-    LR = 'Lightroom'
-    SOFTWARE = [
-        (PHOTOSHOP, 'Photoshop'),
-        (ILLUSTRATOR, 'Illustrator'),
-        (LR, 'Lightroom'),
-    ]
+    # PHOTOSHOP = 'PS'
+    # ILLUSTRATOR = 'AI'
+    # LR = 'Lightroom'
+    # SOFTWARE = [
+    #     (PHOTOSHOP, 'Photoshop'),
+    #     (ILLUSTRATOR, 'Illustrator'),
+    #     (LR, 'Lightroom'),
+    # ]
 
-    name = models.CharField(max_length=200, choices=SOFTWARE)
+    name = models.CharField(max_length=200, blank=True)
 
     class Meta:
         verbose_name_plural = 'Software'
@@ -62,27 +62,7 @@ class Design(models.Model):
 
 class Program(models.Model):
 
-    # CAN EASILY ADD TO CHOICES AS I LEARN/USE THEM
-    HTML5 = 'HTML'
-    CSS3 = 'CSS3'
-    SASS = 'SASS'
-    JAVASCRIPT = 'JASC'
-    PYTHON = 'PYTH'
-    DJANGO = 'DJAN'
-    RUBY = 'RUBY'
-    RUBY_ON_RAILS = 'RAIL'
-    PROGRAMS = [
-        (HTML5, 'HTML5'),
-        (CSS3, 'CSS3'),
-        (SASS, 'SASS'),
-        (JAVASCRIPT, 'JavaScript'),
-        (PYTHON, 'Python'),
-        (DJANGO, 'Django'),
-        (RUBY, 'Ruby'),
-        (RUBY_ON_RAILS, 'Ruby on Rails'),
-    ]
-
-    name = models.CharField(max_length=4, choices=PROGRAMS)
+    name = models.CharField(max_length=200, blank=True)
 
     def __str__(self):
         return self.name

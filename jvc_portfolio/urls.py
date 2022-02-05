@@ -12,7 +12,9 @@ urlpatterns = [
 
     path('design_projects/<int:pk>/', views.DesignProjectView.as_view(), name='design_project_detail'),
 
+    path('development_projects/add_development/', views.AddDevelopmentView.as_view(), name='add_dev'),
+
     path('development_projects/', views.DevelopmentProjectList.as_view(), name='dev_project_list'),
 
-    path('development_projects/<int:pk>', views.DevelopmentProjectView.as_view(), name='dev_project_detail'),
+    path('development_projects/<int:pk>/', views.DevelopmentProjectView.as_view(), name='dev_project_detail'),
 ]

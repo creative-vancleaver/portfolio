@@ -5,7 +5,7 @@ from django.urls import reverse_lazy
 from django.views import generic
 from django.views.generic import ListView, DetailView, CreateView
 
-from .forms import DesignForm, ProjectForm
+from .forms import DesignForm, DevelopmentForm, ProjectForm
 
 from .models import Project, Software, Design, Program, Development
 
@@ -23,6 +23,12 @@ class AddDesignView(CreateView):
     form_class = DesignForm
     success_url = reverse_lazy('design_project_list')
 
+class AddDevelopmentView(CreateView):
+    model = Development
+    template_name = 'portfolio/add_development.html'
+    form_class = DevelopmentForm
+    success_url = reverse_lazy('dev_project_list')
+
 class DesignProjectList(ListView):
     model = Design
     template_name = 'portfolio/design_list.html'
@@ -31,58 +37,49 @@ class DesignProjectList(ListView):
         context = super(DesignProjectList, self).get_context_data(*args, **kwargs)
         des_proj_list = Project.objects.filter(project_type='DES')
         designs = Design.objects.all()
-
-        # design_projects = Design.objects.filter(project=des_proj_list)
-        # context['design_projects'] = design_projects
-
         context['des_proj_list'] = des_proj_list
         context['designs'] = designs
 
         return context
 
 class DesignProjectView(DetailView):
-    model = Design
+    model = Project
     template_name = 'portfolio/design_project.html'
 
     def get_context_data(self, *args, **kwargs):
+        print('entering DESIGNPROJECT get_context_data')
+        print(kwargs)
         context = super(DesignProjectView, self).get_context_data(*args, **kwargs)
-        # designs = Project.objects.filter(project_type='DES')
-        # designs = Project.objects.filter(pk=self.kwargs['pk'])
-        designs = Design.objects.filter(project=self.kwargs['pk'])
+        designs = Design.objects.filter(project__pk=self.kwargs['pk'])
         context['designs'] = designs
-        # project = Design.project
-        # context['project'] = project
-        
 
         return context
 
 class DevelopmentProjectList(ListView):
-    model = Project
-    # dev_proj_list = Project.objects.filter(project_type='DEV')
+    model = Development
     template_name = 'portfolio/development_list.html'
 
     def get_context_data(self, *args, **kwargs):
         context = super(DevelopmentProjectList, self).get_context_data(*args, **kwargs)
-        # dev_proj_list = Project.objects.filter(project_type='DEV')
-        # dev_proj_list = Development.objects.all()
-        # context['dev_proj_list'] = dev_proj_list
-
-        des_proj_list = Project.objects.filter(project_type='DES')
+        dev_proj_list = Project.objects.filter(project_type='DEV')
         developments = Development.objects.all()
-
-        context['des_proj_list'] = des_proj_list
+        context['dev_proj_list'] = dev_proj_list
         context['developments'] = developments
 
         return context
 
 class DevelopmentProjectView(DetailView):
-    model = Development
+    model = Project
     template_name = 'portfolio/development_project.html'
 
     def get_context_data(self, *args, **kwargs):
+        print('entering get_context_data')
+        print(kwargs)
         context = super(DevelopmentProjectView, self).get_context_data(*args, **kwargs)
-        # devs = Project.objects.filter(project_type='DEV')
-        # devs = Development.objects.all()
-        # context['devs'] = devs
+        developments = Development.objects.filter(project=self.kwargs['pk'])
+        context['developments'] = developments
+
+        print(context)
 
         return context
+

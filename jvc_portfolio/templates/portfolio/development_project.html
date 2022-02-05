@@ -1,27 +1,27 @@
-<!DOCTYPE html>
-<html lang="en">
+{% extends "core/base.html" %}
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
+{% block title %} Development Projects {% endblock title %}
 
-<body>
+{% block content %}
 
-    {% if development %}
+    {% if developments %}
 
-        {{ development.project.title }} | {{ development.title }} | {{ development.created_on }} | {{ development.description  }} | {{ development.programs }}
-    
+        {% for development in developments %}
+            <p>{{ development.project.title }} -- {{ development.pk }} -- {{ development.project.pk }} -- </p>
+            <p>{{ development.title }} | {{ development.created_on }} | {{ development.description }} | </p>
+            <!-- <p>{% for p in development.programs.all %} {{ p.name }} {% endfor %}</p> -->
+            <hr>
+        {% endfor  %}
+
     {% else %}
-
         <p>
-            <a href="#">Add Development</a>
+            <a href="{% url 'add_dev' %}">Add Development</a>
         </p>
-
     {% endif %}
 
-</body>
+            <p>
+            <a href="{% url 'add_dev' %}">Add Development</a>
+        </p>
 
-</html>
+
+{% endblock content %}
