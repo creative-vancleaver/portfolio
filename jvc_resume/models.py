@@ -39,7 +39,7 @@ class TechnicalSkills(models.Model):
     def __str__(self):
         return self.type
 
-class PorgrammingProjects(models.Model):
+class ProgrammingProjects(models.Model):
 
     name = models.CharField(max_length=200)
     description = models.CharField(max_length=200)
@@ -55,7 +55,7 @@ class Employment(models.Model):
 
     name = models.CharField(max_length=200)
     start_date = models.DateField()
-    end_date = models.DateField()
+    end_date = models.DateField(blank=True, null=True)
     job_title = models.CharField(max_length=200)
     created_on = models.DateTimeField(auto_now_add=True)
 

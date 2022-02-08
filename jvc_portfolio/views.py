@@ -1,6 +1,8 @@
-from typing import List
+from curses.ascii import HT
 from django.shortcuts import render
-from django.urls import reverse_lazy
+from django.urls import reverse, reverse_lazy
+from django.http import HttpResponseRedirect
+
 
 from django.views import generic
 from django.views.generic import ListView, DetailView, CreateView
@@ -15,22 +17,30 @@ class AddProjectView(CreateView):
     model = Project
     template_name = 'portfolio/add_project.html'
     form_class = ProjectForm
-    success_url = reverse_lazy('design_project_list')
+    success_url = reverse_lazy('home')
 
 class AddDesignView(CreateView):
     model = Design
     template_name = 'portfolio/add_design.html'
     form_class = DesignForm
-    success_url = reverse_lazy('design_project_list')
+    # success_url = reverse_lazy('design_project_list')
+
+    def get_success_url(self):
+        project_pk = self.kwargs['pk']
+        return reverse('design_project_detail', kwargs={'pk': project_pk})
 
 class AddDevelopmentView(CreateView):
     model = Development
     template_name = 'portfolio/add_development.html'
     form_class = DevelopmentForm
-    success_url = reverse_lazy('dev_project_list')
+    # success_url = reverse_lazy('dev_project_list')
+
+    def get_success_url(self):
+        project_pk = self.kwargs['pk']
+        return reverse('dev_project_detail', kwargs={'pk': project_pk})
 
 class DesignProjectList(ListView):
-    model = Design
+    model = Project
     template_name = 'portfolio/design_list.html'
 
     def get_context_data(self, *args, **kwargs):
@@ -56,7 +66,7 @@ class DesignProjectView(DetailView):
         return context
 
 class DevelopmentProjectList(ListView):
-    model = Development
+    model = Project
     template_name = 'portfolio/development_list.html'
 
     def get_context_data(self, *args, **kwargs):
@@ -76,7 +86,7 @@ class DevelopmentProjectView(DetailView):
         print('entering get_context_data')
         print(kwargs)
         context = super(DevelopmentProjectView, self).get_context_data(*args, **kwargs)
-        developments = Development.objects.filter(project=self.kwargs['pk'])
+        developments = Development.objects.filter(project__pk=self.kwargs['pk'])
         context['developments'] = developments
 
         print(context)

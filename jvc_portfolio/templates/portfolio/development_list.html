@@ -5,8 +5,8 @@
 {% block content %}
 
     {% for proj in dev_proj_list %}
-        <p><a href="{% url 'dev_project_detail' proj.pk %}">{{ proj.title }} </a></p>
-        <p>| {{ proj.pk }} | {{ proj.project_type }}</p>
+        <p><a href="{% url 'dev_project_detail' proj.pk %}" class="btn btn-primary">{{ proj.title }}
+        | {{ proj.pk }} | {{ proj.project_type }}</a>
     {% endfor %}
 
     <p>

@@ -14,13 +14,11 @@
         {% endfor  %}
 
     {% else %}
-        <p>
-            <a href="{% url 'add_dev' %}">Add Development</a>
-        </p>
+        Nada
     {% endif %}
 
-            <p>
-            <a href="{% url 'add_dev' %}">Add Development</a>
+        <p>
+            <a href="{% url 'add_dev' project.pk %}">Add Development</a>
         </p>
 
 

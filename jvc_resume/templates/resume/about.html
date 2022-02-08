@@ -1,0 +1,107 @@
+{% extends "core/base.html" %}
+
+{% block title %} About Me {% endblock title %}
+
+{% block content %}
+
+    <h1>Jacob Van Cleave</h1>
+
+    <p>
+        <a href="{% url 'add_about' %}">Add About</a>
+    </p>
+
+    <div>
+        {% if abouts %}
+
+            {% for about in abouts %}
+
+                <p>
+                    {{ about.text }} || {{ about.created_on }}
+                </p>
+
+            {% endfor %}
+        {% endif %}
+    </div>
+    <hr>
+
+    <div>
+        <h3>Supplimental Education</h3>
+            <a href="{% url 'add_edu' %}">Add Supplimental Education</a>
+
+            {% if edu_list  %}
+                {% for edu in edu_list %}
+                    
+                    <p>
+                        {{ edu.name }} || {{ edu.type }}
+                    </p>
+                
+                {% endfor %}
+            {% endif %}
+    </div>
+    <hr>
+
+    <div>
+        <h3>Technical Skills</h3>
+        <a href="{% url 'add_techskill' %}">Add Tech Skill</a>
+
+        {% if tech_skill_list %}
+            {% for tech_skill in tech_skill_list %}
+
+                <p>
+                    {{ tech_skill.type }} || 
+                    {% for p in tech_skill.programs.all %} {{ p.name }} {% endfor %}
+                </p>
+
+            {% endfor %}
+        {% endif %}
+    </div>
+    <hr>
+
+    <div>
+        <h3>Programming Projects</h3>
+        <a href="{% url 'add_programming_project' %}">Add Project</a>
+
+        {% if prog_proj_list %}
+            {% for proj in prog_proj_list %}
+
+                <p>
+                    {{ proj.name }} || {{ proj.description }}
+                </p>
+
+            {% endfor %}
+        {% endif %}
+    </div>
+    <hr>
+
+    <div>
+        <h3>Employment</h3>
+        <a href="{% url 'add_employment' %}">Add Employment</a>
+
+        {% if employment_list %}
+            {% for employment in employment_list %}
+
+                <p>
+                    {{ employment.name }} || {{ employment.job_title }}
+                </p>
+                <p>
+                    {{ employment.start_date }} || 
+                    
+                    {% if employment.end_date %} {{ employment.end_date }}
+                    {% else %} - {% endif %}
+                </p>
+
+            {% endfor %}
+        {% endif %}
+    </div>
+    <hr>
+
+    <div>
+        <h3>Education</h3>
+        <p>
+            BA International Security & Conflict Resolution || San Diego State University
+        </p>
+    </div>
+    <hr>
+
+
+{% endblock content %}
