@@ -14,6 +14,7 @@ class Project(models.Model):
     title = models.CharField(max_length=200)
     created_on = models.DateTimeField(auto_now_add=True)
     project_type = models.CharField(max_length=3, choices=PROJECT_TYPE, default=DEVELOPMENT)
+    image = models.ImageField(null=True, blank=True, upload_to="images/proj/")
     about = models.TextField()
 
     class Meta:
@@ -26,16 +27,6 @@ class Project(models.Model):
 
 
 class Software(models.Model):
-
-    # CAN EASILY ADD TO CHOICES AS I LEARN/USE THEM
-    # PHOTOSHOP = 'PS'
-    # ILLUSTRATOR = 'AI'
-    # LR = 'Lightroom'
-    # SOFTWARE = [
-    #     (PHOTOSHOP, 'Photoshop'),
-    #     (ILLUSTRATOR, 'Illustrator'),
-    #     (LR, 'Lightroom'),
-    # ]
 
     name = models.CharField(max_length=200, blank=True)
 

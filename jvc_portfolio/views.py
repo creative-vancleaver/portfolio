@@ -15,9 +15,17 @@ from .models import Project, Software, Design, Program, Development
 
 class AddProjectView(CreateView):
     model = Project
-    template_name = 'portfolio/add_project.html'
+    # template_name = 'portfolio/add_project.html'
     form_class = ProjectForm
-    success_url = reverse_lazy('home')
+    # success_url = reverse_lazy('dev_project_list')
+
+    def get_success_url(self):
+        next = self.request.GET.get("next", None)
+
+        if next and next != '':
+            return next
+
+        return "/home"
 
 class AddDesignView(CreateView):
     model = Design
@@ -41,6 +49,7 @@ class AddDevelopmentView(CreateView):
 
 class DesignProjectList(ListView):
     model = Project
+    form_class = ProjectForm
     template_name = 'portfolio/design_list.html'
 
     def get_context_data(self, *args, **kwargs):
@@ -49,11 +58,13 @@ class DesignProjectList(ListView):
         designs = Design.objects.all()
         context['des_proj_list'] = des_proj_list
         context['designs'] = designs
+        context['form'] = ProjectForm
 
         return context
 
 class DesignProjectView(DetailView):
     model = Project
+    form_class = DesignForm
     template_name = 'portfolio/design_project.html'
 
     def get_context_data(self, *args, **kwargs):
@@ -62,11 +73,13 @@ class DesignProjectView(DetailView):
         context = super(DesignProjectView, self).get_context_data(*args, **kwargs)
         designs = Design.objects.filter(project__pk=self.kwargs['pk'])
         context['designs'] = designs
+        context['form'] = DesignForm
 
         return context
 
 class DevelopmentProjectList(ListView):
     model = Project
+    form_class = ProjectForm
     template_name = 'portfolio/development_list.html'
 
     def get_context_data(self, *args, **kwargs):
@@ -75,11 +88,16 @@ class DevelopmentProjectList(ListView):
         developments = Development.objects.all()
         context['dev_proj_list'] = dev_proj_list
         context['developments'] = developments
+        context['form'] = ProjectForm
 
         return context
 
+    def get_success_url(self):
+        return reverse('dev_proj_list')
+
 class DevelopmentProjectView(DetailView):
     model = Project
+    form_class = DevelopmentForm
     template_name = 'portfolio/development_project.html'
 
     def get_context_data(self, *args, **kwargs):
@@ -88,6 +106,7 @@ class DevelopmentProjectView(DetailView):
         context = super(DevelopmentProjectView, self).get_context_data(*args, **kwargs)
         developments = Development.objects.filter(project__pk=self.kwargs['pk'])
         context['developments'] = developments
+        context['form'] = DevelopmentForm
 
         print(context)
 

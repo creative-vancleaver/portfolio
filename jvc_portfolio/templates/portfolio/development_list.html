@@ -1,18 +1,32 @@
 {% extends "core/base.html" %}
 
-{% block title %} Design Projects {% endblock title %}
+{% block title %} Devlopment Projects {% endblock title %}
 
 {% block content %}
 
     {% for proj in dev_proj_list %}
         <p><a href="{% url 'dev_project_detail' proj.pk %}" class="btn btn-primary">{{ proj.title }}
-        | {{ proj.pk }} | {{ proj.project_type }}</a>
+        | {{ proj.pk }} | {{ proj.project_type }}</a></p>
     {% endfor %}
 
-    <p>
+    <button id="addProject" class="btn btn-primary">Add Project</button>
+    <div id="projectForm">
+        {% include 'portfolio/partials/add_project.html' %}
+    </div>  
+
+    <!-- <p>
         <a href="{% url 'add_project' %}">Add Project</a>
-    </p>
+    </p> -->
 
+    <script>
 
+         $(document).ready(function() {
+
+            $('#projecttype').hide();
+            $('#projecttype').siblings().hide();
+
+        });
+
+    </script>
     
 {% endblock content %}

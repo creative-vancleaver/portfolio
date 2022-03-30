@@ -1,4 +1,5 @@
 {% extends "core/base.html" %}
+{% load static %}
 
 {% block title %} About Me {% endblock title %}
 
@@ -21,22 +22,34 @@
 
             {% endfor %}
         {% endif %}
+
+        <button id="addAbout" class="btn btn-primary">Add About</button>
+        <div id="aboutForm">
+            {% include 'resume/partials/add_about.html' %}
+        </div>
+
     </div>
     <hr>
 
     <div>
         <h3>Supplimental Education</h3>
-            <a href="{% url 'add_edu' %}">Add Supplimental Education</a>
+        <a href="{% url 'add_edu' %}">Add Supplimental Education</a>
 
-            {% if edu_list  %}
-                {% for edu in edu_list %}
-                    
-                    <p>
-                        {{ edu.name }} || {{ edu.type }}
-                    </p>
+        {% if edu_list  %}
+            {% for edu in edu_list %}
                 
-                {% endfor %}
-            {% endif %}
+                <p>
+                    {{ edu.name }} || {{ edu.type }}
+                </p>
+            
+            {% endfor %}
+        {% endif %}
+
+        <button id="addEdu" class="btn btn-primary">Add Education</button>
+        <div id="eduForm">
+            {% include 'resume/partials/add_edu.html' %}
+        </div>
+
     </div>
     <hr>
 
@@ -54,6 +67,12 @@
 
             {% endfor %}
         {% endif %}
+
+        <button id="addSkill" class="btn btn-primary">Add Skill</button>
+        <div id="skillForm">
+            {% include 'resume/partials/add_techskill.html' %}
+        </div>
+
     </div>
     <hr>
 
@@ -70,6 +89,12 @@
 
             {% endfor %}
         {% endif %}
+
+        <button id="addProgProj" class="btn btn-primary">Add Programming Project</button>
+        <div id="progProjForm">
+            {% include 'resume/partials/add_prog_proj.html' %}
+        </div>
+
     </div>
     <hr>
 
@@ -92,6 +117,12 @@
 
             {% endfor %}
         {% endif %}
+
+        <button id="addWork" class="btn btn-primary">Add Work</button>
+        <div id="workForm">
+            {% include 'resume/partials/add_employment.html' %}
+        </div>
+
     </div>
     <hr>
 

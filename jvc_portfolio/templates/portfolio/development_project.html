@@ -9,17 +9,20 @@
         {% for development in developments %}
             <p>{{ development.project.title }} -- {{ development.pk }} -- {{ development.project.pk }} -- </p>
             <p>{{ development.title }} | {{ development.created_on }} | {{ development.description }} | </p>
-            <!-- <p>{% for p in development.programs.all %} {{ p.name }} {% endfor %}</p> -->
+            <p>{% for p in development.programs.all %} {{ p.name }} {% endfor %}</p>
             <hr>
         {% endfor  %}
 
     {% else %}
-        Nada
+
+        <p>Nada</p>
+
     {% endif %}
 
-        <p>
-            <a href="{% url 'add_dev' project.pk %}">Add Development</a>
-        </p>
+    <button id="addDev" class="btn btn-primary">Add Development</button>
+    <div id="devForm">
+        {% include 'portfolio/partials/add_development.html' %}
+    </div>
 
 
 {% endblock content %}

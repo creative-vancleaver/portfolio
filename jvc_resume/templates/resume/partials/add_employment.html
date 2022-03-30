@@ -1,0 +1,6 @@
+
+<form method="POST" action="{% url 'add_employment' %}?next={{ request.path }}" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ work_form.as_p }}
+    <button>Add</button>
+</form>

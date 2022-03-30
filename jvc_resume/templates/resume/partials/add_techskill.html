@@ -1,0 +1,6 @@
+
+<form method="POST" action="{% url 'add_techskill' %}?next={{ requst.path }}" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ skills_form.as_p }}
+    <button>Add</button>
+</form>

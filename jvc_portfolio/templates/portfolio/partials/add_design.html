@@ -1,0 +1,6 @@
+
+<form method="POST" action="{% url 'add_design' project.pk %}?next={{ request.path }}" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button>Add Design</button>
+</form>
