@@ -71,8 +71,9 @@ class DesignProjectView(DetailView):
         print('entering DESIGNPROJECT get_context_data')
         print(kwargs)
         context = super(DesignProjectView, self).get_context_data(*args, **kwargs)
-        designs = Design.objects.filter(project__pk=self.kwargs['pk'])
+        designs = Design.objects.get(project__pk=self.kwargs['pk'])
         context['designs'] = designs
+        print(designs)
         context['form'] = DesignForm
 
         return context

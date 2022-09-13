@@ -1,6 +1,7 @@
 /* GLOBALS */
 html, body {
   font-family: 'Open Sans Condensed', sans-serif;
+  background-color: black;
 }
 
 h1, h3 {
@@ -20,12 +21,27 @@ h1, h3 {
  * Base structure
  */
 body {
-  background-image: url("/static/img/aedrian-jcNI-JqOevY-unsplash.jpg");
+  background-image: url("/static/img/jvcdesignsbg1.png");
+  /* background-repeat: no-repeat; */
+  /* color: white; */
+  /* display: flex;
+  flex-flow: column nowrap;
+  height: 100vh; */
 }
+
+.main {
+  color: white;
+}
+
+/* HOME PAGE */
 
 .cover-container {
   max-width: 42em;
 }
+
+/* .hero {
+  color: white;
+} */
 
 /*
  * Header
@@ -50,6 +66,18 @@ body {
 .nav-masthead .active {
   color: #fff;
   border-bottom-color: #fff;
+}
+
+.logo-link {
+  text-decoration: none;
+  color: white;
+}
+
+.logo-link:hover,
+.logo-link:active,
+.logo-link:focus {
+  text-decoration: none;
+  color: white;
 }
 
 /* BOOTSTRAP CUSTOMIZATION */
@@ -84,14 +112,33 @@ button.btn.btn-primary:active:focus {
   margin-bottom: 200px !important;
 }
 
+.card-body {
+  color: black !important;
+}
+
 .card-link {
   position: relative;
+  color: black !important;
 }
 
 /* CUSTOM STYLES */
+
+/* PROJECT LIST PAGES */
+
+.list-title {
+  color: white;
+  text-align: center;
+}
+
+
 /* PROJECT DETAIL PAGE */
 .project-detail-body {
   background-color: none !important;
+  text-align: left;
+}
+
+.proj-brief {
+  /* color: white; */
 }
 
 .img-container {

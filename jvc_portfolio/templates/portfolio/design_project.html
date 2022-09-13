@@ -1,7 +1,7 @@
-{% extends "portfolio/project_detail_base.html" %}
+{% extends "core/base.html" %}
 {% load static %}
 
-{% block title %} Design Projects {% endblock title %}
+{% block title %} {{ project.title }} {% endblock title %}
 
 {% block content %}
 
@@ -10,11 +10,12 @@
 <div class="container-fluid mt-5 mb-5 pt-5 pb-5">
 <div class="proj-brief">
 
-    <h3>Online Forum Project</h3>
+    <!-- <h3>Online Forum Project</h3> -->
+    <h2>{{ project.title }}</h2>
 
     <h5>A safe place to communicate with peers</h5>
 
-    <p class="text-light">The brief for this project was to create a forum like website specifically for womxn with an aim to provide a safe space for all those who identify as female to discuss sex, love and life.</p>
+    <p>The brief for this project was to create a forum like website specifically for womxn with an aim to provide a safe space for all those who identify as female to discuss sex, love and life.</p>
 
 </div>
 </div>
@@ -24,7 +25,7 @@
 <div class="container-fluid ps-0 pe-0 pt-5 pb-5 mt-5 mb-5">
     <div class="img-container justify-content-center">
         <div class="banner-img">
-            <img src="{% static 'img/samplebanner1.png' %}" alt="img placeholder for banner image">
+            <!-- <img src="{% static 'img/samplebanner1.png' %}" alt="img placeholder for banner image"> -->
         </div>
     </div>
 </div>
@@ -48,7 +49,7 @@
 <div class="container-fluid pt-5 pb-5 mt-5 mb-5">
     <div class="img-container justify-content-center">
         <div class="screenshot-img">
-            <img src="{% static 'img/ForumHomeFull.png' %}" alt="fullpage screen shot of home page">
+            <!-- <img src="{% static 'img/ForumHomeFull.png' %}" alt="fullpage screen shot of home page"> -->
         </div>
     </div>
 </div>
@@ -85,7 +86,7 @@
     <div class="img-container justify-content-center">
 
         <div class="screenshot-img">
-            <img src="{% static 'img/PortfolioDesignListFull1.png' %}" alt="Full page screenshot of list of web design projects">
+            <!-- <img src="{% static 'img/PortfolioDesignListFull1.png' %}" alt="Full page screenshot of list of web design projects"> -->
         </div>
 
     </div>
@@ -97,7 +98,7 @@
     <div class="img-container justify-content-end">
 
         <div class="mockup-img screenshot-img">
-            <img src="{% static 'img/iMacMockupCrop.png' %}" alt="Image of iMac with sample webpage displayed">
+            <!-- <img src="{% static 'img/iMacMockupCrop.png' %}" alt="Image of iMac with sample webpage displayed"> -->
         </div>
 
     </div>
@@ -127,19 +128,19 @@
 
         <div class="col-lg-4">
             <div class="col-img">
-                <img src="{% static 'img/forumiphone12homepage.png' %}" alt="iPhone 12 screen showing home page of site.">
+                <!-- <img src="{% static 'img/forumiphone12homepage.png' %}" alt="iPhone 12 screen showing home page of site."> -->
             </div>
         </div>
 
         <div class="col-lg-4">
             <div class="col-img">
-                <img src="{% static 'img/forumiphone12forum.png' %}" alt="">
+                <!-- <img src="{% static 'img/forumiphone12forum.png' %}" alt=""> -->
             </div>
         </div>
 
         <div class="col-lg-4">
             <div class="col-img">
-                <img src="{% static 'img/forumiphone12topic.png' %}" alt="">
+                <!-- <img src="{% static 'img/forumiphone12topic.png' %}" alt=""> -->
             </div>
         </div>
 
@@ -149,34 +150,6 @@
 <!-- CLOSING THOUGHTS, REACTIONS, RECEPTON, ETC -->
 
 
-    <!-- {% if designs %}
 
-        {% for design in designs %}
-
-            <p>{{ design.project.title }} | </p>
-
-            <p>{{ design.title }}  {{ design.pk }} | {{ design.created_on }} | {{ design.description }} |  {% for s in design.software.all %}{{ s.name }} {% endfor %}</p>
-            
-            {% if design.image %}
-                <div class="img-container col-sm-10">
-                <div class="des-img"><img src="{{ design.image.url }}" alt=""></div>
-                </div>
-            {% endif %}
-
-
-        {% endfor %}
-
-    {% else %}
-
-        <p>Nada</p>
-        
-    {% endif %} -->
-
-    <!-- <div class="align-items-center pt-5 pb-5 mt-5 mb-5">
-    <button id="addDesign" class="btn btn-primary mt-4 mb-3">Add Design</button>
-    <div id="designForm">
-        {% include 'portfolio/partials/add_design.html' %}
-    </div>
-    </div> -->
 
 {% endblock content %}

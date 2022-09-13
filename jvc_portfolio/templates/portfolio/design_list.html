@@ -6,13 +6,10 @@
 {% block content %}
 <header class="header-margin"></header>
 
-    <div class="container-fluid mb-4 text-dark">
+    <div class="container-fluid mb-4">
 
-        <div class="row mb-4 ps-2 pe-2">
-            <button id="addProject" class="btn btn-primary">Add Project</button>
-            <div id="projectForm">
-                {% include 'portfolio/partials/add_project.html' %}
-            </div>
+        <div class="row mb-4 ps-2 pe-2 pb-5">
+            <h2 class="list-title">Design Projects</h2>
         </div>
 
 
@@ -26,7 +23,7 @@
                         {% if proj.image %}
                             <img src="{{ proj.image.url }}" alt="" class="card-img-top proj-card-img">
                         {% else %}
-                            <img src="{% static 'img/IMG_0413.jpg' %}" alt="" class="card-img-top">
+                            <img src="{% static 'img/Screen_Shot_2022-01-31_at_4.17.21_PM.png' %}" alt="" class="card-img-top">
                         {% endif %}
                         
                         <!-- <div class="card-img-overlay">
@@ -37,10 +34,11 @@
                            
                                 <h5 class="card-title">
                                     <a class="card-link" href="{% url 'design_project_detail' proj.pk %}">
-                                        {{ proj.title }} || {{ proj.pk }} || {{ proj.project_type }}
+                                        {{ proj.title | slice:10 }}
+                                        <!-- {{ proj.title }} || {{ proj.pk }} || {{ proj.project_type }} -->
                                     </a>
                                 </h5>
-                            <p class="card-text">{{ proj.about }}</p>
+                            <p class="card-text">{{ proj.about | slice:25 }}</p>
                         </div>
 
                     </div>

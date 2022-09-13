@@ -38,34 +38,38 @@
         }
     </style>
 
+    <!-- <link rel="stylesheet" href="{% static 'css/style.scss' %}"> -->
+
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
     <!-- <link rel="stylesheet" href="{% static 'css/styles.css' %}"> -->
 
     <title>{% block title %} JVC Design {% endblock title %}</title>
 </head>
 
-<body class="d-flex vh-100 text-center text-white bg-dark hero">
+<body class="d-flex vh-100">
     
     <div class="cover-container d-flex vw-100 vh-100 p-3 mx-auto flex-column">
 
         <header class="mb-auto">
         <div>
-            <h3 class="float-md-start mb-0">JVC Design</h3>
+            <a href="{% url 'home' %}" class="logo-link"><h3 class="float-md-start mb-0">JVC Design</h3></a>
             <nav class="nav nav-masthead justify-content-center float-md-end">
             <a class="nav-link" type="button" data-toggle="button" href="{% url 'home' %}">Home</a>
+            <a class="nav-link" type="button" data-toggle="button" href="{% url 'design_project_list' %}">Design</a>
+            <a class="nav-link" type="button" data-toggle="button" href="{% url 'dev_project_list' %}">Development</a>
             <a class="nav-link" type="button" data-toggle="button" href="{% url 'about' %}">Resume</a>
             <a class="nav-link" type="button" data-toggle="button" href="#">Contact</a>
             </nav>
         </div>
         </header>
 
-        <main class="px-3">
+        <main class="px-3 main">
 
         {% block content %}{% endblock content %}
 
         </main>
 
-        <footer class="mt-auto text-white-50">
+        <footer class="mt-auto text-white-50 text-center">
             <p>&COPY; Jacob Van Cleave</p>
         </footer>
 

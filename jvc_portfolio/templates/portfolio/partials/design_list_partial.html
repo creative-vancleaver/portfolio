@@ -1,0 +1,43 @@
+<div class="container-fluid mb-4 text-dark">
+
+    <div class="row mb-4 ps-2 pe-2">
+        <button id="addProject" class="btn btn-primary">Add Project</button>
+        <div id="projectForm">
+            {% include 'portfolio/partials/add_project.html' %}
+        </div>
+    </div>
+
+
+    <div class="row row-cols-1 row-cols-md-2">
+
+        {% for proj in des_proj_list %}
+            <div class="col">
+
+                <div class="card mb-4 border-0">
+
+                    {% if proj.image %}
+                        <img src="{{ proj.image.url }}" alt="" class="card-img-top proj-card-img">
+                    {% else %}
+                        <img src="{% static 'img/IMG_0413.jpg' %}" alt="" class="card-img-top">
+                    {% endif %}
+                    
+                    <!-- <div class="card-img-overlay">
+                        <h5 class="card-title">{{ proj.title }}</h5>
+                    </div> -->
+
+                    <div class="card-body">
+                       
+                            <h5 class="card-title">
+                                <a class="card-link" href="{% url 'design_project_detail' proj.pk %}">
+                                    {{ proj.title }} || {{ proj.pk }} || {{ proj.project_type }}
+                                </a>
+                            </h5>
+                        <p class="card-text">{{ proj.about }}</p>
+                    </div>
+
+                </div>
+
+            </div>
+        {% endfor %}
+    </div>
+</div>
