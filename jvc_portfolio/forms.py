@@ -42,7 +42,38 @@ class ProjectForm(forms.ModelForm):
 class DesignForm(forms.ModelForm):
     class Meta:
         model = Design
-        fields = ('title', 'project', 'image', 'description', 'software')
+        fields = ('title', 'project', 'banner_img', 'brief', 'software')
+
+        widgets = {
+
+            'title': forms.TextInput(attrs={
+                'class': 'form-control',
+                'placeholder': 'title',
+            }),
+            
+            'project': forms.Select(attrs={
+                'class': 'form-control',
+                'id': 'project',
+                'type': 'hidden',
+            }),
+
+            'banner_img': forms.FileInput(attrs={
+                'class': 'form-control',
+                'label': "",
+            }),
+
+            'brief': forms.Textarea(attrs={
+                'class': 'form-control',
+                'label': '',
+                'placeholder': 'Brief',
+                'style': 'width: 100%',
+            }),
+
+            'software': forms.Select(attrs={
+                'class': 'form-control',
+                # 'style': 'display: inline',
+            }),
+        }
 
     software = forms.ModelMultipleChoiceField(
         queryset = Software.objects.all(),

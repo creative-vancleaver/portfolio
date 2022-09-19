@@ -1,6 +1,7 @@
-
-<form method="POST" action="{% url 'add_design' project.pk %}?next={{ request.path }}" enctype="multipart/form-data">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button>Add Design</button>
-</form>
+<div class="form_group text-ligth">
+    <form class="mt-3" method="POST" action="{% url 'add_design' project.pk %}?next={{ request.path }}" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button class="btn btn-primary">Add Design</button>
+    </form>
+</div>

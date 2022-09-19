@@ -18,7 +18,7 @@ class ProjectAdmin(admin.ModelAdmin):
 admin.site.register(Project, ProjectAdmin)
 
 class DesignAdmin(admin.ModelAdmin):
-    list_display = ('pk', 'title', 'project', 'created_on', 'description', 'image')
+    list_display = ('pk', 'title', 'project', 'created_on', 'brief', 'banner_img')
     list_filter = ('created_on',)
     search_fields = ('title', 'software')
 

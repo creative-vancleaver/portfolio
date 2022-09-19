@@ -1,3 +1,5 @@
+from statistics import mode
+from unittest import mock
 from django.db import models
 
 # Create your models here.
@@ -39,9 +41,33 @@ class Software(models.Model):
 class Design(models.Model):
 
     title = models.CharField(max_length=200)
+    sub_title = models.CharField(max_length=200, blank=True, null=True)
+    project_date = models.DateField(blank=True, null=True)
     created_on = models.DateTimeField(auto_now_add=True)
-    image = models.ImageField(null=True, blank=True, upload_to="images/des/")
-    description = models.TextField()
+    banner_img = models.ImageField(null=True, blank=True, upload_to="images/des/", db_column="image")
+    brief = models.TextField(blank=True, null=True, db_column="description")
+    banner_txtI = models.TextField(blank=True, null=True)
+    banner_txtII = models.TextField(blank=True, null=True)
+    banner_txtIII = models.TextField(blank=True, null=True)
+    fullpage_imgI = models.ImageField(null=True, blank=True, upload_to="images/des/")
+    fullpage_imgII = models.ImageField(null=True, blank=True, upload_to="images/des/")
+    fullpage_imgIII = models.ImageField(null=True, blank=True, upload_to="images/des/")
+    processI = models.TextField(null=True, blank=True)
+    processII = models.TextField(null=True, blank=True)
+    processIII = models.TextField(null=True, blank=True)
+    responsive_imgI = models.ImageField(null=True, blank=True, upload_to="images/des/")
+    responsive_imgII = models.ImageField(null=True, blank=True, upload_to="images/des/")
+    responsive_imgIII = models.ImageField(null=True, blank=True, upload_to="images/des/")
+    mockup_imgI = models.ImageField(null=True, blank=True, upload_to="images/des/")
+    mockup_imgII = models.ImageField(null=True, blank=True, upload_to="images/des/")
+    mockup_imgIII = models.ImageField(null=True, blank=True, upload_to="images/des/")
+    asset_imgI = models.ImageField(null=True, blank=True, upload_to="images/des/")
+    asset_imgII = models.ImageField(null=True, blank=True, upload_to="images/des/")
+    asset_imgIII = models.ImageField(null=True, blank=True, upload_to="images/des/")
+    processIV = models.TextField(null=True, blank=True)
+    processV = models.TextField(null=True, blank=True)
+    processVI = models.TextField(null=True, blank=True)
+    conclusion = models.TextField(null=True, blank=True)
     project = models.ForeignKey(Project, on_delete=models.CASCADE, null=True, blank=True, related_name='design_projects')
     software = models.ManyToManyField(Software)
 

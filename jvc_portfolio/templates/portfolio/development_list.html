@@ -1,32 +1,83 @@
-{% extends "core/base.html" %}
+{% extends "core/base2.html" %}
+{% load static %}
 
 {% block title %} Devlopment Projects {% endblock title %}
 
 {% block content %}
 
-    {% for proj in dev_proj_list %}
-        <p><a href="{% url 'dev_project_detail' proj.pk %}" class="btn btn-primary">{{ proj.title }}
-        | {{ proj.pk }} | {{ proj.project_type }}</a></p>
-    {% endfor %}
+<header class="header-margin"></header>
 
-    <button id="addProject" class="btn btn-primary">Add Project</button>
-    <div id="projectForm">
+<div class="container-fluid mb-5">
+
+    <div class="row ps-2 pe-2 mb-5">
+        <h2 class="list-title">Development Projects</h2>
+    </div>
+
+    <button id="addProject" class="btn btn-primary container-fluid mb-5">
+        Add Project
+    </button>
+    <div id="projectForm" class="mb-5">
         {% include 'portfolio/partials/add_project.html' %}
-    </div>  
+    </div>
 
-    <!-- <p>
-        <a href="{% url 'add_project' %}">Add Project</a>
-    </p> -->
+    <div class="row row-cols-1 row-cols-md-2">
 
-    <script>
+        {% for proj in dev_proj_list %}
+            <div class="col">
 
-         $(document).ready(function() {
+                <div class="card mb-4 border-0">
 
-            $('#projecttype').hide();
-            $('#projecttype').siblings().hide();
+                    {% if proj.image %}
+                        <img src="{{ proj.image.url }}" alt="" class="card-img-top proj-card-img">
+                    {% else %}
+                        <img src="{% static 'img/Screen_Shot_2022-01-31_at_4.17.21_PM.png' %}" alt="" class="card-img-top">
+                    {% endif %}
+                    
+                    <!-- <div class="card-img-overlay">
+                        <h5 class="card-title">{{ proj.title }}</h5>
+                    </div> -->
 
-        });
+                    <div class="card-body">
+                        
+                            <h5 class="card-title">
+                                <a class="card-link" href="{% url 'dev_project_detail' proj.pk %}">
+                                    {{ proj.title | slice:25 }}
+                                    <!-- {{ proj.title }} || {{ proj.pk }} || {{ proj.project_type }} -->
+                                </a>
+                            </h5>
+                        <p class="card-text">{{ proj.about | slice:35 }}</p>
+                    </div>
 
-    </script>
+                </div>
+
+            </div>
+        {% endfor %}
+    </div>
+</div>
+
+
+
+
+
+<script>
+
+    function autoSelectProjectType() {
+
+    var url = window.location.href;
+    var project_type = url.match(/([^\/]*)\/[^\/]*$/gmi).toString();
+    project_type = project_type.slice(0, 3).toUpperCase();
+    document.getElementById('projecttype').value = project_type;
+    console.log(project_type);
+    };
+
+        $(document).ready(function() {
+
+        $('#projecttype').hide();
+        $('#projecttype').siblings().hide();
+        autoSelectProjectType();
+
+    });
+
+</script>
     
 {% endblock content %}

@@ -29,6 +29,10 @@ SECRET_KEY = config("SECRET_KEY")
 DEBUG = True
 
 # ALLOWED_HOSTS = ['portfolio-env.eba-nr4qmywp.us-west-1.elasticbeanstalk.com']
+ALLOWED_HOSTS = [
+    '0.0.0.0',
+    '127.0.0.1',
+]
 
 
 # Application definition
@@ -86,6 +90,15 @@ DATABASES = {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': BASE_DIR / 'db.sqlite3',
     }
+
+    # 'default': {
+    #     'ENGINE': 'django.db.backends.postgresql',
+    #     'NAME': 'test',
+    #     'USER': 'postgres',
+    #     'PASSWORD': 'Pumpk1nsgonnapump!',
+    #     'HOST': 'localhost',
+    #     'PORT': '5432',
+    # }
 }
 
 

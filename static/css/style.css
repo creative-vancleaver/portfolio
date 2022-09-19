@@ -4,7 +4,11 @@ html, body {
   background-color: black;
 }
 
-h1, h3 {
+h1 {
+  font-size: 45px;
+}
+
+h3 {
   font-family: 'Cinzel Decorative', cursive;
 }
 
@@ -20,13 +24,21 @@ h1, h3 {
 /*
  * Base structure
  */
-body {
+.base1_body {
   background-image: url("/static/img/jvcdesignsbg1.png");
+  background-repeat: no-repeat;
+  background-size: cover;
   /* background-repeat: no-repeat; */
   /* color: white; */
   /* display: flex;
   flex-flow: column nowrap;
   height: 100vh; */
+}
+
+.base2_body {
+  background-image: url("/static/img/jvcdesignsbgtp1.png");
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .main {
@@ -36,8 +48,9 @@ body {
 /* HOME PAGE */
 
 .cover-container {
-  max-width: 42em;
+  max-width: 65em;
 }
+
 
 /* .hero {
   color: white;
@@ -109,7 +122,7 @@ button.btn.btn-primary:active:focus {
 
 /* use this in place of mb-auto on all pages BUT home page */
 .header-margin {
-  margin-bottom: 200px !important;
+  margin-bottom: 100px !important;
 }
 
 .card-body {
@@ -126,12 +139,28 @@ button.btn.btn-primary:active:focus {
 /* PROJECT LIST PAGES */
 
 .list-title {
-  color: white;
+  /* color: white; */
   text-align: center;
 }
 
 
 /* PROJECT DETAIL PAGE */
+.project-brief {
+  margin-top: 5rem;
+}
+
+.brief-header {
+  /* font-size: larger; */
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.program-list {
+  list-style: none;
+  padding-left: 0;
+}
+
+
 .project-detail-body {
   background-color: none !important;
   text-align: left;
@@ -141,11 +170,19 @@ button.btn.btn-primary:active:focus {
   /* color: white; */
 }
 
-.img-container {
-  width: 500px;
+.img-container img {
+  max-width: 100%;
 }
 
 .des-img img {
   max-width: 100rem;
+}
+
+.col-img img {
+  max-width: 90%;
+  }
+
+.col-text strong {
+  text-transform: uppercase;
 }
 /*# sourceMappingURL=style.css.map */

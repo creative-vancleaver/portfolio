@@ -1,28 +1,275 @@
-{% extends "core/base.html" %}
+{% extends "core/base2.html" %}
+{% load static %}
 
 {% block title %} Development Projects {% endblock title %}
 
 {% block content %}
 
-    {% if developments %}
+<!-- EDIT DESIGN SECTION (FORM) -->
+<!-- <div class="align-items-center pt-5 pb-5 mt-5 mb-5 container-fliud"> -->
+<!-- 
+    <button id="addDesign" class="btn btn-primary mt-4 mb-3 container-fluid">
+        Edit Design
+    </button>
+    <div id="designForm">
+        {% include 'portfolio/partials/add_design.html' %}
+    </div> -->
 
-        {% for development in developments %}
-            <p>{{ development.project.title }} -- {{ development.pk }} -- {{ development.project.pk }} -- </p>
-            <p>{{ development.title }} | {{ development.created_on }} | {{ development.description }} | </p>
-            <p>{% for p in development.programs.all %} {{ p.name }} {% endfor %}</p>
-            <hr>
-        {% endfor  %}
+<!-- </div> -->
 
-    {% else %}
 
-        <p>Nada</p>
 
-    {% endif %}
+<!-- PROJECT BREIF SECTION (text) -->
 
-    <button id="addDev" class="btn btn-primary">Add Development</button>
-    <div id="devForm">
-        {% include 'portfolio/partials/add_development.html' %}
+<div class="container-fluid mb-5 pb-5">
+<div class="proj-brief ms-5 ps-5 me-5 pe-5">
+
+    <!-- <h3>Online Forum Project</h3> -->
+    <h1 class="project-title mt-5 pt-5 mb-5 pb-5">{{ project.title }}</h1>
+
+
+    <div class="row">
+
+        <div class="col-md-2 pe-0 ps-0">
+            <h5 class="mb-1 brief-header">Year</h5>
+            <p>2021</p>
+        </div>
+
+        <div class="col-md-3 pe-0 ps-0">
+            <h5 class="mb-1 brief-header">Programs</h5>
+            <ul class="program-list">
+                <li>HTML, CSS & JS</li>
+                <li>Django & Python</li>
+                <li>Bootstrap</li>
+            </ul>
+        </div>
+
+        <div class="col-md-7 ms-0 ps-0">
+            <h5 class="brief-header mb-1">A safe place to communicate</h5>
+            <p>
+                The brief for this project was to create a forum like website specifically for womxn with an aim to provide a safe space for all those who identify as female to discuss sex, love and life.
+            </p>
+        </div>
+
+
+        
     </div>
+
+
+</div>
+</div>
+
+<!-- ASSET/BANNER SECTION (image)(Optional) -->
+
+<div class="container-fluid d-flex justify-content-center">
+    <div class="img-container align-items-center">
+        <div class="banner-img">
+            <img src="{% static 'img/ScreenshotI.png' %}" alt="img placeholder for banner image">
+        </div>
+    </div>
+</div>
+
+<!-- PROJECT APPRAOCH SECTION (text) -->
+
+<div class="container-fliud d-flex">
+    <div class="proj-approach ms-5 ps-5 me-5 pe-5 d-flex">
+
+        <div class="row mt-5 pt-5 align-items-center">
+
+            <div class="col-md-5">
+                <h1>Let's talk about sex</h1>
+            </div>
+
+            <div class="col-md-7 pe-0 me-0">
+                <p class="text-light">
+                    The idea of the site is pretty straight forward - an online forum for users to communicate about a multitude of topics via posts, likes, comments and replies. I developed the site with Django and utilized vanilla JavaScript and the Bootstrap library to ensure responsiveness. 
+                </p>
+            </div>
+
+        </div>
+
+
+    </div>
+</div>
+
+<!-- FULL PAGE HOME PAGE IMAGE SECTION (image)-->
+
+<div class="container-fluid pt-5 pb-5 mt-5 mb-5">
+    <div class="img-container justify-content-center">
+        <div class="screenshot-img">
+            <img src="{% static 'img/ScreenshotII.png' %}" alt="fullpage screen shot of home page">
+        </div>
+    </div>
+</div>
+
+<!-- DES/DEV PROECESS SECTION (text) -->
+
+<div class="container-fluid">
+    <div class="process ms-4 ps-4 me-4 pe-4">
+
+        <div class="row">
+
+            <div class="col-md-6">
+                <p class="text-light">
+                    The home page for the forum displays all topics sorted by date of creation by default, with the option to change sorting order. I included a sample banner on the main forum page to showcase how any ads, information or even static styles can be added, placed, and moved around to suit a multitude of uses. The team also wanted users to be able to create and filter posts for a variety of topics, so I implemented a sidebar to display available topics, as well as a form for admin to create new topics as needed.
+                </p>        
+            </div>
+
+            <div class="col-md-6">
+                <p class="text-light">
+                    The posts are displayed in list form with titles, username(if any), date created and a short snippet of the post's content. The list display then provides a link to 'Read More' that directs user to the specified post's detail page. On the detail page, users can like the post, comment on the post and reply to previous comments. In addition to being able to read any post, authenticated users have the ability to update, edit, and deletee posts that they created. These features can be accessed via links on the post list or post detail pages.
+                </p>
+            </div>
+
+        </div>
+
+        <!-- <p class="text-light">
+            The idea of the site is pretty straight forward - an online forum for users to communicate about a multitude of topics via posts, likes, comments and replies. I developed the site with Django and utilized vanilla JavaScript and the Bootstrap library to ensure responsiveness.
+        </p>
+
+
+
+        <p class="text-light">
+            The posts are displayed in list form with titles, username(if any), date created and a short snippet of the post's content. The list display then provides a link to 'Read More' that directs user to the specified post's detail page. On the detail page, users can like the post, comment on the post and reply to previous comments. In addition to being able to read any post, authenticated users have the ability to update, edit, and deletee posts that they created. These features can be accessed via links on the post list or post detail pages.
+        </p>
+
+        <p class="text-light">
+            In order to maintain a clean and seemless user experience, I opted to include the post creation form, along with the comment and reply forms direclty on the web page. When the page is initially loaded, the forms are hidden using JavaScript and only displayed when a user clicks the corresponding button. 
+        </p> -->
+
+    </div>
+</div>
+
+<!-- OTHER FULL/PARTIAL PAGE IMAGE(S) SECTION(S) -->
+
+<div class="container-fluid pt-5 pb-4 mt-5 mb-4">
+    <div class="img-container justify-content-center">
+
+        <div class="screenshot-img">
+            <img src="{% static 'img/ScreenshotIII.png' %}" alt="Full page screenshot of list of web design projects">
+        </div>
+
+    </div>
+</div>
+
+<!-- OTHER FULL/PARTIAL PAGE IMAGE(S) SECTION(S) -->
+
+<div class="container-fluid pt-3 pb-5 mt-3 mb-5">
+    <div class="img-container justify-content-center">
+
+        <div class="screenshot-img">
+            <img src="{% static 'img/ScreenshotIV.png' %}" alt="Full page screenshot of list of web design projects">
+        </div>
+
+    </div>
+</div>
+
+<!-- DES/DEV PROECESS SECTION (text) -->
+
+<div class="container-fluid">
+    <div class="process ms-4 ps-4 me-4 pe-4">
+
+        <div class="row">
+
+            <div class="col-md-6">
+                <p class="text-light">
+                    One of the top priorities for this project was to allow users to users to post anonymously. The idea behind the site is to create a welcoming and comfortable environment where womxn can discuss openly a range of, often times sensitive, topics Anonymous posting is aimed at helping womxn open up to themselves and others while allowing for an option of discretion and privacy.
+                </p>        
+            </div>
+
+            <div class="col-md-6">
+                <p class="text-light">
+                    When a user selects to make a post anonymous all of the user's information is hidden from view on the site. In order to maintain the interactive aspect of a forum, a primary key associated with each user is used to track all posts, including those made anonymously. This means that users can edit, delete and track activity on all of their own posts.
+                </p>
+            </div>
+
+        </div>
+
+    </div>
+</div>
+
+<!-- OTHER FULL/PARTIAL PAGE IMAGE(S) SECTION(S) -->
+
+<div class="container-fluid pt-5 pb-5 mt-5 mb-5">
+    <div class="img-container justify-content-center">
+
+        <div class="screenshot-img">
+            <img src="{% static 'img/ScreenshotV.png' %}" alt="Full page screenshot of list of web design projects">
+        </div>
+
+    </div>
+</div>
+
+<!-- DEVICE MOCKUP(S) -->
+
+<!-- <div class="container-fluid pt-5 pb-5 mt-5 mb-5">
+    <div class="img-container justify-content-end">
+
+        <div class="mockup-img screenshot-img">
+            <img src="" alt="Image of iMac with sample webpage displayed">
+        </div>
+
+    </div>
+</div> -->
+
+<!-- MORE DES/DEV PROECESS SECTION -->
+<!-- <div class="container-fluid mt-5 mb-5 pt-5 pb-5">
+    <div class="process">
+
+        <h3></h3>
+
+        <p class="text-light">
+            One of the top priorities for this project was to allow users to users to post anonymously. The idea behind the site is to create a welcoming and comfortable environment where womxn can discuss openly a range of, often times sensitive, topics Anonymous posting is aimed at helping womxn open up to themselves and others while allowing for an option of discretion and privacy.
+        </p>
+
+        <p class="text-light">
+            When a user selects to make a post anonymous all of the user's information is hidden from view on the site. In order to maintain the interactive aspect of a forum, a primary key associated with each user is used to track all posts, including those made anonymously. This means that users can edit, delete and track activity on their all of their own posts.
+        </p>
+
+    </div>
+</div> -->
+
+<!-- MORE SCREENSHOTS - FULL PAGE, DEVICE WIDTH, ETC -->
+
+<div class="container-fluid mb-5 pb-5 d-flex justify-content-center">
+
+        <div class="row d-flex justify-content-center g-0">
+
+            <div class="col-sm-5">
+
+                <div class="col-img mb-4 d-flex justify-content-center">
+                    <img src="{% static 'img/Resp.ScreenshotI.png' %}" alt="iPhone 12 screen showing home page of site.">
+                </div>
+
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="col-img d-flex justify-content-center">
+                            <img src="{% static 'img/Resp.ScreenshotII.png' %}" alt="">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- <div class="col-img">
+                    <img src="{% static 'img/Resp.ScreenshotII.png' %}" alt="">
+                </div> -->
+
+            </div>
+
+            <div class="col-sm-5 ms-0 ps-0">
+                <div class="ps-4 mb-5">
+                    <h1 class="col-text">A safe, comfortable community for <strong>womxn</strong> by <strong>womxn</strong></h1>
+                </div>
+                <div class="col-img d-flex justify-content-center align-items-center">
+                    <img src="{% static 'img/Resp.ScreenshotIII.png' %}" alt="">
+                </div>
+            </div>
+
+        </div>
+
+</div>
+
+<!-- CLOSING THOUGHTS, REACTIONS, RECEPTON, ETC -->
+
 
 
 {% endblock content %}

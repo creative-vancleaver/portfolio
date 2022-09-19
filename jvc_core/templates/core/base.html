@@ -46,7 +46,7 @@
     <title>{% block title %} JVC Design {% endblock title %}</title>
 </head>
 
-<body class="d-flex vh-100">
+<body class="d-flex vh-100 base1_body">
     
     <div class="cover-container d-flex vw-100 vh-100 p-3 mx-auto flex-column">
 
@@ -63,11 +63,15 @@
         </div>
         </header>
 
-        <main class="px-3 main">
+        <div class="main-container">
 
-        {% block content %}{% endblock content %}
+            <main class="px-3 main">
 
-        </main>
+            {% block content %}{% endblock content %}
+
+            </main>
+
+        </div>
 
         <footer class="mt-auto text-white-50 text-center">
             <p>&COPY; Jacob Van Cleave</p>

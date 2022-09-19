@@ -1,5 +1,6 @@
 .env
-env_portfolio/*
+env_portoflio/*
+env_portoflio/
 # Elastic Beanstalk Files
 .elasticbeanstalk/*
 !.elasticbeanstalk/*.cfg.yml

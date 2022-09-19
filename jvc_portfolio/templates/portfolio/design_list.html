@@ -1,4 +1,4 @@
-{% extends "core/base.html" %}
+{% extends "core/base2.html" %}
 {% load static %}
 
 {% block title %} Design Projects {% endblock title %}
@@ -6,12 +6,18 @@
 {% block content %}
 <header class="header-margin"></header>
 
-    <div class="container-fluid mb-4">
+    <div class="container-fluid mb-5">
 
-        <div class="row mb-4 ps-2 pe-2 pb-5">
+        <div class="row ps-2 pe-2 mb-5">
             <h2 class="list-title">Design Projects</h2>
         </div>
 
+        <button id="addProject" class="btn btn-primary container-fluid mb-5">
+            Add Project
+        </button>
+        <div id="projectForm" class="mb-5">
+           {% include 'portfolio/partials/add_project.html' %}
+        </div>
 
         <div class="row row-cols-1 row-cols-md-2">
 
@@ -56,7 +62,7 @@
             var project_type = url.match(/([^\/]*)\/[^\/]*$/gmi).toString();
             project_type = project_type.slice(0, 3).toUpperCase();
             document.getElementById('projecttype').value = project_type;
-
+            console.log(project_type);
         };
 
         $(document).ready(function() {
