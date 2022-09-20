@@ -5,3 +5,5 @@ env_portoflio/
 .elasticbeanstalk/*
 !.elasticbeanstalk/*.cfg.yml
 !.elasticbeanstalk/*.global.yml
+ubuntu@ec2-34-201-135-1.compute-1.amazonaws.com/*
+ubuntu@ec2-34-201-135-1.compute-1.amazonaws.com
