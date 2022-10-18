@@ -46,16 +46,18 @@
     <title>{% block title %} JVC Design {% endblock title %}</title>
 </head>
 
-<body class="d-flex vh-100 base2_body">
+<body class="d-flex vh-100">
     
     <div class="cover-container d-flex vw-100 vh-100 p-3 mx-auto flex-column">
 
         <header class="mb-auto">
         <div>
-            <a href="{% url 'home' %}" class="logo-link"><h3 class="float-md-start mb-0">JVC Design</h3></a>
+            <a href="{% url 'home' %}" class="logo-link"><h3 class="float-md-start mb-0 logo-img">JVC Design</h3></a>
             <nav class="nav nav-masthead justify-content-center float-md-end">
             <a class="nav-link" type="button" data-toggle="button" href="{% url 'home' %}">Home</a>
-            <a class="nav-link" type="button" data-toggle="button" href="{% url 'design_project_list' %}">Design</a>
+
+            <!-- <a class="nav-link" type="button" data-toggle="button" href=" url 'design_project_list' ">Design</a> -->
+
             <a class="nav-link" type="button" data-toggle="button" href="{% url 'dev_project_list' %}">Development</a>
             <a class="nav-link" type="button" data-toggle="button" href="{% url 'about' %}">Resume</a>
             <a class="nav-link" type="button" data-toggle="button" href="#">Contact</a>

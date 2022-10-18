@@ -21,6 +21,9 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Aladin&family=Cairo&family=Cinzel&family=Cinzel+Decorative&family=Comforter&family=Great+Vibes&family=IM+Fell+Great+Primer+SC&family=Megrim&family=Molle:ital@1&family=Open+Sans+Condensed:wght@300&family=Poiret+One&family=Raleway:wght@100&display=swap" rel="stylesheet"> 
+
+    <!-- Font Awesome -->
+    <script src="https://kit.fontawesome.com/46407a56db.js" crossorigin="anonymous"></script>
     
     <style>
         .bd-placeholder-img {
@@ -49,18 +52,31 @@
 <body class="d-flex vh-100 base1_body">
     
     <div class="cover-container d-flex vw-100 vh-100 p-3 mx-auto flex-column">
-
+        
         <header class="mb-auto">
-        <div>
-            <a href="{% url 'home' %}" class="logo-link"><h3 class="float-md-start mb-0">JVC Design</h3></a>
-            <nav class="nav nav-masthead justify-content-center float-md-end">
+
+            <a href="{% url 'home' %}" class="logo-link"><h3 class="float-md-start mb-0 logo-img">JVC Design</h3></a>
+
+            <div class="toggle-container" id="nav-toggle">
+                <div class="nav-link-toggle">
+
+                    <span style="color: white;">
+                        <i class="fas fa-bars"></i>
+                    </span>
+                    
+                </div>
+            </div>
+
+            <nav class="nav nav-masthead justify-content-center float-md-end navbar navbar-expand-lg nav-container" id="nav-container">
             <a class="nav-link" type="button" data-toggle="button" href="{% url 'home' %}">Home</a>
-            <a class="nav-link" type="button" data-toggle="button" href="{% url 'design_project_list' %}">Design</a>
+
+            <!-- <a class="nav-link" type="button" data-toggle="button" href=" url 'design_project_list' ">Design</a> -->
+
             <a class="nav-link" type="button" data-toggle="button" href="{% url 'dev_project_list' %}">Development</a>
             <a class="nav-link" type="button" data-toggle="button" href="{% url 'about' %}">Resume</a>
-            <a class="nav-link" type="button" data-toggle="button" href="#">Contact</a>
+            <a class="nav-link" type="button" data-toggle="button" href="#contact_info">Contact</a>
             </nav>
-        </div>
+            
         </header>
 
         <div class="main-container">
@@ -73,8 +89,56 @@
 
         </div>
 
-        <footer class="mt-auto text-white-50 text-center">
-            <p>&COPY; Jacob Van Cleave</p>
+        <footer class="mt-auto text-white-50">
+
+            <div class="row mt-3 pt-3">
+
+                <div class="col col-md-4">
+                    <a id="contact_info">
+                        <h5 class="connect-title">Contact</h5>
+                    </a>
+                    <hr class="connect-bar">
+                    <ul class="media-list">
+
+                        <li class="media-link"> 
+                            <a href="https://www.linkedin.com/in/jacob-van-cleave-06b4a0158/" class="social-link">
+                                <i class="fa-brands fa-linkedin"></i>
+                            </a>
+                        </li>
+
+                        <li class="media-link">
+                            <a href="https://github.com/creative-vancleaver" class="social-link">
+                                <i class="fa-brands fa-github"></i>
+                            </a>
+                        </li>
+                        <!-- <li class="media-link">
+                            <i class="fa-brands fa-dribbble"></i>
+                        </li> -->
+                        <li class="media-link">
+                            <a class="social-link" href="https://www.behance.net/jacobvancleave">
+                                <i class="fa-brands fa-behance"></i>
+                            </a>
+                        </li>
+                        <!-- <li class="media-link">
+                            <i class="fa-brands fa-instagram"></i>
+                        </li> -->
+                    </ul>
+                    <p class="email">vancleave.jacob@gmail.com</p>
+                </div>
+                <div class="col col-md-4"></div>
+
+                <div class="col col-md-4">
+                    <!-- <h5 class="connect-title">Contact</h5>
+                    <hr class="connect-bar">
+                    <ul class="media-list">
+                        <li class="media-link">vancleave.jacob@gmail.com</li> -->
+                    </ul>
+                </div>
+
+            <p class="text-center text-white-50">&COPY; Jacob Van Cleave</p>
+
+            </div>
+
         </footer>
 
     </div>
@@ -83,6 +147,18 @@
 <!-- <script src="{% static 'js/base.js' %}"></script> -->
 <script src="{% static 'js/portfolio.js' %}"></script>
 <script src="{% static 'js/resume.js' %}"></script>
+
+<script>
+    function navToggle() {
+        const nav = document.getElementById("nav-container");
+        // const navs = document.querySelectorAll('.nav-link');
+
+        nav.classList.toggle('nav-container-show');
+        console.log('toggle toggle');
+    }
+
+    document.getElementById("nav-toggle").addEventListener('click', navToggle);
+</script>
 
 </body>
 

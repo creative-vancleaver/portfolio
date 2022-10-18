@@ -25,7 +25,7 @@ h3 {
  * Base structure
  */
 .base1_body {
-  background-image: url("/static/img/jvcdesignsbg1.png");
+  background-image: url("/static/img/jvcdesignsbgtp1.png");
   background-repeat: no-repeat;
   background-size: cover;
   /* background-repeat: no-repeat; */
@@ -45,20 +45,61 @@ h3 {
   color: white;
 }
 
-/* HOME PAGE */
-
-.cover-container {
-  max-width: 65em;
-}
-
-
-/* .hero {
-  color: white;
-} */
-
 /*
  * Header
  */
+
+.nav-link-toggle {
+  display: none;
+  padding-top: .5rem;
+  padding-bottom: .8rem;
+}
+
+.logo-img {
+  padding-top: .5rem;
+  padding-bottom: .5rem;
+}
+
+@media only screen and (max-width: 768px) {
+  .nav,
+  .nav-link {
+    flex-direction: column;
+    /* this will override the below margin style and allow for all items to be aligned */
+    margin-left: 0 !important;
+    align-content: flex-end;
+  }
+  nav {
+    align-self: flex-end !important;
+    /* margin-top: -3rem; */
+  }
+  a .nav-link,
+  .nav-link {
+    align-self: end !important;
+    margin-bottom: -.25rem;
+  }
+  /* .nav-link {
+    display: none;
+  } */
+  .nav-container {
+    display: none;
+  }
+  .toggle-container {
+    display: flex;
+    justify-content: end;
+  }
+  .nav-link-toggle {
+    align-self: flex-end !important;
+    display:  initial;
+    position: absolute;
+    cursor: pointer;
+    margin-left: auto;
+    margin-right: 0;
+  }
+  .nav-container-show {
+    display: flex !important;
+  }
+}
+
 .nav-masthead .nav-link {
   padding: .25rem 0;
   font-weight: 700;
@@ -120,6 +161,68 @@ button.btn.btn-primary:active:focus {
   border-color: #f13a2c;
 }
 
+
+/* HOME PAGE */
+
+.cover-container {
+  max-width: 65em;
+}
+
+.home-title {
+  padding-top: 12rem;
+}
+
+.home-text {
+  padding-left: 8rem;
+  padding-right: 8rem;
+  margin-top: 8rem;
+}
+
+/* FOOTER STYLES */
+
+.connect-title {
+  text-align: start;
+  padding-left: 2rem;
+  /* color: white; */
+}
+
+.connect-bar {
+  max-width: 20%;
+  margin-left: 2rem;
+  margin-top: 0;
+}
+
+.media-list {
+  list-style: none;
+  display: flex;
+  /* color: white; */
+  margin-bottom: 0;
+}
+
+.media-link + .media-link {
+  padding-left: .5rem;
+}
+
+.social-link {
+  text-decoration: none;
+  color: inherit;
+}
+
+.social-link:hover,
+.social-link:active,
+.social-link:focus,
+.social-link:target {
+  text-decoration: none;
+  color: white;
+}
+
+.email {
+  padding-left: 2rem;
+  font-size: inherit;
+}
+
+/* PROJECT LIST PAGES */
+
 /* use this in place of mb-auto on all pages BUT home page */
 .header-margin {
   margin-bottom: 100px !important;
@@ -133,10 +236,6 @@ button.btn.btn-primary:active:focus {
   position: relative;
   color: black !important;
 }
-
-/* CUSTOM STYLES */
-
-/* PROJECT LIST PAGES */
 
 .list-title {
   /* color: white; */
@@ -166,10 +265,6 @@ button.btn.btn-primary:active:focus {
   text-align: left;
 }
 
-.proj-brief {
-  /* color: white; */
-}
-
 .img-container img {
   max-width: 100%;
 }
@@ -186,3 +281,20 @@ button.btn.btn-primary:active:focus {
   text-transform: uppercase;
 }
 /*# sourceMappingURL=style.css.map */
+
+/* RESUME PAGE */
+
+.resume-text {
+  font-size: 1.3rem;
+}
+
+.resume-header {
+  font-size: 1.8rem;
+}
+
+.resume-hr {
+  max-width: 75%;
+  margin-left: auto;
+  margin-right: auto;
+  opacity: 25%;
+}

@@ -13,7 +13,7 @@ class About(models.Model):
         ordering = ['-created_on']
 
     def __str__(self):
-        return self.pk
+        return str(self.pk)
 
 class SupplimentalEducation(models.Model):
 
