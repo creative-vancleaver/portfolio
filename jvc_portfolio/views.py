@@ -1,11 +1,13 @@
 from curses.ascii import HT
+from multiprocessing.context import BaseContext
 from django.shortcuts import render
 from django.urls import reverse, reverse_lazy
 from django.http import HttpResponseRedirect
 
 
 from django.views import generic
-from django.views.generic import ListView, DetailView, CreateView
+from django.views.generic import ListView, DetailView, CreateView, TemplateView
+from django.views.generic.base import ContextMixin
 
 from .forms import DesignForm, DevelopmentForm, ProjectForm
 
@@ -86,30 +88,70 @@ class DevelopmentProjectList(ListView):
     def get_context_data(self, *args, **kwargs):
         context = super(DevelopmentProjectList, self).get_context_data(*args, **kwargs)
         dev_proj_list = Project.objects.filter(project_type='DEV')
+
+        # for proj in dev_proj_list:
+        #     proj_pk = proj.pk
+        #     print(proj_pk)
+        #     context['proj_pk'] = proj_pk
+
         developments = Development.objects.all()
+        # dev_pk = Development.objects.filter(project__pk=self)
+        # context['dev_pk'] = dev_pk
+        print(dev_proj_list)
         context['dev_proj_list'] = dev_proj_list
         context['developments'] = developments
         context['form'] = ProjectForm
+
+        print(context)
 
         return context
 
     def get_success_url(self):
         return reverse('dev_proj_list')
 
-class DevelopmentProjectView(DetailView):
-    model = Project
-    form_class = DevelopmentForm
-    template_name = 'portfolio/development_project.html'
+# class DevelopmentProjectView(DetailView):
+#     model = Project
+#     form_class = DevelopmentForm
 
-    def get_context_data(self, *args, **kwargs):
-        print('entering get_context_data')
-        print(kwargs)
-        context = super(DevelopmentProjectView, self).get_context_data(*args, **kwargs)
-        developments = Development.objects.filter(project__pk=self.kwargs['pk'])
+#     template_name = 'portfolio/development_project.html'
+
+#     def get_context_data(self, *args, **kwargs):
+#         print('entering get_context_data')
+#         print(kwargs)
+#         context = super(DevelopmentProjectView, self).get_context_data(*args, **kwargs)
+#         developments = Development.objects.filter(project__pk=self.kwargs['pk'])
+#         context['developments'] = developments
+#         context['form'] = DevelopmentForm
+
+#         print(context)
+
+#         return context
+
+class BaseContextMixin(ContextMixin):
+
+    def get_context_data(self, **kwargs):
+        context = super(BaseContextMixin, self).get_context_data(**kwargs)
+        developments = Development.objects.filter(project__pk=kwargs['pk'])
         context['developments'] = developments
-        context['form'] = DevelopmentForm
-
-        print(context)
 
         return context
 
+class ForumView(TemplateView, BaseContextMixin):
+    template_name = "portfolio/forum.html"
+
+    def get_context_data(self, **kwargs):
+        context = super(ForumView, self).get_context_data(**kwargs)
+        # context['pk'] = Development.objects.get(kwargs['pk'])
+        return context
+
+class CellLabelView(TemplateView, BaseContextMixin):
+    template_name = "portfolio/cell_label.html"
+
+    def get_context_data(self, **kwargs):
+        context = super(CellLabelView, self).get_context_data(**kwargs)
+        return context
+
+
+
+# class ForumView(TemplateView):
+#     template_name = "forum.html"

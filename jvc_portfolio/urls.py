@@ -16,5 +16,9 @@ urlpatterns = [
 
     path('development_projects/', views.DevelopmentProjectList.as_view(), name='dev_project_list'),
 
-    path('development_projects/<int:pk>/', views.DevelopmentProjectView.as_view(), name='dev_project_detail'),
+    path('development_projects/<int:pk>/forum/', views.ForumView.as_view(), name='forum'),
+
+    path('development_projects/<int:pk>/cell_label/', views.CellLabelView.as_view(), name='cell_label'),
+
+    # path('development_projects/<int:pk>/forum/', views.ForumView.as_view(), name='forum'),
 ]

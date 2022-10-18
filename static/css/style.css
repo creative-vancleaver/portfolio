@@ -244,6 +244,12 @@ button.btn.btn-primary:active:focus {
 
 
 /* PROJECT DETAIL PAGE */
+@media only screen and (max-width: 768px) {
+  .project-info {
+    text-align: center;
+  }
+}
+
 .project-brief {
   margin-top: 5rem;
 }

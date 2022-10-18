@@ -40,12 +40,22 @@
                     <div class="card-body">
                         
                             <h5 class="card-title">
-                                <a class="card-link" href="{% url 'dev_project_detail' proj.pk %}">
-                                    {{ proj.title | slice:50 }}
-                                    <!-- {{ proj.title }} || {{ proj.pk }} || {{ proj.project_type }} -->
-                                </a>
+
+                                {% if proj.pk == 33 %}
+                                    <a class="card-link" href="{% url 'forum' proj.pk %}">
+                                        {{ proj.title | slice:50 }}
+                                        <!-- {{ proj.title }} || {{ proj.pk }} || {{ proj.project_type }} -->
+                                    </a>
+                                {% elif proj.pk == 34 %}
+                                    <a href="{% url 'cell_label' proj.pk %}" class="card-link">
+                                        {{ proj.title | slice:50 }}
+                                    </a>
+
+                                {% endif %}
+
+
                             </h5>
-                        <p class="card-text">{{ proj.about | slice:35 }}</p>
+                        <p class="card-text">{{ proj.about | slice:75 }}</p>
                     </div>
 
                 </div>
