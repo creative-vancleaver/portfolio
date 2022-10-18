@@ -6,4 +6,4 @@ portfolio.key
 policy.json
 data.json
 portoflio.key
-dev_env/
+.gitignore
