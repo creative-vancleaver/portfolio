@@ -14,6 +14,7 @@ from pathlib import Path
 
 from decouple import config
 import os
+# import dotenv
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -23,15 +24,24 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
+# SECRET_KEY = config('SECRET_KEY')
 SECRET_KEY = config("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+# DEBUG = True
+DEBUG = False
 
 # ALLOWED_HOSTS = ['portfolio-env.eba-nr4qmywp.us-west-1.elasticbeanstalk.com']
 ALLOWED_HOSTS = [
     '0.0.0.0',
     '127.0.0.1',
+    # '18.232.136.89',
+    # 'ec2-18-232-136-89.compute-1.amazonaws.com',
+    'jvcdesign.xyz',
+    'www.jvcdesign.xyz',
+    'ip-172-31-24-22.ec2.internal',
+    '3.211.90.66',
+    'ec2-3-211-90-66.compute-1.amazonaws.com',
 ]
 
 
@@ -126,7 +136,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'US/Pacific'
+TIME_ZONE = 'America/New_York'
 
 USE_I18N = True
 
@@ -141,7 +151,7 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 STATICFILES_DIRS = [
-    str(BASE_DIR.joinpath('static'))
+   str(BASE_DIR.joinpath('static'))
 ]
 
 MEDIA_URL = '/media/'
@@ -151,3 +161,8 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+STATIC_ROOT = os.path.join(BASE_DIR, "static/")
+
+CSRF_COOKIE_SECURE = True
+SESSION_COOKIE_SECURE = True

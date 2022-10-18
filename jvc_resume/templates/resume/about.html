@@ -1,138 +1,281 @@
 {% extends "core/base.html" %}
 {% load static %}
 
-{% block title %} About Me {% endblock title %}
+{% block title %} Resume {% endblock title %}
 
 {% block content %}
+<header class="header-margin"></header>
 
-    <h1>Jacob Van Cleave</h1>
+<div class="container-fluid mb-5 resume-text">
 
-    <p>
-        <a href="{% url 'add_about' %}">Add About</a>
-    </p>
+    <div class="row ps-2 pe-2 mb-5">
+        <h2 class="list-title">Resume</h2>
+    </div>
 
-    <div>
-        {% if abouts %}
+<!-- TECHNICAL SKILLS -->
+    <div class="mb-5">
+        <h4 class="text-center resume-header">Technical Skills</h4>
+        <hr class="resume-hr">
 
-            {% for about in abouts %}
+        <div class="row">
 
-                <p>
-                    {{ about.text }} || {{ about.created_on }}
-                </p>
+                <div class="col">
+                    <p>Web Frameworks:</p>
+                </div>
 
-            {% endfor %}
-        {% endif %}
+                <div class="col">
+                    <p>Django, Ruby on Rails</p>
+                </div>
 
-        <button id="addAbout" class="btn btn-primary">Add About</button>
-        <div id="aboutForm">
-            {% include 'resume/partials/add_about.html' %}
+        </div>
+
+        <div class="row">
+
+            <div class="col">
+                <p>Front End Tools:</p>
+            </div>
+
+            <div class="col">
+                <p>HTML, CSS, SCSS, JavaScript, Bootstrap, AJAX, JQuery, React</p>
+            </div>
+
+        </div>
+
+        <div class="row">
+
+            <div class="col">
+                <p>Back-End:</p>
+            </div>
+
+            <div class="col">
+                <p>SQL</p>
+            </div>
+
+        </div>
+
+        <div class="row">
+
+            <div class="col">
+                <p>General Programming Languages:</p>
+            </div>
+
+            <div class="col">
+                <p>Python, JAVA, Ruby</p>
+            </div>
+
+        </div>
+
+        <div class="row">
+
+            <div class="col">
+                <p>Programming Tools:</p>
+            </div>
+
+            <div class="col">
+                <p>Eclips IDE, Jupyter Notebooks, VisualStudio Code, GIT, GitHub, Heroku, AWS</p>
+            </div>
+
+        </div>
+
+        <div class="row">
+
+            <div class="col">
+                <p>Productivity Tools:</p>
+            </div>
+
+            <div class="col">
+                <p>Microsoft Office, Zoom, Slack, Adobe CC, Google Suite</p>
+            </div>
+
+        </div>
+    </div>
+
+<!-- PROGRAMMING PROJECTS -->
+    <div class="mb-5">
+        <h4 class="text-center resume-header">Programming Projects</h4>
+        <hr class="resume-hr">
+
+        <div class="row row-cols-1 row-cols-md-2">
+            <div class="col">
+                <p>Personal Portfolio:</p>
+            </div>
+
+            <div class="col">
+                <p>Built and maintain a personal website with Django, AWS, and Apache to showcase my design and development projects</p>
+            </div>
+        </div>
+
+        <div class="row row-cols-1 row-cols-md-2">
+            <div class="col">
+                <p>Blood Cell Labeler:</p>
+            </div>
+
+            <div class="col">
+                <p>Developing and deploying an online image-based labelling application with Django, JavaScript, JQuery, AJAX, AWS, and Apache to assist in medical AI research</p>
+            </div>
+        </div>
+
+        <div class="row row-cols-1 row-cols-md-2">
+            <div class="col">
+                <p>Womxn's Forum Site:</p>
+            </div>
+
+            <div class="col">
+                <p>Built a fully functioning social website with Django for a womxn's health and empowerment startup</p>
+            </div>
+        </div>
+
+        <div class="row row-cols-1 row-cols-md-2">
+            <div class="col">
+                <p>Personal Blog:</p>
+            </div>
+
+            <div class="col">
+                <p>Built 2 different blog sites using web frameworks Django and Ruby on Rails with HTML, CSS, SCSS, JavaScript and Heroku</p>
+            </div>
+        </div>
+
+        <div class="row row-cols-1 row-cols-md-2">
+            <div class="col">
+                <p>Website Wireframes:</p>
+            </div>
+
+            <div class="col">
+                <p>Utilized Adobe Photoshop and Illustrator to create website wireframes and mockups with an emphasis on layout, user experience, type hierarchy, color theory, and functionality.</p>
+            </div>
+        </div>
+
+        <div class="row row-cols-1 row-cols-md-2">
+            <div class="col">
+                <p>CS106A Games:</p>
+            </div>
+
+            <div class="col">
+                <p>Programmed various computer games utilizing Java and Eclipse IDE, including a Pac-Man like game, a slot machine game, a block destroyer game, and a mini social networking program</p>
+            </div>
         </div>
 
     </div>
-    <hr>
 
-    <div>
-        <h3>Supplimental Education</h3>
-        <a href="{% url 'add_edu' %}">Add Supplimental Education</a>
+<!-- SUPPLIMENTAL EDUCATION -->
+    <div class="mb-5">
+        <h4 class="text-center resume-header">Supplimental Education</h4>
+        <hr class="resume-hr">
 
-        {% if edu_list  %}
-            {% for edu in edu_list %}
-                
-                <p>
-                    {{ edu.name }} || {{ edu.type }}
-                </p>
+        <div class="row row-cols-1 row-cols-md-2">
+            <div class="col">
+                <p>Scrimba:</p>
+            </div>
+
+            <div class="col">
+                <p>Learn React for Free</p>
+            </div>
+        </div>
+
+        <div class="row row-cols-1 row-cols-md-2">
+            <div class="col">
+                <p>Library Appliction:</p>
+            </div>
+
+            <div class="col">
+                <p>Django documentation project</p>
+            </div>
+        </div>
+
+        <div class="row row-cols-1 row-cols-md-2">
+            <div class="col">
+                <p>Learn Enough to Be Dangerous:</p>
+            </div>
+
+            <div class="col">
+                <p>Web Development Certifications in HTML, CSS, JavaScript, Ruby, Ruby on Rails</p>
+            </div>
+        </div>
+
+        <div class="row row-cols-1 row-cols-md-2">
+            <div class="col">
+                <p>John Duckett:</p>
+            </div>
+
+            <div class="col">
+                <p>JavaScript and Jquery: Interactive Front End Web Development</p>
+            </div>
+        </div>
+
+        <div class="row row-cols-1 row-cols-md-2">
+            <div class="col">
+                <p>Master Web Design in Photoshop:</p>
+            </div>
+
+            <div class="col">
+                <p>Online web design certification</p>
+            </div>
+        </div>
+
+        <div class="row row-cols-1 row-cols-md-2">
+            <div class="col">
+                <p>CS106 A:</p>
+            </div>
+
+            <div class="col">
+                <p>Stanford University Programming Methodology Course</p>
+            </div>
+        </div>
+    </div>
+
+<!-- WORK EXPERIENCE -->
+    <div class="mb-5">
+
+        <h4 class="text-center resume-header">Experience</h4>
+        <hr class="resume-hr">
+
+        <div class="row row-cols-1 row-cols-md-2">
+
+            <div class="col">
+                <p>Golgof Lab at MSKCC:</p>
+            </div>
+
+            <div class="col">
+                <p>Apprentice Software Developer</p>
+            </div>
+
+        </div>
+
+        <div class="row row-cols-1 row-cols-md-2">
+
+            <div class="col">
+                <p>YaYa:</p>
+            </div>
             
-            {% endfor %}
-        {% endif %}
+            <div class="col">
+                <p>Freelance Web Developer</p>
+            </div>
 
-        <button id="addEdu" class="btn btn-primary">Add Education</button>
-        <div id="eduForm">
-            {% include 'resume/partials/add_edu.html' %}
         </div>
-
+        
     </div>
-    <hr>
 
-    <div>
-        <h3>Technical Skills</h3>
-        <a href="{% url 'add_techskill' %}">Add Tech Skill</a>
+<!-- EDUCATION -->
+    <div class="mb-5">
+        <h4 class="text-center resume-header">Education</h4>
+        <hr class="resume-hr">
 
-        {% if tech_skill_list %}
-            {% for tech_skill in tech_skill_list %}
+        <div class="row row-cols-1 row-cols-md-2">
 
-                <p>
-                    {{ tech_skill.type }} || 
-                    {% for p in tech_skill.programs.all %} {{ p.name }} {% endfor %}
-                </p>
+            <div class="col">
+                <p>BA International Security & Conflict Resolutin</p>
+            </div>
 
-            {% endfor %}
-        {% endif %}
-
-        <button id="addSkill" class="btn btn-primary">Add Skill</button>
-        <div id="skillForm">
-            {% include 'resume/partials/add_techskill.html' %}
+            <div class="col">
+                <p>San Diego State University</p>
+            </div>
         </div>
-
     </div>
-    <hr>
 
-    <div>
-        <h3>Programming Projects</h3>
-        <a href="{% url 'add_programming_project' %}">Add Project</a>
 
-        {% if prog_proj_list %}
-            {% for proj in prog_proj_list %}
+</div>
 
-                <p>
-                    {{ proj.name }} || {{ proj.description }}
-                </p>
-
-            {% endfor %}
-        {% endif %}
-
-        <button id="addProgProj" class="btn btn-primary">Add Programming Project</button>
-        <div id="progProjForm">
-            {% include 'resume/partials/add_prog_proj.html' %}
-        </div>
-
-    </div>
-    <hr>
-
-    <div>
-        <h3>Employment</h3>
-        <a href="{% url 'add_employment' %}">Add Employment</a>
-
-        {% if employment_list %}
-            {% for employment in employment_list %}
-
-                <p>
-                    {{ employment.name }} || {{ employment.job_title }}
-                </p>
-                <p>
-                    {{ employment.start_date }} || 
-                    
-                    {% if employment.end_date %} {{ employment.end_date }}
-                    {% else %} - {% endif %}
-                </p>
-
-            {% endfor %}
-        {% endif %}
-
-        <button id="addWork" class="btn btn-primary">Add Work</button>
-        <div id="workForm">
-            {% include 'resume/partials/add_employment.html' %}
-        </div>
-
-    </div>
-    <hr>
-
-    <div>
-        <h3>Education</h3>
-        <p>
-            BA International Security & Conflict Resolution || San Diego State University
-        </p>
-    </div>
-    <hr>
+    
 
 
 {% endblock content %}

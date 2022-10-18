@@ -12,12 +12,12 @@
             <h2 class="list-title">Design Projects</h2>
         </div>
 
-        <button id="addProject" class="btn btn-primary container-fluid mb-5">
+        <!-- <button id="addProject" class="btn btn-primary container-fluid mb-5">
             Add Project
         </button>
         <div id="projectForm" class="mb-5">
-           {% include 'portfolio/partials/add_project.html' %}
-        </div>
+           <CUT OUT ADD DESIGN PROJECT PARTIAL >
+        </div> -->
 
         <div class="row row-cols-1 row-cols-md-2">
 
@@ -40,7 +40,7 @@
                            
                                 <h5 class="card-title">
                                     <a class="card-link" href="{% url 'design_project_detail' proj.pk %}">
-                                        {{ proj.title | slice:10 }}
+                                        {{ proj.title | slice:25 }}
                                         <!-- {{ proj.title }} || {{ proj.pk }} || {{ proj.project_type }} -->
                                     </a>
                                 </h5>
