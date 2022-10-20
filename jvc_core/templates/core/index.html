@@ -10,15 +10,355 @@
       <p class="lead">Full Stack Web Developer</p>
     </div>
 
-    <div class="container-fluid home-text">
-      <p>
-        I am a junior programmer and have spent the last 3.5 years teaching myself the ins and outs, the ups and downs, the nooks and the crannies of web development. While I took a web development course in high school, it wasn't until the wold shutdown in 2020 that I really devoted all of my time and energy to pursuing it as a career. Over the last few years I have reacquainted myself with HTML and taught myself CSS and JavaScript. I have gained a significant understanding of Git and GitHub for version control as well as the omnipotence of Google and StackOverflow.
-      </p>
+    <div class="container-fluid home-text-container round">
+      <div class="container-fluid home-text">
+        <p>
+          I am a self-taught developer and have spent the last 3.5 years learning the ins and outs, the ups and downs, the nooks and the crannies of web development. While I took a web development course in high school, it wasn't until the wold shutdown in 2020 that I really devoted all of my time and energy to pursuing it as a career. Over the last few years I have reacquainted myself with HTML and taught myself CSS and JavaScript. I have gained a significant understanding of Git and GitHub for version control as well as the omnipotence of Google and StackOverflow.
+        </p>
 
-      <p>
-        In addition to the basics, I have also taught myself React JS, Ruby on Rails, Django, and Python by way of Django. More recently I have been apprenticing with a medical based AI startup that has incredibly expanded my knowledge of Django, Python, JavaScript, and various JavaScript libraries.
-      </p>
+        <p>
+          In addition to the basics, I have also taught myself React JS, Ruby on Rails, Django, and Python by way of Django. More recently I have been apprenticing with a medical based AI startup that has incredibly expanded my knowledge of Django, Python, JavaScript, and various JavaScript libraries.
+        </p>
+      </div>
     </div>
+
+
+    <!-- DEV PROJECT LIST -->
+
+    <div id="dev_proj_list" class="container-fluid dev_proj_container">
+    
+        <div class="row ps-2 pe-2 mb-5">
+            <h2 class="list-title">Development Projects</h2>
+        </div>
+    
+        <!-- <button id="addProject" class="btn btn-primary container-fluid mb-5">
+            Add Project
+        </button>
+        <div id="projectForm" class="mb-5">
+            <CUT OUT ADD DEV PROJECT PARTIAL>
+        </div> -->
+    
+        <div class="row row-cols-1 row-cols-md-2">
+    
+            {% for proj in dev_proj_list %}
+                <div class="col">
+    
+                    <div class="card mb-4 border-0">
+    
+                        {% if proj.image %}
+                            <img src="{{ proj.image.url }}" alt="" class="card-img-top proj-card-img">
+                        {% else %}
+                            <img src="{% static 'img/Screen_Shot_2022-01-31_at_4.17.21_PM.png' %}" alt="" class="card-img-top">
+                        {% endif %}
+                        
+                        <!-- <div class="card-img-overlay">
+                            <h5 class="card-title">{{ proj.title }}</h5>
+                        </div> -->
+    
+                        <div class="card-body">
+                            
+                                <h5 class="card-title">
+    
+                                    {% if proj.pk == 33 %}
+                                        <a class="card-link" href="{% url 'forum' proj.pk %}">
+                                            {{ proj.title | slice:50 }}
+                                            <!-- {{ proj.title }} || {{ proj.pk }} || {{ proj.project_type }} -->
+                                        </a>
+                                    {% elif proj.pk == 34 %}
+                                        <a href="{% url 'cell_label' proj.pk %}" class="card-link">
+                                            {{ proj.title | slice:50 }}
+                                        </a>
+    
+                                    {% endif %}
+    
+    
+                                </h5>
+                            <p class="card-text">{{ proj.about | slice:75 }}</p>
+                        </div>
+    
+                    </div>
+    
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+
+    <!-- DES PROJECT LIST -->
+
+    <!-- EXPERIENCE -->
+
+    <div id="experience" class="container-fluid resume-container round">
+
+      <div class="row ps-2 pe-2 mb-5">
+          <h2 class="list-title">Experience</h2>
+      </div>
+  
+  <!-- TECHNICAL SKILLS -->
+      <div class="mb-5">
+          <h4 class="text-center resume-header">Technical Skills</h4>
+          <hr class="resume-hr">
+  
+          <div class="row">
+  
+                  <div class="col">
+                      <p>Web Frameworks:</p>
+                  </div>
+  
+                  <div class="col">
+                      <p>Django, Ruby on Rails</p>
+                  </div>
+  
+          </div>
+  
+          <div class="row">
+  
+              <div class="col">
+                  <p>Front End Tools:</p>
+              </div>
+  
+              <div class="col">
+                  <p>HTML, CSS, SCSS, JavaScript, Bootstrap, AJAX, JQuery, React</p>
+              </div>
+  
+          </div>
+  
+          <div class="row">
+  
+              <div class="col">
+                  <p>Back-End:</p>
+              </div>
+  
+              <div class="col">
+                  <p>SQL</p>
+              </div>
+  
+          </div>
+  
+          <div class="row">
+  
+              <div class="col">
+                  <p>General Programming Languages:</p>
+              </div>
+  
+              <div class="col">
+                  <p>Python, JAVA, Ruby</p>
+              </div>
+  
+          </div>
+  
+          <div class="row">
+  
+              <div class="col">
+                  <p>Programming Tools:</p>
+              </div>
+  
+              <div class="col">
+                  <p>Eclips IDE, Jupyter Notebooks, VisualStudio Code, GIT, GitHub, Heroku, AWS</p>
+              </div>
+  
+          </div>
+  
+          <div class="row">
+  
+              <div class="col">
+                  <p>Productivity Tools:</p>
+              </div>
+  
+              <div class="col">
+                  <p>Microsoft Office, Zoom, Slack, Adobe CC, Google Suite</p>
+              </div>
+  
+          </div>
+      </div>
+  
+  <!-- PROGRAMMING PROJECTS -->
+      <div class="mb-5">
+          <h4 class="text-center resume-header">Programming Projects</h4>
+          <hr class="resume-hr">
+  
+          <div class="row row-cols-1 row-cols-md-2">
+              <div class="col">
+                  <p>Personal Portfolio:</p>
+              </div>
+  
+              <div class="col">
+                  <p>Built and maintain a personal website with Django, AWS, and Apache to showcase my design and development projects</p>
+              </div>
+          </div>
+  
+          <div class="row row-cols-1 row-cols-md-2">
+              <div class="col">
+                  <p>Blood Cell Labeler:</p>
+              </div>
+  
+              <div class="col">
+                  <p>Developing and deploying an online image-based labelling application with Django, JavaScript, JQuery, AJAX, AWS, and Apache to assist in medical AI research</p>
+              </div>
+          </div>
+  
+          <div class="row row-cols-1 row-cols-md-2">
+              <div class="col">
+                  <p>Womxn's Forum Site:</p>
+              </div>
+  
+              <div class="col">
+                  <p>Built a fully functioning social website with Django for a womxn's health and empowerment startup</p>
+              </div>
+          </div>
+  
+          <div class="row row-cols-1 row-cols-md-2">
+              <div class="col">
+                  <p>Personal Blog:</p>
+              </div>
+  
+              <div class="col">
+                  <p>Built 2 different blog sites using web frameworks Django and Ruby on Rails with HTML, CSS, SCSS, JavaScript and Heroku</p>
+              </div>
+          </div>
+  
+          <div class="row row-cols-1 row-cols-md-2">
+              <div class="col">
+                  <p>Website Wireframes:</p>
+              </div>
+  
+              <div class="col">
+                  <p>Utilized Adobe Photoshop and Illustrator to create website wireframes and mockups with an emphasis on layout, user experience, type hierarchy, color theory, and functionality.</p>
+              </div>
+          </div>
+  
+          <div class="row row-cols-1 row-cols-md-2">
+              <div class="col">
+                  <p>CS106A Games:</p>
+              </div>
+  
+              <div class="col">
+                  <p>Programmed various computer games utilizing Java and Eclipse IDE, including a Pac-Man like game, a slot machine game, a block destroyer game, and a mini social networking program</p>
+              </div>
+          </div>
+  
+      </div>
+  
+  <!-- SUPPLIMENTAL EDUCATION -->
+      <div class="mb-5">
+          <h4 class="text-center resume-header">Supplimental Education</h4>
+          <hr class="resume-hr">
+  
+          <div class="row row-cols-1 row-cols-md-2">
+              <div class="col">
+                  <p>Scrimba:</p>
+              </div>
+  
+              <div class="col">
+                  <p>Learn React for Free</p>
+              </div>
+          </div>
+  
+          <div class="row row-cols-1 row-cols-md-2">
+              <div class="col">
+                  <p>Library Appliction:</p>
+              </div>
+  
+              <div class="col">
+                  <p>Django documentation project</p>
+              </div>
+          </div>
+  
+          <div class="row row-cols-1 row-cols-md-2">
+              <div class="col">
+                  <p>Learn Enough to Be Dangerous:</p>
+              </div>
+  
+              <div class="col">
+                  <p>Web Development Certifications in HTML, CSS, JavaScript, Ruby, Ruby on Rails</p>
+              </div>
+          </div>
+  
+          <div class="row row-cols-1 row-cols-md-2">
+              <div class="col">
+                  <p>John Duckett:</p>
+              </div>
+  
+              <div class="col">
+                  <p>JavaScript and Jquery: Interactive Front End Web Development</p>
+              </div>
+          </div>
+  
+          <div class="row row-cols-1 row-cols-md-2">
+              <div class="col">
+                  <p>Master Web Design in Photoshop:</p>
+              </div>
+  
+              <div class="col">
+                  <p>Online web design certification</p>
+              </div>
+          </div>
+  
+          <div class="row row-cols-1 row-cols-md-2">
+              <div class="col">
+                  <p>CS106 A:</p>
+              </div>
+  
+              <div class="col">
+                  <p>Stanford University Programming Methodology Course</p>
+              </div>
+          </div>
+      </div>
+  
+  <!-- WORK EXPERIENCE -->
+      <div class="mb-5">
+  
+          <h4 class="text-center resume-header">Experience</h4>
+          <hr class="resume-hr">
+  
+          <div class="row row-cols-1 row-cols-md-2">
+  
+              <div class="col">
+                  <p>Golgof Lab at MSKCC:</p>
+              </div>
+  
+              <div class="col">
+                  <p>Apprentice Software Developer</p>
+              </div>
+  
+          </div>
+  
+          <div class="row row-cols-1 row-cols-md-2">
+  
+              <div class="col">
+                  <p>YaYa:</p>
+              </div>
+              
+              <div class="col">
+                  <p>Freelance Web Developer</p>
+              </div>
+  
+          </div>
+          
+      </div>
+  
+  <!-- EDUCATION -->
+      <div class="mb-5">
+          <h4 class="text-center resume-header">Education</h4>
+          <hr class="resume-hr">
+  
+          <div class="row row-cols-1 row-cols-md-2">
+  
+              <div class="col">
+                  <p>BA International Security & Conflict Resolutin</p>
+              </div>
+  
+              <div class="col">
+                  <p>San Diego State University</p>
+              </div>
+          </div>
+      </div>
+  
+  
+    </div>
+  
+
+
+
 
   </main>
 
