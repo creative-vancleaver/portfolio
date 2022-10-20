@@ -60,7 +60,7 @@ h3 {
   padding-bottom: .5rem;
 }
 
-@media only screen and (max-width: 768px) {
+@media (max-width: 768px) {
   .nav,
   .nav-link {
     flex-direction: column;
@@ -172,11 +172,61 @@ button.btn.btn-primary:active:focus {
   padding-top: 12rem;
 }
 
+.round {
+  border-radius: 50px;
+}
+
+.home-text-container {
+  background-color:rgba(244, 194, 85, 0.3);
+  /* max-width: 75%; */
+  margin-top: 8rem;
+  margin-bottom: 8rem;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+
 .home-text {
+  padding-left: 5rem;
+  padding-right: 5rem;
+  font-size: 1.1rem;
+  /* margin-top: 8rem; */
+  /* background-color:rgba(255, 255, 255, 0.25); */
+}
+
+
+/* DEV_PROJ SECTION */
+.dev_proj_container {
+  margin-bottom: 8rem;
+}
+
+/* RESUME SECTION */
+
+.resume-container {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  background-color:rgba(244, 194, 85, 0.3);
+
+  font-size: 1.1rem;
+  margin-bottom: 8rem;
+}
+
+.resume-header {
+  font-size: 1.8rem;
+}
+
+.resume-hr {
+  max-width: 75%;
+  margin-left: auto;
+  margin-right: auto;
+  opacity: 25%;
+}
+
+.resume-container .row {
+  text-align: left !important;
   padding-left: 8rem;
   padding-right: 8rem;
-  margin-top: 8rem;
 }
+
 
 /* FOOTER STYLES */
 
@@ -288,19 +338,70 @@ button.btn.btn-primary:active:focus {
 }
 /*# sourceMappingURL=style.css.map */
 
-/* RESUME PAGE */
 
-.resume-text {
-  font-size: 1.3rem;
+
+/* MEDIA QUERIES */
+
+@media (max-width: 1028px) {
+  
+  .home-text {
+    padding-left: .5rem;
+    padding-right: .5rem;
+  }
 }
 
-.resume-header {
-  font-size: 1.8rem;
+/* @media (max-width: 992px) {
+
+  .home-text-container {
+    margin-top: 3rem;
+  
+  }
+} */
+
+@media (max-width: 900px) {
+
+  .home-text-container {
+    /* max-width: 75%; */
+    /* margin-top: 2rem;
+    margin-bottom: 2rem; */
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+  }
+  
+  .home-text {
+    padding-left: .5rem;
+    padding-right: .5rem;
+    font-size: 1rem;
+    /* margin-top: 8rem; */
+    /* background-color:rgba(255, 255, 255, 0.25); */
+  }
+
+
+  .home-text {
+    text-align: left !important;
+  }
+
 }
 
-.resume-hr {
-  max-width: 75%;
-  margin-left: auto;
-  margin-right: auto;
-  opacity: 25%;
+@media (max-width: 768px) {
+
+  .home-title {
+    padding-top: 8rem;
+  }
+
+  .home-text-container {
+    margin-top: 6rem;
+  }
+}
+
+@media (max-width: 576px) {
+
+  .home-title {
+    padding-top: 5rem;
+  }
+    
+  .home-text-container {
+    margin-top: 5rem;
+    max-width: 90%;
+  }
 }

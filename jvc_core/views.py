@@ -6,6 +6,14 @@ from jvc_portfolio.models import Design, Development, Project, Software, Program
 class HomeView(generic.TemplateView):
     template_name = 'core/index.html'
 
+    def get_context_data(self, *args, **kwargs):
+        
+        context = super(HomeView, self).get_context_data(*args, **kwargs)
+        dev_proj_list = Project.objects.filter(project_type='DEV')
+        context['dev_proj_list'] = dev_proj_list
+        
+        return context
+
     # def get_context_data(self, *args, **kwargs):
     #     context = super(HomeView, self).get_context_data(*args, **kwargs)
     #     des_proj_list = Project.objects.filter(project_type='DES')
