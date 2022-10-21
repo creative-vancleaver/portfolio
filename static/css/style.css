@@ -206,9 +206,14 @@ button.btn.btn-primary:active:focus {
     margin: 8rem auto !important;
   }
 
+  .about_card_text {
+    padding-left: 0 !important;
+  }
+  
   .card-body-about {
     padding-top: 2rem !important;
   }
+
 }
 
 .home-text-container {
@@ -264,6 +269,13 @@ button.btn.btn-primary:active:focus {
   text-align: left !important;
   padding-left: 8rem;
   padding-right: 8rem;
+}
+
+@media (max-width: 950px) {
+  .resume-container .row {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
 }
 
 
