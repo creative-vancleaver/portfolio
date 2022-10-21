@@ -1,7 +1,7 @@
 {% extends "core/base.html" %}
+{% load static %}
 
 {% block content %}
-{% load static %}
 
   <main class="hero text-center">
     
@@ -10,18 +10,40 @@
       <p class="lead">Full Stack Web Developer</p>
     </div>
 
-    <div class="container-fluid home-text-container round">
-      <div class="container-fluid home-text">
-        <p>
-          I am a self-taught developer and have spent the last 3.5 years learning the ins and outs, the ups and downs, the nooks and the crannies of web development. While I took a web development course in high school, it wasn't until the wold shutdown in 2020 that I really devoted all of my time and energy to pursuing it as a career. Over the last few years I have reacquainted myself with HTML and taught myself CSS and JavaScript. I have gained a significant understanding of Git and GitHub for version control as well as the omnipotence of Google and StackOverflow.
-        </p>
+    <!-- <div class="container-fluid home-text-container round">
+      <div class="container-fluid about">
 
-        <p>
-          In addition to the basics, I have also taught myself React JS, Ruby on Rails, Django, and Python by way of Django. More recently I have been apprenticing with a medical based AI startup that has incredibly expanded my knowledge of Django, Python, JavaScript, and various JavaScript libraries.
-        </p>
+        <div class="self-container round">
+            <img src=" static 'img/self.jpg' " alt="Photo of JVC" class="img_self">
+        </div>
+
+        <div class="home-text round">
+            <p>
+            I am a self-taught developer and have spent the last 3.5 years learning the ins and outs, the ups and downs, the nooks and the crannies of web development. While I took a web development course in high school, it wasn't until the wold shutdown in 2020 that I really devoted all of my time and energy to pursuing it as a career. Over the last few years I have reacquainted myself with HTML and taught myself CSS and JavaScript. I have gained a significant understanding of Git and GitHub for version control as well as the omnipotence of Google and StackOverflow.
+            </p>
+
+            <p>
+            In addition to the basics, I have also taught myself React JS, Ruby on Rails, Django, and Python by way of Django. More recently I have been apprenticing with a medical based AI startup that has incredibly expanded my knowledge of Django, Python, JavaScript, and various JavaScript libraries.
+            </p>
+        </div>
+
       </div>
-    </div>
+    </div> -->
 
+    <div class="about_card round card">
+        <div class="row g-0">
+          <div class="col-lg-4">
+            <img src="{% static 'img/self.jpg' %}" class="self img-fluid round" alt="Photo of JVC">
+          </div>
+          <div class="col-lg-8">
+            <div class="card-body card-body-about">
+              <!-- <h5 class="card-title">Card title</h5> -->
+              <p class="card-text about_card_text">I am a self-taught developer and have spent the last 3.5 years learning the ins and outs, the ups and downs, the nooks and the crannies of web development. While I took a web development course in high school, it wasn't until the wold shutdown in 2020 that I really devoted all of my time and energy to pursuing it as a career. Over the last few years I have reacquainted myself with HTML and taught myself CSS and JavaScript. I have gained a significant understanding of Git and GitHub for version control as well as the omnipotence of Google and StackOverflow.</p>
+              <p class="card-text about_card_text">In addition to the basics, I have also taught myself React JS, Ruby on Rails, Django, and Python by way of Django. More recently I have been apprenticing with a medical based AI startup that has incredibly expanded my knowledge of Django, Python, JavaScript, and various JavaScript libraries.</p>
+            </div>
+          </div>
+        </div>
+      </div>
 
     <!-- DEV PROJECT LIST -->
 

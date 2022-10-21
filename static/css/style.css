@@ -176,8 +176,43 @@ button.btn.btn-primary:active:focus {
   border-radius: 50px;
 }
 
+.about_card {
+  margin: 8rem 2rem !important;
+  border: none !important;
+  background-color:rgba(232, 166, 79, 0.53);
+  align-items: center !important;
+  padding: 1rem;
+
+}
+
+.about_card_text {
+  color: white !important;
+  text-align: left !important;
+  padding-left: 2rem;
+}
+.self {
+  padding-top: 1rem;
+}
+
+@media (max-width: 992px){
+
+  .self {
+    /* padding-top: 2rem; */
+    max-width: 80%;
+  }
+
+  .about_card {
+    max-width: 75% !important;
+    margin: 8rem auto !important;
+  }
+
+  .card-body-about {
+    padding-top: 2rem !important;
+  }
+}
+
 .home-text-container {
-  background-color:rgba(244, 194, 85, 0.3);
+  background-color:rgba(232, 166, 79, 0.53);
   /* max-width: 75%; */
   margin-top: 8rem;
   margin-bottom: 8rem;
@@ -193,6 +228,10 @@ button.btn.btn-primary:active:focus {
   /* background-color:rgba(255, 255, 255, 0.25); */
 }
 
+.img_self {
+  max-width: 20rem;
+}
+
 
 /* DEV_PROJ SECTION */
 .dev_proj_container {
@@ -204,7 +243,7 @@ button.btn.btn-primary:active:focus {
 .resume-container {
   padding-top: 1rem;
   padding-bottom: 1rem;
-  background-color:rgba(244, 194, 85, 0.3);
+  background-color:rgba(232, 166, 79, 0.53);
 
   font-size: 1.1rem;
   margin-bottom: 8rem;
@@ -352,10 +391,10 @@ button.btn.btn-primary:active:focus {
 
 /* @media (max-width: 992px) {
 
-  .home-text-container {
-    margin-top: 3rem;
-  
+  .about_card {
+    display: block;
   }
+
 } */
 
 @media (max-width: 900px) {
