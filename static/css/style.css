@@ -176,6 +176,10 @@ button.btn.btn-primary:active:focus {
   border-radius: 50px;
 }
 
+.card-body {
+  padding: 0 !important;
+}
+
 .about_card {
   margin: 8rem 2rem !important;
   border: none !important;
@@ -192,15 +196,16 @@ button.btn.btn-primary:active:focus {
   font-size: 1.2rem !important;
 
 }
-.self {
+
+/* .self {
   padding-top: 1rem;
-}
+} */
 
 @media (max-width: 992px){
 
   .self {
     /* padding-top: 2rem; */
-    max-width: 80%;
+    max-width: 100%;
   }
 
   .about_card {
