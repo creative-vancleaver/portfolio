@@ -219,6 +219,7 @@ button.btn.btn-primary:active:focus {
   
   .card-body-about {
     padding-top: 2rem !important;
+    padding-bottom: 1rem !important;
   }
 
 }
