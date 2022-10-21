@@ -50,8 +50,15 @@
 </head>
 
 <body class="d-flex vh-100 base1_body">
+
     
     <div class="cover-container d-flex vw-100 vh-100 p-3 mx-auto flex-column">
+    <!-- <button id="top_btn" class="top_btn" onclick="topFun()"> -->
+    <span id="top_div" class="top_div"  onclick="topFun()">
+        <i id="top_btn" class="fa-solid fa-arrow-up top_btn"></i>
+        <p>Up</p>
+    </span>
+    <!-- </button> -->
         
         <header class="mb-auto">
 
@@ -172,6 +179,28 @@
     }
 
     document.getElementById("nav-toggle").addEventListener('click', navToggle);
+
+    let btn = document.getElementById('top_btn');
+    let btn_div = document.getElementById('top_div');
+
+    window.onscroll = function() {scroll()};
+
+    function scroll() {
+        if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+            btn.style.display = "block";
+            btn_div.style.display = "block";
+        } else {
+            btn.style.display = "none";
+            btn_div.style.display = "none";
+        }
+    }
+
+    function topFun() {
+        document.body.scrollTop = 0;
+        document.documentElement.scrollTop = 0;
+    }
+
+
 </script>
 
 </body>
