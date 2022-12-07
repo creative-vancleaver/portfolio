@@ -15,3 +15,6 @@ bobs_burgers/*
 
 datadump.json
 whole.json
+
+portfolio/__pycache__/
+portfolio/__pycache__/*
