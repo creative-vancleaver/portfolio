@@ -6,7 +6,7 @@ portfolio.key
 policy.json
 data.json
 portoflio.key
-
+.gitignore
 
 apis/
 apis/*
