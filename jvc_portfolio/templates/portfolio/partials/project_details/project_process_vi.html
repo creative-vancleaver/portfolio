@@ -1,0 +1,41 @@
+<div class="container-fluid justify-content-center">
+
+    <div class="process ms-4 ps-4 me-4 pe-4">
+
+        <div id="processVIIIandprocessIX" class="row">
+
+            {% if project.processVIII and project.processIX %}
+
+                <div class="col-md-6">
+                    <p id="processVIII" class="text-light">
+                        {{ project.processVIII }}
+                    </p>
+                </div>
+
+                <div class="col-md-6">
+                    <p id="processIX" class="text-light">
+                        {{ project.processIX }}
+                    </p>
+                </div>
+
+            {% elif project.processVIII %}
+
+                <div id="processVIIICol12" class="col-md-12">
+                    <p id="processVIII" class="text-light">
+                        {{ project.processVIII }}
+                    </p>
+                </div>
+
+            {% elif project.processIX %}
+
+                <div id="processIXCol12" class="col-md-12">
+                    <p id="processIX" id="processIX" class="text-light">
+                        {{ project.processIX }}
+                    </p>
+                </div>
+
+            {% endif %}
+
+        </div>
+    </div>
+</div>

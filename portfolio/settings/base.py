@@ -17,8 +17,7 @@ import os
 # import dotenv
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
-BASE_DIR = Path(__file__).resolve().parent.parent
-
+BASE_DIR = Path(__file__).resolve().parent.parent.parent
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
@@ -26,10 +25,6 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # SECURITY WARNING: keep the secret key used in production secret!
 # SECRET_KEY = config('SECRET_KEY')
 SECRET_KEY = config("SECRET_KEY")
-
-# SECURITY WARNING: don't run with debug turned on in production!
-# DEBUG = True
-DEBUG = True
 
 # ALLOWED_HOSTS = ['portfolio-env.eba-nr4qmywp.us-west-1.elasticbeanstalk.com']
 ALLOWED_HOSTS = [
@@ -59,9 +54,13 @@ INSTALLED_APPS = [
     'jvc_core',
     'jvc_portfolio',
     'jvc_resume',
+    'jvc_auth',
 
     # DJANGO_STORAGES
     'storages',
+    
+    # DJANGO REST FRAMEWORK
+    'rest_framework',
 ]
 
 MIDDLEWARE = [
@@ -190,23 +189,32 @@ USE_TZ = True
 # MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 
-# CONFIG TO SERVE STATIC + MEDIA FILES WITH AWS S3 VIA CLOUD FRONT
+# SERVE MEDIA FILES WITH AWS S3 VIA CLOUD FRONT
 AWS_ACCESS_KEY_ID = config("AWS_ACCESS_KEY_ID")
 AWS_SECRET_ACCESS_KEY = config("AWS_SECRET_ACCESS_KEY")
 
-AWS_STORAGE_BUCKET_NAME = 'jvc-design'
-AWS_S3_CUSTOM_DOMAIN = 'd1q6g24kllzypv.cloudfront.net'
+# AWS_STORAGE_BUCKET_NAME = 'jvc-design'
+AWS_STORAGE_BUCKET_NAME = config("S3_BUCKET")
+# AWS_S3_CUSTOM_DOMAIN = 'd1q6g24kllzypv.cloudfront.net'
+# AWS_S3_CUSTOM_DOMAIN = config()
 
-AWS_LOCATION = 'static/'
-STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
 
-STATIC_URL = 'https://%s/%s/' % (AWS_S3_CUSTOM_DOMAIN, AWS_LOCATION)
-
-STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'static'),
-]
+# AWS_LOCATION = 'static/'
+# STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+# STATIC_URL = 'https://%s/%s/' % (AWS_S3_CUSTOM_DOMAIN, AWS_LOCATION)
+# STATICFILES_DIRS = [
+#     os.path.join(BASE_DIR, 'static'),
+# ]
 
 DEFAULT_FILE_STORAGE = 'portfolio.storage_backends.MediaStorage'
+
+STATICFILES_IGNORE_PATTERNS = [
+    'CVS', 
+    '.*',
+    '*~',
+    '../static/js/__tests__/*',
+    'test.*.js',
+]
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field

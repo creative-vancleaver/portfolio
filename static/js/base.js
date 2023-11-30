@@ -1,3 +1,5 @@
+const $ = require('jquery')
+
 function activeNavLink() {
 
     console.log('entering activeNavLink');
@@ -48,3 +50,6 @@ function activeNavLink() {
 $(document).ready(function() {
     activeNavLink();
 });
+
+// module.export = activeNavLink;
+module.exports = activeNavLink;

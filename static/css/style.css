@@ -1,4 +1,9 @@
 /* GLOBALS */
+* {
+  margin: 0;
+  padding: 0;
+}
+
 html, body {
   font-family: 'Open Sans Condensed', sans-serif;
   background-color: black;
@@ -6,10 +11,16 @@ html, body {
 
 h1 {
   font-size: 45px;
+  margin: 0;
+  padding: 0;
 }
 
 h3 {
   font-family: 'Cinzel Decorative', cursive;
+}
+
+p {
+  margin-bottom: 0 !important;
 }
 
 /* Custom default button */
@@ -353,6 +364,13 @@ button.btn.btn-primary:active:focus {
 
 
 /* PROJECT DETAIL PAGE */
+
+.proj-card-img {
+  height: 250px;
+  object-fit: cover;
+  width: 100%;
+}
+
 @media only screen and (max-width: 768px) {
   .project-info {
     text-align: center;
@@ -397,6 +415,19 @@ button.btn.btn-primary:active:focus {
 }
 /*# sourceMappingURL=style.css.map */
 
+/* RESPONSIVE SECTION */
+
+.irregular-shape {
+  /* clip-path: polygon(0% 0%, 100% 0%, 85% 100%, 15% 100%); */
+  background-color: hsl(4, 72%, 13%);
+  /* border-radius: 50%; */
+  /* max-height: 400px; */
+  /* max-width: 400px; */
+}
+
+.responsive-screenshot {
+  border-radius: 20px;
+}
 
 
 /* MEDIA QUERIES */

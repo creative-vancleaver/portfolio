@@ -1,0 +1,46 @@
+<div id="div_project_list" class="container-fluid dev_proj_container">
+
+    <div class="row ps-2 pe-2 mb-5">
+        <h2 class="list-title">Projects</h2>
+    </div>
+
+    {% if request.user.is_superuser %}
+        <button id="addProject" class="btn btn-primary container-fluid mb-5" data-bs-toggle="modal" data-bs-target="#addProjectModal">
+            Add Project
+        </button>
+
+        {% include 'portfolio/modals/add_project_modal.html' %}
+
+        <!-- <div id="projectForm" class="mb-5">
+            {% csrf_token %}
+            {{ project_form.as_p }}
+        </div> -->
+    {% endif %}
+
+    <div id="project_list_div" class="row row-cols-1 row-cols-md-2">
+
+        {% for project in projects %}
+        
+            <div class="col-md-4">
+                <div class="card mb-4 border-0">
+
+                    <img src="{{ project.image.url }}" alt="" class="card-img-top proj-card-img">
+
+                    <div class="card-body">
+
+                        <h5 class="card-title">
+                            <a href="{% url 'project_detail' project.name project.pk %}" class="card-link">
+                                {{ project.title | slice:50 }}
+                            </a>
+                        </h5>
+
+                        <p class="card-text">{{ project.about | slice:75 }}</p>
+                    </div>
+                    
+                </div>
+            </div>
+
+        {% endfor %}
+
+    </div>
+</div>

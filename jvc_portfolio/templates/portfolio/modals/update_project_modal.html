@@ -1,0 +1,30 @@
+<div id="updateProjectModal" class="modal" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-dialog-center" role="document">
+        <div class="modal-content">
+
+            <div class="modal-header">
+                <h5 class="modal-title text-dark">Update Project</h5>
+                <button class="close" type="button", data-dismiss="modal" aria-label="close">
+                    <i class="fa-regular fa-circle-xmark" aria-hidden="true"></i>
+                </button>
+            </div>
+
+            <div id="modal-body" class="modal-body text-dark text-left" style="max-height: 850px; overflow-y: auto;">
+
+                <form id="updateProjectForm" method="POST" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    {{ update_project_form.as_p }}
+                    <button class="btn btn-primary mt-3" type="submit">Update Project</button>
+                </form>
+
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<script>
+    $(document).ready(function() {
+        Project.updateProjectEventListener('{{ project.pk }}');
+    })
+</script>

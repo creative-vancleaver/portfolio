@@ -27,6 +27,9 @@ urlpatterns = [
     path('portfolio/', include('jvc_portfolio.urls')),
 
     path('resume/', include('jvc_resume.urls')),
+    
+    path('auth/', include('django.contrib.auth.urls')),
+    path('auth/', include('jvc_auth.urls')),
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 

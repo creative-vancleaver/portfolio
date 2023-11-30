@@ -1,0 +1,54 @@
+{% load static %}
+<div class="container-fluid">
+    <div class="proj-brief ms-5 ps-5 me-5 pe-5">
+
+        {% comment %} EDIT PROJECT SECTION {% endcomment %}
+
+        <div id="briefDiv" class="row">
+
+            <div class="col-md-2 pe-0 ps-0">
+                <!-- <h5 class="mb-1 brief-header">Year</h5> -->
+                    <p id="project_year">
+                    {% if project.year %}
+                        {{ project.year }}
+                    {% endif %}
+                    </p>
+            </div>
+
+                <div class="col-md-3 pe-0 ps-0">
+                    <!-- <h5 class="mb-1 brief-header">Programs</h5> -->
+                    <ul class="program-list">
+                        {% if project.programs.all.count > 0 %}
+                            {% for program in project.programs.all %}
+                                <li id="program_{{ program.pk }}">
+                                    {{ program.name }}
+                                </li>
+                            {% endfor %}
+                        {% endif %}
+                    </ul>
+                </div>
+
+                <div class="col-md-7 ms-0 ps-0">
+                    <h5 id="project_sub_title" class="brief-header mb-1">
+                        {% if project.sub_title %}
+                            {{ project.sub_title }}
+                        {% endif %}
+                    </h5>
+                    <p id="project_brief">
+                        {% if project.brief %}
+                            {{ project.brief }}
+                        {% endif %}
+                    </p>
+                </div>
+
+        </div>
+    </div>
+</div>
+
+<script>
+    
+    $(document).ready(function() {
+        $('#projectBriefPartial').hide();
+    });
+
+</script>

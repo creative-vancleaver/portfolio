@@ -1,0 +1,40 @@
+<div class="container-fluid justify-content-center">
+
+    <div class="process ms-4 ps-4 me-4 pe-4">
+
+        <div id="processIIIandprocessIV" class="row">
+
+            {% if project.processIII and project.processIV %}
+                <div class="col-md-6">
+                    <p id="processIII" class="text-light">
+                        {{ project.processIII }}
+                    </p>
+                </div>
+
+                <div class="col-md-6">
+                    <p id="processIV" class="text-light">
+                            {{ project.processIV }}
+                    </p>
+                </div>
+
+            {% elif project.processIII %}
+
+                <div id="processIIICol12" class="col-md-12">
+                    <p id="processIII" class="text-light">
+                        {{ project.processIII }}
+                    </p>
+                </div>
+
+            {% elif project.processIV %}
+
+                <div class="processIVCol12 col-md-12">
+                    <p id="processIV" class="text-light">
+                        {{ project.processIV }}
+                    </p>
+                </div>
+
+            {% endif %}
+
+        </div>
+    </div>
+</div>

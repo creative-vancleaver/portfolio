@@ -1,0 +1,116 @@
+<!-- <div class="container-fluid mb-5 pb-5 d-flex justify-content-center"> -->
+
+    <div id="responsiveDivI">
+
+<!-- IF ALL 3 IMAGES -->
+        {% if project.responsive_imgI and project.responsive_imgII and project.responsive_imgIII %}
+
+            <div class="row d-flex container-fluid justify-content-center g-0">
+
+                <div class="col-sm-5">
+
+                    <div id="responsiveI" class="col-img mb-4 d-flex justify-content-center">
+                        <img src="{{ project.responsive_imgI.url }}" alt="Responsive Screenshot" class="responsive-screenshot">
+                    </div>
+
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div id="responsiveII" class="col-img d-flex justify-content-center">
+                                <img src="{{ project.responsive_imgII.url }}" alt="Responsive Screenshot" class="responsive-screenshot">
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="col-sm-5 ms-0 ps-0">
+
+
+                        <div class="ps-4 mb-5">
+                            <h1 id="bannerTextII" class="col-text">
+                                {% if project.banner_textII %}
+                                    {{ project.banner_textII }}
+                                {% endif %}
+                            </h1>
+                        </div>
+
+                        <!-- THIS IS ADDED SOLELY TO PROVIDE EXTRA SPACE -- IS IT NEEDED?? -->
+                        <!-- <div class="pb-5 mb-5"></div> -->
+                    
+                    {% if not project.banner_textII %}
+                        <!-- THIS CONDITIONAL SOLELY ADDS THE MT + PT IN THE DIV -- IS IT NEEDED?? -->
+                        <div id="responsiveIII" class="col-img d-flex justify-content-center align-items-center mt-5">
+                            <img src="{{ project.responsive_imgIII.url }}" alt="Responsive Screenshot">
+                        </div>
+
+                    {% else %}
+
+                        <div id="responsiveIII" class="col-img d-flex justify-content-center align-items-center">
+                            <img src="{{ project.responsive_imgIII.url }}" alt="Responsive Screenshot" class="responsive-screenshot">
+                        </div>
+
+                    {% endif %}
+                </div>
+            </div>
+
+        
+        {% elif project.responsive_imgI and project.responsive_imgII %}
+
+            <div class="row d-flex container-fluid justify-content-center g-0">
+
+                <div class="col-sm-5">
+
+                    <!-- THIS DIV IS EMPTY + SOLELY USED FOR JQUERY TO ADD BANNER_TEXT IF NEEDED -->
+                    <!-- <div id=""> -->
+
+                            <div class="ps-4 mb-4">
+                                <h1 id="bannerTextII" class="col-text">
+                                    {% if project.banner_textII %}
+                                        {{ project.banner_textII }}
+                                    {% endif %}
+                                </h1>
+                            </div>
+
+                    <!-- </div> -->
+
+                    <div id="responsiveI" class="col-img mb-4 d-flex justify-content-center">
+                        <img src="{{ project.responsive_imgI.url }}" alt="Responsive Screenshot" style="border-radius: 20px">
+                    </div>
+
+                </div>
+
+                <div class="col-sm-5">
+                    <div id="responsiveII" class="col-img d-flex justify-content-center">
+                        <img src="{{ project.responsive_imgII.url }}" alt="Responsive Screenshot" class="responsive-screenshot">
+                    </div>
+                </div>
+
+            </div>
+
+        {% elif project.responsive_imgI %}
+
+            <div class="row justify-content-center mb-4">
+                <div id="">
+                    <h2 id="bannerTextII" class="text-center">
+                        {% if project.banner_textII %}
+                            {{ project.banner_textII }}
+                        {% endif %}
+                    </h2>
+                </div>
+            </div>
+        
+            <div class="row justify-content-center">
+                <!-- HAD TO ADD A ROW OTHERWISE THIS COL AND THE ONE BELOW WOULD BE IN THE SAME ROW -->
+
+                <div class="col-md-5">
+
+                    <div id="responsiveI" class="col-img mb-4 d-flex justify-content-center">
+                        <img src="{{ project.responsive_imgI.url }}" alt="Responsive Screenshot" class="responsive-screenshot">
+                    </div>
+
+                </div>
+                
+            </div>
+        {% endif %}
+    </div>
+<!-- </div> -->

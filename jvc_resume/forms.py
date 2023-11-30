@@ -10,7 +10,7 @@ class AboutForm(forms.ModelForm):
 class SupplimentalEducationForm(forms.ModelForm):
     class Meta:
         model = SupplimentalEducation
-        fields = ('name', 'type')
+        fields = ('name', 'type', 'year')
 
 class TechnicalSkillsForm(forms.ModelForm):
     class Meta:

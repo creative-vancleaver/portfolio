@@ -18,3 +18,7 @@ whole.json
 
 portfolio/__pycache__/
 portfolio/__pycache__/*
+*/__pycache__/*
+
+static/js/__tests__/
+static/js/__tests__/*

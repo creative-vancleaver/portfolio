@@ -1,0 +1,446 @@
+{% extends "core/base.html" %}
+{% load static %}
+
+{% block title %}
+    {{ project.title }}
+{% endblock title %}
+
+{% block content %}
+
+{% comment %} PROJECT BRIEF SECTION {% endcomment %}
+
+        {% if project.year or project.programs.all.count > 0 or project.sub_title or project.brief %}
+        <div class="mb-5">
+        {% else %}
+        <div>
+        {% endif%}
+                <div class="container-fluid justify-content-center">
+
+                        <div class="proj-brief ms-5 ps-5 me-5 pe-5">
+
+                                <h1 class="project-title mb-5 mt-5 pt-5 text-center">
+                                        {{ project.title }}
+                                </h1>
+
+                                {% if request.user.is_superuser %}
+                                                
+                                        <div class="align-items-center container-fluid mb-5">
+                                                <button id="updateProjectBrief" class="btn btn-primary container-fluid" data-bs-toggle='modal' data-bs-target="#updateProjectBriefModal">
+                                                        Update Project Brief
+                                                </button>
+                                        </div>
+
+                                {% include 'portfolio/modals/update_project_brief.html' %}
+
+                                {% endif %}
+                        </div>
+                </div>
+
+                {% include 'portfolio/partials/project_details/project_brief.html' %}
+        </div>
+
+{% comment %} IMAGE I {% endcomment %}
+
+        <div class="mb-5">
+                <div class="container-fluid justify-content-center">
+
+                        <div class="container-fluid">
+                
+                        {% if request.user.is_superuser %}
+                
+                                <div class="align-items-center container-fluid mb-5">
+                                        <button id="updateProjectImgI" class="btn btn-primary container-fluid" data-bs-toggle="modal" data-bs-target="#updateProjectImgIModal">
+                                                Update Project Image I
+                                        </button>
+                                </div>
+                
+                                {% include 'portfolio/modals/update_project_img_i.html' %}
+                
+                        {% endif %}
+                
+                        </div>
+                </div>
+
+                {% include 'portfolio/partials/project_details/project_fullpage_img_i.html' %}
+        </div>
+
+{% comment %} PROCESS I {% endcomment %}
+        
+        {% if project.processI or project.banner_textI %}
+        <!-- NOTE: MAKE SURE NO WHITESPACE WITHIN FIELDS*** -->
+        <div class="mb-5">
+                
+        {% else %}
+        <div class="">
+
+        {% endif %}
+        <div class="container-fluid justify-content-center">
+                        <div class="container-fluid">
+                                {% if request.user.is_superuser %}
+                                
+                                        <div class="align-items-center container-fluid mb-5">
+                                                <button id="updateProjectProcessI" class="btn btn-primary container-fluid" data-bs-toggle="modal" data-bs-target="#updateProjectProcessIModal">
+                                                        Update Project Process I
+                                                </button>
+                                        </div>
+                                
+                                        {% include 'portfolio/modals/update_project_process_i.html' %}
+                                
+                                {% endif %}
+                        </div>  
+                        
+                </div>
+
+                {% include 'portfolio/partials/project_details/project_process_i.html' %}
+        </div>
+
+{% comment %} IMAGE II {% endcomment %}
+
+        {% if project.fullpage_imgII %}
+        <div class="mb-5">
+        {% else %}
+        <div class="">
+        {% endif %}
+                <div class="container-fluid justify-content-center">
+
+                        <div class="container-fluid">
+
+                                {% if request.user.is_superuser %}
+                        
+                                        <div class="align-items-center container-fluid mb-5">
+                                                <button id="updateProjectImgII" class="btn btn-primary container-fluid" data-bs-toggle="modal" data-bs-target="#updateProjectImgIIModal">
+                                                        Update Project Image II
+                                                </button>
+                                        </div>
+                        
+                                        {% include 'portfolio/modals/update_project_img_ii.html' %}
+                        
+                                {% endif %}
+
+                        </div> 
+                </div>
+
+                {% include 'portfolio/partials/project_details/project_fullpage_img_ii.html' %}
+        </div>
+
+{% comment %} PROCESS II {% endcomment %}
+
+        {% if project.processII %}
+        <div class="mb-5">
+        {% else %}
+        <div>
+        {% endif %}
+                <div class="container-fluid justify-content-center">
+
+                        <div class="container-fluid">
+
+                                {% if request.user.is_superuser %}
+                        
+                                        <div class="align-items-center container-fluid mb-5">
+                                                <button id="updateProjectProcessII" class="btn btn-primary container-fluid" data-bs-toggle="modal" data-bs-target="#updateProjectProcessIIModal">
+                                                        Update Project Process II
+                                                </button>
+                                        </div>
+                        
+                                        {% include 'portfolio/modals/update_project_process_ii.html' %}
+                        
+                                {% endif %}
+                        </div>
+
+                </div>
+
+                {% include 'portfolio/partials/project_details/project_process_ii.html' %}
+        </div>
+
+{% comment %} IMAGE III {% endcomment %}
+
+        {% if project.fullpage_imgIII %}
+        <div class="mb-5">
+        {% else %}
+        <div>
+        {% endif %}
+                <div class="container-fluid justify-content-center">
+
+                        <div class="container-fluid">
+
+                                {% if request.user.is_superuser %}
+
+                                        <div class="align-items-center container-fluid mb-5">
+                                                <button id="updateProjectImgII" class="btn btn-primary container-fluid" data-bs-toggle="modal" data-bs-target="#updateProjectImgIIIModal">
+                                                Update Project Image III
+                                                </button>
+                                        </div>
+
+                                        {% include 'portfolio/modals/update_project_img_iii.html' %}
+
+                                {% endif %}
+                        </div>
+                </div>
+
+                {% include 'portfolio/partials/project_details/project_fullpage_img_iii.html' %}
+        </div>
+
+{% comment %} IMAGE IV {% endcomment %}
+
+        {% if project.fullpage_imgIV %}
+        <div class="mb-5">
+        {% else %}
+        <div>
+        {% endif %}
+                <div class="container-fluid justify-content-center">
+
+                        <div class="container-fluid">
+
+                                {% if request.user.is_superuser %}
+                        
+                                        <div class="align-items-center container-fluid mb-5">
+                                                <button id="updateProjectImgIV" class="btn btn-primary container-fluid" data-bs-toggle="modal" data-bs-target="#updateProjectImgIVModal">
+                                                        Update Project Image IV
+                                                </button>
+                                        </div>
+                        
+                                        {% include 'portfolio/modals/update_project_img_iv.html' %}
+                        
+                                {% endif %}
+                        </div>
+
+                </div>
+
+                {% include 'portfolio/partials/project_details/project_fullpage_img_iv.html' %}
+        </div>        
+
+{% comment %} PROCESS III {% endcomment %}
+
+        {% if project.processIII or project.processIV %}
+        <div class="mb-5">
+        {% else  %}
+        <div>
+        {% endif %}
+                <div class="container-fluid justify-content-center">
+                
+                        <div class="container-fluid">
+
+                                {% if request.user.is_superuser %}
+
+                                        <div class="align-items-center container-fluid mb-5">
+                                                <button id="updateProjectProcessIII" class="btn btn-primary container-fluid" data-bs-toggle="modal" data-bs-target="#updateProjectProcessIIIModal">
+                                                Update Project Process III
+                                                </button>
+                                        </div>
+
+                                        {% include 'portfolio/modals/update_project_process_iii.html' %}
+
+                                {% endif %}
+                        </div>   
+                </div>
+
+                {% include 'portfolio/partials/project_details/project_process_iii.html' %}
+        </div>
+
+{% comment %} IMAGE V {% endcomment %}
+
+        {% if project.fullpage_imgV %}
+        <div class="mb-5">
+        {% else %}
+        <div>
+        {% endif %}
+                <div class="container-fluid justify-content-center">
+
+                        <div class="container-fluid">
+
+                                {% if request.user.is_superuser %}
+                        
+                                        <div class="align-items-center container-fluid mb-5">
+                                                <button id="updateProjectImgV" class="btn btn-primary container-fluid" data-bs-toggle="modal" data-bs-target="#updateProjectImgVModal">
+                                                        Update Project Image V
+                                                </button>
+                                        </div>
+                        
+                                        {% include 'portfolio/modals/update_project_img_v.html' %}
+                        
+                                {% endif %}
+                        </div>  
+
+                </div>
+
+                {% include 'portfolio/partials/project_details/project_fullpage_img_v.html' %}
+        </div>
+
+{% comment %} PROCESS IV {% endcomment %}
+
+        {% if project.processV %}
+        <div class="mb-5">
+        {% else %}
+        <div>
+        {% endif %}
+                <div class="container-fluid justify-content-center ">
+
+                        <div class="container-fluid">
+
+                        {% if request.user.is_superuser %}
+
+                                <div class="align-items-center container-fluid mb-5">
+                                        <button id="updateProjectProcessIV" class="btn btn-primary container-fluid" data-bs-toggle="modal" data-bs-target="#updateProjectProcessIVModal">
+                                                Update Project Process IV
+                                        </button>
+                                </div>
+
+                                {% include 'portfolio/modals/update_project_process_iv.html' %}
+
+                        {% endif %}
+                        </div>
+                </div>
+
+                {% include 'portfolio/partials/project_details/project_process_iv.html' %}
+        </div>
+
+{% comment %} IMAGE VI {% endcomment %}
+
+        {% if project.processVI %}
+        <div class="mb-5">
+        {% else %}
+        <div>
+        {% endif %}
+                <div class="container-fluid justify-content-center ">
+
+                        <div class="container-fluid">
+
+                                {% if request.user.is_superuser %}
+                        
+                                        <div class="align-items-center container-fluid mb-5">
+                                                <button id="updateProjectImgVI" class="btn btn-primary container-fluid" data-bs-toggle="modal" data-bs-target="#updateProjectImgVIModal">
+                                                Update Project Image VI
+                                                </button>
+                                        </div>
+                        
+                                        {% include 'portfolio/modals/update_project_img_vi.html' %}
+                        
+                                {% endif %}
+                        </div>   
+                </div>
+
+                {% include 'portfolio/partials/project_details/project_fullpage_img_vi.html' %}
+        </div>
+        
+
+{% comment %} PROCESS V {% endcomment %}
+
+        {% if project.processVI or project.processVII %}
+        <div class="mb-5">
+        {% else %}
+        <div>
+        {% endif %}
+                <div class="container-fluid justify-content-center">
+                        <div class="container-fluid">
+
+                                {% if request.user.is_superuser %}
+                                
+                                        <div class="align-items-center container-fluid mb-5">
+                                                <button id="updateProjectProcessV" class="btn btn-primary container-fluid" data-bs-toggle="modal" data-bs-target="#updateProjectProcessVModal">
+                                                Update Project Process V
+                                                </button>
+                                        </div>
+                                
+                                        {% include 'portfolio/modals/update_project_process_v.html' %}
+                                
+                                {% endif %}
+                        </div>
+                </div>
+
+                {% include 'portfolio/partials/project_details/project_process_v.html' %}
+        </div>
+
+{% comment %} IMAGE VII {% endcomment %}
+
+        {% if project.fullpage_imgVII %}
+        <div class="mb-5">
+        {% else %}
+        <div>
+        {% endif %}
+                <div class="container-fluid justify-content-center">
+
+                        <div class="container-fluid">
+
+                                {% if request.user.is_superuser %}
+                        
+                                        <div class="align-items-center container-fluid mb-5">
+                                                <button id="updateProjectImgVII" class="btn btn-primary container-fluid" data-bs-toggle="modal" data-bs-target="#updateProjectImgVIIModal">
+                                                        Update Project Image VII
+                                                </button>
+                                        </div>
+                        
+                                        {% include 'portfolio/modals/update_project_img_vii.html' %}
+                        
+                                {% endif %}
+                        </div>
+
+                </div>
+
+                {% include 'portfolio/partials/project_details/project_fullpage_img_vii.html' %}
+        </div>
+
+
+{% comment %} PROCESS VI {% endcomment %}
+
+        {% if project.processVIII or project.processIX %}
+        <div class="mb-5">
+        {% else %}
+        <div>
+        {% endif %}
+                <div class="container-fluid justify-content-center">
+
+                        <div class="container-fluid">
+
+                                {% if request.user.is_superuser %}
+                        
+                                        <div class="align-items-center container-fluid mb-5">
+                                                <button id="updateProjectProcessVI" class="btn btn-primary container-fluid" data-bs-toggle="modal" data-bs-target="#updateProjectProcessVIModal">
+                                                        Update Project Process VI
+                                                </button>
+                                        </div>
+                        
+                                        {% include 'portfolio/modals/update_project_process_vi.html' %}
+                        
+                                {% endif %}
+                        </div>               
+
+                </div>
+
+                {% include 'portfolio/partials/project_details/project_process_vi.html' %}
+        </div>
+
+{% comment %} DEVICE MOCKUP(S) {% endcomment %}
+
+{% comment %} MORE DES/DEV PROCESS SECTION {% endcomment %}
+
+{% comment %} RESPONSIVE IMAGE I {% endcomment %}
+
+        {% if project.responsive_imgI or project.responsive_imgII or project.responsive_imgIII %}
+        <div class="mb-5">
+        {% else %}
+        <div>
+        {% endif %}
+                <div class="container-fluid justify-content-center ">
+
+                        <div class="container-fluid">
+
+                        {% if request.user.is_superuser %}
+
+                                <div class="align-items-center container-fluid mb-5">
+                                        <button id="updateProjectResponsiveI" class="btn btn-primary container-fluid" data-bs-toggle="modal" data-bs-target="#updateProjectResponsiveIModal">
+                                                Update Project Responsive Images
+                                        </button>
+                                </div>
+
+                                {% include 'portfolio/modals/update_project_responsive_i.html' %}
+
+                        {% endif %}
+                        </div>
+                </div>        
+
+                {% include 'portfolio/partials/project_details/project_responsive_i.html' %}
+        </div>
+
+{% comment %} CLOSING THOUGHTS, REACTIONS, RECEPTIONS, ETC {% endcomment %}
+
+{% endblock content%}

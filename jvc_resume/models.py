@@ -20,6 +20,7 @@ class SupplimentalEducation(models.Model):
     name = models.CharField(max_length=200)
     type = models.CharField(max_length=200)
     created_on = models.DateTimeField(auto_now_add=True)
+    year = models.IntegerField(blank=True, null=True)
 
     class Meta:
         ordering = ['-created_on']

@@ -45,7 +45,7 @@
        <!-- <link rel="stylesheet" href="{% static 'css/style.css' %}"> -->
        <link rel="stylesheet" href="{% static 'css/styles.css' %}">
    
-    <title>{% block title %}{% endblock title%}</title>
+    <title>{% block title %}{{ project.title}}{% endblock title%}</title>
 </head>
 
 <body class="">

@@ -1,0 +1,71 @@
+<div class="container-fluid justify-content-center d-flex">
+    <div class="proj-approach ms-5 ps-5 me-5 pe-5 d-flex">
+
+        <div id="bannerTextIandProcessI">
+
+            {% if project.banner_textI and project.processI %}
+
+                <div class="row align-items-center">
+
+                    <div class="col-md-5">
+
+                        <h2 id="bannerTextI" class="text-center">
+                            {% if project.banner_textI %}
+                                {{ project.banner_textI }}
+                            {% endif %}
+                        </h2>
+
+                        {% comment %}
+                        {% if project.banner_textI|length > 37 %}
+                        <h4 id="bannerTextI" class="text-center">
+                            {% if project.banner_textI %}
+                                {{ project.banner_textI }}
+                            {% endif %}
+                        </h4>
+                        {% else %}
+                        <h1 id="bannerTextI" class="text-center">
+                            {% if project.banner_textI %}
+                                {{ project.banner_textI }}
+                            {% endif %}
+                        </h1>
+                        {% endif %}
+                        {% endcomment %}
+                    </div>
+        
+                    <div class="col-md-7 pe-0 me-0">
+                        <p id="processI" class="text-light">
+                            {% if project.processI %}
+                                {{ project.processI }}
+                            {% endif %}
+                        </p>
+                    </div>
+                    
+                </div>
+
+            {% elif project.banner_textI %}
+
+            <div class="row justify-content-center">
+                <div id="bannerTextICol12" class="col-md-12">
+                    <h4 id="bannerTextI" class="text-light">
+                        {{ project.banner_textI }}
+                    </h4>
+                </div>
+            </div>
+
+            {% elif project.processI %}
+
+                <div class="row justify-content-center">
+                    <div id="processICol12" class="col-md-12">
+                        <p id="processI" class="text-light">
+                            {{ project.processI }}
+                        </p>
+                    </div>
+                </div>
+
+            {% endif %}
+
+        </div>
+
+
+    </div>
+</div>
