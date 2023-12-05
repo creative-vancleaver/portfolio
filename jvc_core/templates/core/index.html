@@ -5,26 +5,24 @@
 
   <main class="hero text-center">
     
+    {% if about.image %}
+    <div class="home-title-image">
+    {% else %}
     <div class="home-title">
+    {% endif %}
       <h1>Jacob Van Cleave Design</h1>
       <p class="lead">Full Stack Web Developer</p>
     </div>
 
-    <div class="about_card round card">
-        <div class="row g-0">
-          <div class="col-lg-4">
-            <img src="{% static 'img/self.jpg' %}" class="self img-fluid round" alt="Photo of JVC">
-          </div>
-          <div class="col-lg-8">
-            <div class="card-body card-body-about">
-              <!-- <h5 class="card-title">Card title</h5> -->
-                <p class="card-text about_card_text">
-                    I am a self-taught developer and have spent the last 5 years learning the ins and outs, the ups and downs, the nooks and the crannies of web development. When the world shutdown in 2020 that I really devoted all of my time and energy to pursuing it as a career. Over the last few years I have reacquainted myself with HTML and CSS and learned to make wireframes and mockups using the Adobe Creative Suite. In addition to the basics, I have also taught myself JavaScript, Git, and Python by way of Django. I also have experience in Ruby, Java, and React.
-                </p>
-            </div>
-          </div>
-        </div>
-      </div>
+
+    <!-- ABOUT SECTION -->
+    {% comment %}
+    {% if about.image %}
+      {% include 'portfolio/partials/about_partial_image.html' %}
+    {% else %}
+      {% include 'portfolio/partials/about_partial.html' %}
+    {% endif %}
+    {% endcomment %}
 
     <!-- DEV PROJECT LIST -->
 
@@ -33,7 +31,7 @@
     <!-- DES PROJECT LIST -->
 
       <!-- <script src="{% static 'portfolio/project.js' %}"></script> -->
-      {% include 'portfolio/partials/experience_partial.html' %}
+      {% include 'resume/partials/resume_partial.html' %}
 
   </main>
 

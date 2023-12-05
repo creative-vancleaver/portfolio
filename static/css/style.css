@@ -23,6 +23,21 @@ p {
   margin-bottom: 0 !important;
 }
 
+@media (max-width: 768px) {
+
+  .nav-container a {
+    position: relative !important;
+    color: rgba(255, 255, 255, 0.8) !important;
+  }
+
+  .nav-container {
+    position: absolute !important;
+    width: 95% !important;
+    /* background-color:rgba(232, 166, 79, 0.2); */
+    z-index: 99;
+  }
+}
+
 /* Custom default button */
 .btn-secondary,
 .btn-secondary:hover,
@@ -172,6 +187,11 @@ button.btn.btn-primary:active:focus {
   border-color: #f13a2c;
 }
 
+.modal-height {
+  max-height: 850px;
+  overflow-y: auto;
+}
+
 
 /* HOME PAGE */
 
@@ -179,12 +199,22 @@ button.btn.btn-primary:active:focus {
   max-width: 65em;
 }
 
-.home-title {
+.home-title-image {
   padding-top: 12rem;
+  /* margin-bottom: 12rem; */
+  height: 95vh;
+}
+
+.home-title {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 95vh;
 }
 
 .round {
-  border-radius: 50px;
+  /* border-radius: 50px; */
+  border-radius: 25px;
 }
 
 .card-body {
@@ -212,10 +242,9 @@ button.btn.btn-primary:active:focus {
   padding-top: 1rem;
 } */
 
-@media (max-width: 992px){
+/* @media (max-width: 992px){
 
   .self {
-    /* padding-top: 2rem; */
     max-width: 100%;
   }
 
@@ -233,7 +262,7 @@ button.btn.btn-primary:active:focus {
     padding-bottom: 1rem !important;
   }
 
-}
+} */
 
 .home-text-container {
   background-color:rgba(232, 166, 79, 0.53);
@@ -260,6 +289,10 @@ button.btn.btn-primary:active:focus {
 /* DEV_PROJ SECTION */
 .dev_proj_container {
   margin-bottom: 8rem;
+}
+
+#div_project_list {
+  /* margin: 8rem 2rem !important; */
 }
 
 /* RESUME SECTION */
@@ -295,6 +328,10 @@ button.btn.btn-primary:active:focus {
     padding-left: 2rem;
     padding-right: 2rem;
   }
+}
+
+.resume-add:hover {
+  cursor: pointer;
 }
 
 
@@ -475,7 +512,7 @@ button.btn.btn-primary:active:focus {
 
 @media (max-width: 768px) {
 
-  .home-title {
+  .home-title-image {
     padding-top: 8rem;
   }
 
@@ -486,7 +523,7 @@ button.btn.btn-primary:active:focus {
 
 @media (max-width: 576px) {
 
-  .home-title {
+  .home-title-image {
     padding-top: 5rem;
   }
     

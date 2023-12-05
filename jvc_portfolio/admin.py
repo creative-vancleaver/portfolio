@@ -1,8 +1,18 @@
 from django.contrib import admin
 
+from django.contrib.auth.models import User
+from django.contrib.auth.admin import UserAdmin as BaseUserAdmin
+
 from .models import Project, Design, Development, Software, Program
 
 # Register your models here.
+
+class CustomUserAdim(BaseUserAdmin):
+    
+    list_display = ('pk', 'username', 'email', 'is_staff')
+
+admin.site.unregister(User)    
+admin.site.register(User, CustomUserAdim)
 
 class ProjectAdmin(admin.ModelAdmin):
     list_display = ('pk', 'title', 'name', 'project_type', 'designs', 'developments', 'image', 'created_on')

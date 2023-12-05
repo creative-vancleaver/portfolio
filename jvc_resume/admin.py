@@ -31,7 +31,7 @@ class ProgrammingProjectAdmin(admin.ModelAdmin):
 admin.site.register(ProgrammingProjects, ProgrammingProjectAdmin)
 
 class EmploymentAdmin(admin.ModelAdmin):
-    list_display = ('name', 'job_title', 'start_date', 'end_date', 'created_on')
+    list_display = ('name', 'job_title', 'start_date', 'start_year', 'end_date', 'end_year', 'created_on')
     list_filter = ('name', 'job_title', 'start_date', 'end_date')
     search_fields = ('name', 'job_title')
 

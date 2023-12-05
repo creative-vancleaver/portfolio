@@ -17,11 +17,11 @@
         </div> -->
     {% endif %}
 
-    <div id="project_list_div" class="row row-cols-1 row-cols-md-2">
+    <div id="project_list_div" class="row row-cols-1 row-cols-md-2 justify-content-center">
 
         {% for project in projects %}
         
-            <div class="col-md-4">
+            <div class="col-md-4 col-sm-8">
                 <div class="card mb-4 border-0">
 
                     <img src="{{ project.image.url }}" alt="" class="card-img-top proj-card-img">

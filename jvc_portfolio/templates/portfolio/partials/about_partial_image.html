@@ -1,0 +1,39 @@
+<div class="about_card round card">
+    <div class="row g-0">
+      <div id="bioImage" class="">
+
+        {% if about.image %}
+          <img src="{{ about.image.url }}" class="self img-fluid round" alt="Photo of JVC">
+        {% endif %}
+        
+      </div>
+      <div class="col-lg-8">
+        <div class="card-body card-body-about">
+          <!-- <h5 class="card-title">Card title</h5> -->
+
+            {% if about %}
+              <p id="bioText" class="card-text about_card_text">
+                {{ about.text }}
+              </p>
+            {% endif %}
+
+            {% if request.user.is_superuser %}
+
+            <div class="align-items-center container-fluid mt-3">
+              <button id="updateProjectBrief" class="btn btn-primary container-fluid" data-bs-toggle='modal' data-bs-target="#updateBioModal">
+                Update Bio
+              </button>
+            </div>
+
+            {% include 'resume/modals/update_bio.html' %}
+
+            {% endif %}
+            
+            <!-- <p class="card-text about_card_text">
+                I am a self-taught developer and have spent the last 5 years learning the ins and outs, the ups and downs, the nooks and the crannies of web development. When the world shutdown in 2020 that I really devoted all of my time and energy to pursuing it as a career. Over the last few years I have reacquainted myself with HTML and CSS and learned to make wireframes and mockups using the Adobe Creative Suite. In addition to the basics, I have also taught myself JavaScript, Git, and Python by way of Django. I also have experience in Ruby, Java, and React.
+            </p> -->
+
+        </div>
+      </div>
+    </div>
+  </div>
