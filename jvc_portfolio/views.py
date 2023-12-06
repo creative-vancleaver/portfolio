@@ -19,7 +19,7 @@ from .forms import DesignForm, DevelopmentForm, ProjectForm, ProjectBriefForm, P
 
 from .models import Project, Software, Design, Program, Development
 
-from .serializers import ProjectSerializer, ProjectBriefSerializer, ImageISerializer, ProcessISerializer, ImageIISerializer, ProcessIISerializer, ImageIIISerializer, ImageIVSerializer, ProcessIIISerializer, ImageVSerializer, ProcessIVSerializer, ImageVISerializer, ProcessVSerializer, ImageVIISerializer, ProcessVISerializer, ResponsiveISerializer
+from .serializers import ProjectSerializer, ProjectBriefSerializer, ImageISerializer, ProcessISerializer, ImageIISerializer, ProcessIISerializer, ImageIIISerializer, ImageIVSerializer, ProcessIIISerializer, ImageVSerializer, ProcessIVSerializer, ImageVISerializer, ProcessVSerializer, ImageVIISerializer, ProcessVISerializer, ResponsiveISerializer, ProgramSerializer
 
 # Create your views here.
 
@@ -454,6 +454,22 @@ class UpdateProjectView(generic.View):
         else:
             
             return JsonResponse({ 'message': 'No changes were made.' })
+        
+        
+class AddProgram(generic.View):
+    
+    def post(self, request):
+        program_name = request.POST.get('name')
+        
+        program = Program.objects.create(name=program_name)
+        
+        serializer = ProgramSerializer(program, many=False)
+        new_program = serializer.data
+        
+        return JsonResponse({ 'success': True, 'new_program': new_program })
+
+
+
 # class UpdateProjectView(UpdateView):
 #     model = Project
 #     form_class = ProjectForm()

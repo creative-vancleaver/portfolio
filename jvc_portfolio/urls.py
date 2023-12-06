@@ -28,6 +28,8 @@ urlpatterns = [
     path('update_processVI/', views.UpdateProcessVI.as_view(), name='update_processVI'),
     path('update_responsiveI/', views.UpdateResponsiveI.as_view(), name='update_responsiveI'),
     
+    path('add_program/', views.AddProgram.as_view(), name='add_program'),
+    
     
     
     

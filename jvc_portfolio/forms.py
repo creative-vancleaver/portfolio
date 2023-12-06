@@ -323,6 +323,23 @@ class ProjectResponsiveImgIForm(forms.ModelForm):
                 'label': 'Responsive Img III',
             }),
         }
+        
+class ProgramForm(forms.ModelForm):
+    
+    class Meta:
+        model = Program
+        fields = ('name',)
+        
+    name = forms.CharField(widget=forms.TextInput(attrs={
+        'class': 'form-control'
+    }))
+        
+    # widgets = {
+        
+    #     'name': forms.TextInput(attrs={
+    #         'class': 'form-control'
+    #     }),
+    # }
 
 class DesignForm(forms.ModelForm):
     class Meta:
@@ -374,3 +391,4 @@ class DevelopmentForm(forms.ModelForm):
         queryset = Program.objects.all(),
         widget = forms.CheckboxSelectMultiple
     )
+    

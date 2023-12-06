@@ -22,22 +22,24 @@
         {% for project in projects %}
         
             <div class="col-md-4 col-sm-8">
-                <div class="card mb-4 border-0">
-
+                <a href="{% url 'project_detail' project.name project.pk %}" class="card-link">
+                <div class="card mb-4 border-0 proj_list_card">
+                    <div class="">
                     <img src="{{ project.image.url }}" alt="" class="card-img-top proj-card-img">
-
+                    </div>
                     <div class="card-body">
 
                         <h5 class="card-title">
-                            <a href="{% url 'project_detail' project.name project.pk %}" class="card-link">
+
                                 {{ project.title | slice:50 }}
-                            </a>
                         </h5>
 
                         <p class="card-text">{{ project.about | slice:75 }}</p>
                     </div>
                     
                 </div>
+            </a>
+
             </div>
 
         {% endfor %}

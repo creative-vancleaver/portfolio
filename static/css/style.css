@@ -6,7 +6,8 @@
 
 html, body {
   font-family: 'Open Sans Condensed', sans-serif;
-  background-color: black;
+  /* background-color: rgb(0, 0, 0); */
+  background-color: rgb(21, 12, 9);
 }
 
 h1 {
@@ -43,6 +44,7 @@ p {
 .btn-secondary:hover,
 .btn-secondary:focus {
   color: #333;
+  /* color: #cfcbc9; */
   text-shadow: none;
   /* Prevent inheritance from `body` */
 }
@@ -68,7 +70,8 @@ p {
 }
 
 .main {
-  color: white;
+  /* color: white; */
+  color: #cfcbc9;
 }
 
 /*
@@ -150,7 +153,8 @@ p {
 
 .logo-link {
   text-decoration: none;
-  color: white;
+  /* color: white; */
+  color: #cfcbc9;
 }
 
 .logo-link:hover,
@@ -173,8 +177,10 @@ p {
 }
 
 .btn-primary {
-  background-color: #f13a2c;
-  border-color: #f13a2c;
+  /* background-color: #f13a2c;
+  border-color: #f13a2c; */
+  background-color: #80301d;
+  border-color: #80301d;
 }
 
 button.btn.btn-primary:hover,
@@ -183,14 +189,33 @@ button.btn.btn-primary:focus,
 button.btn.btn-primary:target,
 button.btn.btn-primary.clicked-once,
 button.btn.btn-primary:active:focus {
-  background-color: rgba(0, 0, 0, 0);
-  border-color: #f13a2c;
+  /* background-color: rgba(0, 0, 0, 0);
+  border-color: #f13a2c; */
+  /* background-color: #806857; */
+  /* border-color: #806857; */
+  /* color: rgb(21, 12, 9); */
+  background-color: transparent;
+  border-color: #80301d;
 }
 
 .modal-height {
   max-height: 850px;
   overflow-y: auto;
 }
+
+.fa-circle-plus {
+  color: #cfcbc9 !important;
+}
+
+/* .fa-circle-plus:hover,
+.fa-circle-plus:active,
+.fa-circle-plus:focus,
+.fa-circle-plus:target,
+.fa-circle-plus:active:focus { */
+  /* color: #80301d !important; */
+  /* transform: rotate(360deg) !important; */
+/* } */
+
 
 
 /* HOME PAGE */
@@ -235,7 +260,10 @@ button.btn.btn-primary:active:focus {
   text-align: left !important;
   padding-left: 2rem;
   font-size: 1.2rem !important;
+}
 
+.proj_list_card a {
+  text-decoration: none !important;
 }
 
 /* .self {
@@ -291,19 +319,20 @@ button.btn.btn-primary:active:focus {
   margin-bottom: 8rem;
 }
 
-#div_project_list {
+/* #div_project_list { */
   /* margin: 8rem 2rem !important; */
-}
+/* } */
 
 /* RESUME SECTION */
 
 .resume-container {
   padding-top: 1rem;
   padding-bottom: 1rem;
-  background-color:rgba(232, 166, 79, 0.53);
+  /* background-color:rgba(232, 166, 79, 0.53); */
   padding-right: 1rem;
   font-size: 1.1rem;
   margin-bottom: 8rem;
+  border: .2px solid rgba(207, 203, 201, 0.549);
 }
 
 .resume-header {
@@ -330,8 +359,22 @@ button.btn.btn-primary:active:focus {
   }
 }
 
+@media (max-width: 576px) {
+  .resume-container .row {
+    margin-bottom: 1rem;
+  }
+}
+
 .resume-add:hover {
   cursor: pointer;
+}
+
+#programFormContainer {
+  display: none;
+}
+
+#addProgramButton {
+  float: right;
 }
 
 
@@ -392,6 +435,11 @@ button.btn.btn-primary:active:focus {
 .card-link {
   position: relative;
   color: black !important;
+  text-decoration: none;
+}
+
+.card-title {
+  text-decoration: underline;
 }
 
 .list-title {
@@ -400,13 +448,79 @@ button.btn.btn-primary:active:focus {
 }
 
 
+
+
 /* PROJECT DETAIL PAGE */
 
 .proj-card-img {
   height: 250px;
   object-fit: cover;
   width: 100%;
+  /* background: black; */
 }
+
+/* .proj-img-card:hover {
+  background-color: black;
+} */
+
+.card-body {
+  /* background-color: rgba(128, 61, 34, 0.39); */
+}
+
+/* .wrap {
+  position: relative;
+}
+
+.wrap:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%; */
+  /* background: rgba(0, 0, 0, 0.5); */
+  /* background-color: rgba(128, 61, 34, 0.39);
+  z-index: 999;
+} */
+
+.proj_list_card {
+  position: relative;
+  overflow: hidden;
+}
+
+.proj_list_card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  /* background-color: rgb(0, 0, 0, 0.5); */
+  /* background-color:rgba(232, 166, 79, 0.53); */
+  background-color: rgba(129, 49, 29, 0.25);
+
+
+  z-index: 1;
+  transition: opacity 0.3s ease;
+}
+
+.proj_list_card:hover::before {
+  opacity: 0;
+  cursor: pointer;
+}
+
+/* .proj_list_card:hover,
+.proj_list_card:active,
+.proj_list_card:focus,
+.proj_list_card:target,
+.proj_list_card:active:focus,
+.wrap:before:hover,
+.wrap:before:active,
+.wrap:before:focus,
+.wrap:before:target,
+.wrap:before:active:focus {
+  background-color: black !important;
+} */
 
 @media only screen and (max-width: 768px) {
   .project-info {

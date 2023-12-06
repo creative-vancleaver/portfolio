@@ -6,8 +6,8 @@
 
         <div id="briefDiv" class="row">
 
-            <div class="col-md-2 pe-0 ps-0">
-                <!-- <h5 class="mb-1 brief-header">Year</h5> -->
+            <div class="col-md-2 pe-0 ps-0 mb-sm-3">
+                <h5 class="mb-1 brief-header">Year</h5>
                     <p id="project_year">
                     {% if project.year %}
                         {{ project.year }}
@@ -16,7 +16,7 @@
             </div>
 
                 <div class="col-md-3 pe-0 ps-0">
-                    <!-- <h5 class="mb-1 brief-header">Programs</h5> -->
+                    <h5 class="mb-1 brief-header">Programs</h5>
                     <ul class="program-list">
                         {% if project.programs.all.count > 0 %}
                             {% for program in project.programs.all %}

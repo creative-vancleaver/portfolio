@@ -4,6 +4,8 @@ class Resume {
         this.name = name;
     }
 
+// ABOUT ME
+
     static addBio(about) {
         var text = about.text;
         var image = about.image;
@@ -50,6 +52,8 @@ class Resume {
 
     }
 
+// POPULATE UPDATE FORMS  
+
     static populateEduForm(formData) {
         console.log('populating form');
         $('#updateSupplementalEducationForm #id_name').val(formData.name);
@@ -85,7 +89,6 @@ class Resume {
             $(`#updateTechSkillsForm input[name="programs"][value="${ programId }"]`).prop('checked', true);
         }
         $('#updateTechSkillsForm').attr('data-pk', formData.pk);
-
         // $('#updateTechSkillsForm #')
     }
 
@@ -111,6 +114,7 @@ class Resume {
                 } else if (model === 'TechSkills') {
                     console.log('TechSkills');
                     Resume.populateTechSkillsForm(response.form_data);
+                    // Resume.showAddProgramForm();
                 } else {
                     console.log('No model matching');
                 }
@@ -143,72 +147,6 @@ class Resume {
         // });
     }
 
-    static addEducationDisplay(education) {
-
-        const $suppEduDiv = $('#suppEduDiv');
-
-        var name = education.name;
-        var type = education.type;
-        var year = education.year;
-
-        var newEduRow = `<div class="row row-cols-1 row-cols-md-2">`;
-        newEduRow += `<div class="col">`;
-
-        // newEduRow += `{% if request.user.is_superuser %}`;
-        newEduRow += `<i class="fa-solid fa-arrows-rotate ms-3 me-3 resume-add"></i>`;
-        // newEduRow += `{% endif %}`;
-
-        newEduRow += `${ name }</div><div class="col"><p>`;
-        newEduRow += `${ type }</p></div></div>`;
-
-        $suppEduDiv.prepend(newEduRow);
-
-    }
-
-    static addEducationEvent() {
-        const form = document.getElementById('addSupplementalEducationForm');
-        form.addEventListener('submit', Resume.addEducation);
-    }
-
-    static addEducation(event) {
-
-        event.preventDefault();
-
-        const formData = new FormData($('#addSupplementalEducationForm')[0]);
-
-        $.ajax({
-            type: "POST",
-            url: '/resume/add_edu/',
-            data: formData,
-            processData: false,
-            contentType: false,
-            success: function(response) {
-                Resume.addEducationDisplay(response['new_education']);
-            },
-            error: function(error) {
-                console.log(error);
-            }
-        })
-    }
-
-    static updateEducationDisplay(education) {
-
-        var name = education.name;
-        var type = education.type;
-        var year = education.year;
-        var pk = education.pk;
-
-        var eduName = $('#eduName[data-id="' + pk + '"]');
-        var eduType = $('#eduType[data-id="' + pk + '"]');
-
-        eduName.html(name);
-        eduType.html(type);
-
-        // $('#eduName').html(name);
-        // $('#eduType').html(type);
-
-    }
-
     static handleUpdateEvent(submitEvent, id, model) {
 
         if (submitEvent && submitEvent.preventDefault) {
@@ -226,6 +164,7 @@ class Resume {
             } else if (model === 'TechSkills') {
                 console.log('handleupdateevent == tech skills');
                 Resume.updateTechSkill(submitEvent, id, model);
+                // Resume.showAddProgramForm();
             }
 
 
@@ -274,46 +213,73 @@ class Resume {
         }
     }
 
-    static addUpdateProjEvent(model, id, eventType) {
-        console.log('adding proj event');
-        const form = document.querySelector(`#${ model }Form[data-pk="${ id }]`);
-        if (form) {
-            form.addEventListener(eventType, function(submitEvent) {
-                console.log('project evvent listener ', model, id, form);
-                // Resume.handleUpdateProjEvent(submitEvent, id);
-            })
-        }
+// SUPPLEMENTAL EDUCATION
+
+    static addEducationDisplay(education) {
+
+        const $suppEduDiv = $('#suppEduDiv');
+
+        var name = education.name;
+        var type = education.type;
+        var year = education.year;
+
+        var newEduRow = `<div class="row row-cols-1 row-cols-md-2">`;
+        newEduRow += `<div class="col">`;
+
+        // newEduRow += `{% if request.user.is_superuser %}`;
+        newEduRow += `<i class="fa-solid fa-arrows-rotate ms-3 me-3 resume-add"></i>`;
+        // newEduRow += `{% endif %}`;
+
+        newEduRow += `${ name }</div><div class="col"><p>`;
+        newEduRow += `${ type }</p></div></div>`;
+
+        $suppEduDiv.prepend(newEduRow);
+
     }
 
-    static updateEducationEvent(id) {
+    static addEducationEvent() {
+        const form = document.getElementById('addSupplementalEducationForm');
+        form.addEventListener('submit', Resume.addEducation);
+    }
 
-        // document.addEventListener('DOMContentLoaded', function() {
-            
-        // })
-        // const forms = document.querySelectorAll('.updateSupportEduForm');
-        const form = document.querySelector(`#updateSupplementalEducationForm[data-pk="${ id }"]`);
-        console.log(form);
-        form.addEventListener('submit', function(submitEvent) {
-            Resume.updateEducation(submitEvent, id);
-        });
+    static addEducation(event) {
 
-        // forms.forEach( form => {
-        //     const eduPk = form.getAttribute('data-pk');
-        //     console.log('pk ', eduPk);
+        event.preventDefault();
 
-        //     form.addEventListener('submit', function(submitEvent) {
-        //         Resume.updateEducation(submitEvent, eduPk);
-        //     })
-        // })
+        const formData = new FormData($('#addSupplementalEducationForm')[0]);
 
-        // var edPk = document.getElementById('')
-        // // const form = document.getElementById('updateSupplementalEducationForm');
-        // const form = document.querySelector('#updateSupplementalEducationForm[d')
-        // const eduPk = form.getAttribute('data-pk');
-        // console.log(eduPk);
-        // form.addEventListener('submit', function(submitEvent) {
-        //     Resume.updateEducation(submitEvent, eduPk)
-        // });
+        $.ajax({
+            type: "POST",
+            url: '/resume/add_edu/',
+            data: formData,
+            processData: false,
+            contentType: false,
+            success: function(response) {
+                Resume.addEducationDisplay(response['new_education']);
+                $('#addSupplementalEducationForm')[0].reset();
+            },
+            error: function(error) {
+                console.log(error);
+            }
+        })
+    }
+
+    static updateEducationDisplay(education) {
+
+        var name = education.name;
+        var type = education.type;
+        var year = education.year;
+        var pk = education.pk;
+
+        var eduName = $('#eduName[data-id="' + pk + '"]');
+        var eduType = $('#eduType[data-id="' + pk + '"]');
+
+        eduName.html(name);
+        eduType.html(type);
+
+        // $('#eduName').html(name);
+        // $('#eduType').html(type);
+
     }
 
     static updateEducation(event, pk, model) {
@@ -344,11 +310,54 @@ class Resume {
                 }
             });
         }
-
-
     }
 
-    // PROGRAMMING PROJECTS
+
+    // static addUpdateProjEvent(model, id, eventType) {
+    //     console.log('adding proj event');
+    //     const form = document.querySelector(`#${ model }Form[data-pk="${ id }]`);
+    //     if (form) {
+    //         form.addEventListener(eventType, function(submitEvent) {
+    //             console.log('project evvent listener ', model, id, form);
+    //             // Resume.handleUpdateProjEvent(submitEvent, id);
+    //         })
+    //     }
+    // }
+
+    // static updateEducationEvent(id) {
+
+    //     // document.addEventListener('DOMContentLoaded', function() {
+            
+    //     // })
+    //     // const forms = document.querySelectorAll('.updateSupportEduForm');
+    //     const form = document.querySelector(`#updateSupplementalEducationForm[data-pk="${ id }"]`);
+    //     console.log(form);
+    //     form.addEventListener('submit', function(submitEvent) {
+    //         Resume.updateEducation(submitEvent, id);
+    //     });
+
+    //     // forms.forEach( form => {
+    //     //     const eduPk = form.getAttribute('data-pk');
+    //     //     console.log('pk ', eduPk);
+
+    //     //     form.addEventListener('submit', function(submitEvent) {
+    //     //         Resume.updateEducation(submitEvent, eduPk);
+    //     //     })
+    //     // })
+
+    //     // var edPk = document.getElementById('')
+    //     // // const form = document.getElementById('updateSupplementalEducationForm');
+    //     // const form = document.querySelector('#updateSupplementalEducationForm[d')
+    //     // const eduPk = form.getAttribute('data-pk');
+    //     // console.log(eduPk);
+    //     // form.addEventListener('submit', function(submitEvent) {
+    //     //     Resume.updateEducation(submitEvent, eduPk)
+    //     // });
+    // }
+
+
+// PROGRAMMING PROJECTS
+
     static addProgProjDisplay(prog_proj) {
 
         const $progProjDiv = $('#progProjDiv');
@@ -360,10 +369,10 @@ class Resume {
         newProgProjRow += `<div class="col">`;
         // newProgProjRow += `<i id="updateProj" class="updateProj updateButton fa-solid fa-arrows-rotate ms-3 me-3 resume-add" data-id="{{ proj.pk }}" data-model="ProgrammingProject" data-bs-toggle="modal" data-bs-target="#updateProgrammingProjectModal"></i>`;
         newProgProjRow += `<i class="fa-solid fa-arrows-rotate ms-3 me-3 resume-add"></i>`;
-        newProgProjRow += `<span id="projName">${ name }</span></div><div class="col"><p>`;
+        newProgProjRow += `<span id="projName">${ name }</span></div><div class="col mb-3"><p>`;
         newProgProjRow += `${ description }</p></div></div>`;
 
-        $progProjDiv.append(newProgProjRow);
+        $progProjDiv.prepend(newProgProjRow);
 
     }
 
@@ -400,6 +409,7 @@ class Resume {
             contentType: false,
             success: function(response) {
                 Resume.addProgProjDisplay(response['new_prog_proj']);
+                $('#addProgrammingProjectForm')[0].reset();
             },
             error: function(error) {
                 console.log(error);
@@ -434,7 +444,8 @@ class Resume {
         }
     }
 
-    // EMPLOYMENT
+// EMPLOYMENT
+
     static addEmploymentDisplay(employment) {
 
         const $employmentDiv = $('#employmentDiv');
@@ -490,6 +501,7 @@ class Resume {
             contentType: false,
             success: function(response) {
                 Resume.addEmploymentDisplay(response['new_employment']);
+                $('#addEmploymentForm').reset();
             },
             error: function(error) {
                 console.log(error);
@@ -523,7 +535,7 @@ class Resume {
         }
     }
 
-    // TECHNICAL SKILLS
+// TECHNICAL SKILLS
     
     static addTechSkillDisplay(tech_skill) {
 
@@ -597,6 +609,7 @@ class Resume {
             success: function(response) {
                 console.log(response);
                 Resume.addTechSkillDisplay(response['new_tech_skill']);
+                $('#addTechSkillsForm')[0].reset();
             },
             error: function(error) {
                 console.log(error);
@@ -631,7 +644,77 @@ class Resume {
         }
     }
 
+// PROGRAMS
 
+    static showAddProgramForm() {
+        console.log('show program form');
+        $('#addProgramButton').on('click', function() {
+            if ($('#addProgramButton').hasClass('open')) {
+                $('#programFormContainer').slideUp();
+                $('#addProgramButton').removeClass('open');
+            } else {
+                $('#addProgramButton').addClass('open');
+                $('#programFormContainer').slideDown()
+            }
+
+        $('.hideProgramForm').on('click', function() {
+            $('#programFormContainer').slideUp();
+            $('#addProgramButton').removeClass('open');
+        });
+
+        });
+    }
+
+    static addProgramDisplay(program) {
+
+        console.log('add program display');
+        var $skillCheckboxList = $('#skillCheckboxList');
+
+        var name = program.name;
+        var id = program.id;
+
+        var newProgramBox = `<label class="col-4"><label>`;
+        newProgramBox += `<input type="checkbox" name="programs" value="${ id }">`;
+        newProgramBox += `${ name }</label></label>`;
+
+        $skillCheckboxList.append(newProgramBox);
+    }
+
+    static addProgramEvent() {
+        // $('#programFormContainer').on('submit')
+        const form = document.getElementById('addProgramForm');
+        form.addEventListener('submit', Resume.addProgram);
+
+    }
+
+    static addProgram(event) {
+        // const form  = document.getElement
+        event.preventDefault();
+        // BECAUSE THE FORM IS NOT RENDERING IN A <FORM> TAG - I MUST MANUALLY DECLARE FORM DATA
+        // var formData = {
+        //     csrfmiddlewaretoken: $('#programFormContainer input[name="csrfmiddlewaretoken"]').val(),
+        //     name: $('#programFormContainer input[name="name"]').val()
+        // };
+        const formData = new FormData($('#addProgramForm')[0]);
+
+        $.ajax({
+            type: 'POST',
+            url: '/portfolio/add_program/',
+            data: formData,
+            processData: false,
+            contentType: false,
+            success: function(response) {
+                console.log(response);
+                Resume.addProgramDisplay(response['new_program']);
+                $('#addProgramForm')[0].reset();
+            },
+            error: function(error) {
+                console.log(error);
+            }
+        })
+
+
+    }
 
 
 

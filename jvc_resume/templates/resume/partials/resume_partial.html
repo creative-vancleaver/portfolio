@@ -20,7 +20,7 @@
 
             {% if request.user.is_superuser %}
             <div class="col">
-            <i id="addTechSkills" class="fa-solid fa-circle-plus ps-5 resume-add" data-bs-toggle="modal" data-bs-target="#addTechSkillsModal"></i>
+            <i id="addTechSkills" class="fa-solid fa-circle-plus ps-5 resume-add " data-bs-toggle="modal" data-bs-target="#addTechSkillsModal"></i>
             </div>
 
             {% include 'resume/modals/add_tech_skills.html' %}
@@ -37,13 +37,13 @@
             <div class="col">
                 {% if request.user.is_superuser %}
 
-                <i id="updateTechSkills" class="updateButton fa-solid fa-arrows-rotate ms-3 me-3 resume-add" data-id="{{ tech.pk }}" data-model="TechSkills" data-bs-toggle="modal" data-bs-target="#updateTechSkillsModal"></i>
+                <i id="updateTechSkills" class="updateButton fa-solid fa-arrows-rotate  me-3 resume-add " data-id="{{ tech.pk }}" data-model="TechSkills" data-bs-toggle="modal" data-bs-target="#updateTechSkillsModal"></i>
                 {% include 'resume/modals/update_tech_skill.html' %}
                 {% endif %}
                 <span id="techSkillType" data-id="{{ tech.pk }}">{{ tech.type }}</span>
             </div>
 
-            <div id="techProgramsList" class="col">
+            <div id="techProgramsList" class="col mb-sm-3">
                 {% for program in tech.programs.all %}
                     <p id="techSkillProg" data-tech-id="{{ tech.pk }}" data-prog-id="{{ program.pk }}">{{ program.name }}</p>
                 {% endfor %}
@@ -66,7 +66,7 @@
             {% if request.user.is_superuser %}
 
                 <div class="col">
-                <i id="addEmployment" class="fa-solid fa-circle-plus ps-5 resume-add" data-bs-toggle="modal" data-bs-target="#addEmploymentModal"></i>
+                <i id="addEmployment" class="fa-solid fa-circle-plus ps-5 resume-add " data-bs-toggle="modal" data-bs-target="#addEmploymentModal"></i>
                 </div>
 
                 {% include 'resume/modals/add_work_experience.html' %}
@@ -84,7 +84,7 @@
 
                     <div class="col">
                         {% if request.user.is_superuser %}
-                        <i id="updateEmployment" class="updateButton fa-solid fa-arrows-rotate ms-3 me-3 resume-add" data-id="{{ job.pk }}" data-model="Employment" data-bs-toggle="modal" data-bs-target="#updateEmploymentModal"></i>
+                        <i id="updateEmployment" class="updateButton fa-solid fa-arrows-rotate  me-3 resume-add " data-id="{{ job.pk }}" data-model="Employment" data-bs-toggle="modal" data-bs-target="#updateEmploymentModal"></i>
                         {% include 'resume/modals/update_work_experience.html' %}
                         {% endif %}
                         <span id="employmentName" data-id="{{ job.pk }}">
@@ -92,7 +92,7 @@
                         </span>
                     </div>
 
-                    <div class="col">
+                    <div class="col mb-sm-3">
                         <p id="employmentTitle" data-id="{{ job.pk }}">
                             {{ job.job_title }}
                         </p>
@@ -117,7 +117,7 @@
             {% if request.user.is_superuser %}
 
                 <div class="col">
-                <i id="addProgrammingProject" class="fa-solid fa-circle-plus ps-5 resume-add" data-bs-toggle="modal" data-bs-target="#addProgrammingProjectModal"></i>
+                <i id="addProgrammingProject" class="fa-solid fa-circle-plus ps-5 resume-add " data-bs-toggle="modal" data-bs-target="#addProgrammingProjectModal"></i>
                 </div>
 
                 {% include 'resume/modals/add_other_projects.html' %}
@@ -133,7 +133,7 @@
 
                 <div class="col">
                     {% if request.user.is_superuser %}
-                    <i id="updateProj" class="updateProj updateButton fa-solid fa-arrows-rotate ms-3 me-3 resume-add" data-id="{{ proj.pk }}" data-model="ProgrammingProject" data-bs-toggle="modal" data-bs-target="#updateProgrammingProjectModal"></i>
+                    <i id="updateProj" class="updateProj updateButton fa-solid fa-arrows-rotate  me-3 resume-add " data-id="{{ proj.pk }}" data-model="ProgrammingProject" data-bs-toggle="modal" data-bs-target="#updateProgrammingProjectModal"></i>
                     {% include 'resume/modals/update_other_projects.html' %}
                     {% endif %}
                     <span id="projName" data-id="{{ proj.pk }}">
@@ -141,8 +141,8 @@
                     </span>
                 </div>
 
-                <div class="col">
-                    <p id="projDescription" dat-id="{{ proj.pk }}">
+                <div class="col mb-sm-3">
+                    <p id="projDescription" data-id="{{ proj.pk }}">
                         {{ proj.description }}
                     </p>
                 </div>
@@ -166,7 +166,7 @@
             {% if request.user.is_superuser %}
 
             <div class="col">
-            <i class="fa-solid fa-circle-plus ps-5 resume-add" data-bs-toggle="modal" data-bs-target="#addSupplementalEducationModal"></i>
+            <i class="fa-solid fa-circle-plus ps-5 resume-add " data-bs-toggle="modal" data-bs-target="#addSupplementalEducationModal"></i>
             </div>
 
             {% include 'resume/modals/add_supp_edu.html' %}
@@ -183,13 +183,13 @@
 
                 <div class="col">
                     {% if request.user.is_superuser %}
-                    <i id="updateEdu" data-id="{{ edu.pk }}" data-model="SupplementalEducation" class="updateEdu updateButton fa-solid fa-arrows-rotate ms-3 me-3 resume-add" data-bs-toggle="modal" data-bs-target="#updateSupplementalEducationModal"></i>
+                    <i id="updateEdu" data-id="{{ edu.pk }}" data-model="SupplementalEducation" class="updateEdu updateButton fa-solid fa-arrows-rotate me-3 resume-add " data-bs-toggle="modal" data-bs-target="#updateSupplementalEducationModal"></i>
                     {% include 'resume/modals/update_supp_edu.html' %}
                     {% endif%}
                     <span id="eduName" data-id="{{ edu.pk }}">{{ edu.name }}</span>
                 </div>
 
-                <div class="col">
+                <div class="col mb-sm-3">
                     <p id="eduType" data-id="{{ edu.pk }}">
                         {{ edu.type }}
                     </p>
@@ -210,9 +210,12 @@
             <div class="col">
                 <h4 class="text-center resume-header">Education</h4>
             </div>
+
+            {% if request.user.is_superuser %}
             <div class="col">
                 <i class="fa-solid fa-circle-plus ps-5"></i>
             </div>
+            {% endif %}
 
         </div>
         <hr class="resume-hr">
@@ -223,7 +226,7 @@
                 <p>BA International Security & Conflict Resolutin</p>
             </div>
 
-            <div class="col">
+            <div class="col mb-sm-3">
                 <p>San Diego State University</p>
             </div>
         </div>

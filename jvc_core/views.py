@@ -4,7 +4,7 @@ from django.http import JsonResponse
 from django.shortcuts import get_object_or_404
 
 from jvc_portfolio.models import Design, Development, Project, Software, Program
-from jvc_portfolio.forms import ProjectForm
+from jvc_portfolio.forms import ProjectForm, ProgramForm
 
 from jvc_resume.models import About, Employment, ProgrammingProjects, SupplimentalEducation, TechnicalSkills
 from jvc_resume.views import AboutView
@@ -30,7 +30,9 @@ class HomeView(generic.TemplateView):
         project_form = ProjectForm()
         supp_edu_form = SupplimentalEducationForm()
         
-        context = { 'projects': projects, 'abouts': abouts, 'edu_list': edu_list, 'tech_skills_list': tech_skills_list, 'prog_proj_list': prog_proj_list, 'employment_list': employment_list, 'project_form': project_form, 'supp_edu_form': supp_edu_form }
+        program_form = ProgramForm()
+        
+        context = { 'projects': projects, 'abouts': abouts, 'edu_list': edu_list, 'tech_skills_list': tech_skills_list, 'prog_proj_list': prog_proj_list, 'employment_list': employment_list, 'project_form': project_form, 'supp_edu_form': supp_edu_form, 'program_form': program_form }
         
         resume = AboutView().get_context_data()
         context.update(resume)

@@ -31,7 +31,7 @@
 
 
                     <div>
-                        <div class="row p-0">
+                        <div id="skillCheckboxList" class="row p-0">
                             {{ skills_form.programs.label_tag }}
                             {% for checkbox in skills_form.programs %}
                                         <label class="col-4">{{ checkbox }}</label>
@@ -40,9 +40,10 @@
                         </div>
                     </div>
 
-                    <button class="btn btn-primary mt-3" type="submit" data-bs-dismiss="modal">Add Tech Skill</button>
+                    <button class="btn btn-primary mt-3" type="submit" data-bs-dismiss="modal">Update</button>
                     <button class="btn btn-secondary mt-3 clear-form" type="button" data-bs-dismiss="modal">Close</button>
                 </form>
+
             </div>
         </div>
     </div>
