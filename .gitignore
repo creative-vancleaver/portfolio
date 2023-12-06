@@ -22,3 +22,12 @@ portfolio/__pycache__/*
 
 static/js/__tests__/
 static/js/__tests__/*
+
+## System files
+.DS_Store
+*.pyc
+*/*/*/__pycache__/
+*/*/__pycache__/
+*/__pycache__/
+__pycahce__/*
+*.pyc
