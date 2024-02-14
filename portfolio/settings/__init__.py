@@ -7,7 +7,7 @@ if (config("DEV_ENV") == 'True'):
     
     from .dev import *
     
-else:
+elif (config("DEV_ENV") == 'False'):
     
     # SERVE STATIC + MEDIA FROM AWS S3 WITH AWS RDS DB
     
