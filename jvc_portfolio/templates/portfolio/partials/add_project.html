@@ -1,7 +1,7 @@
 
    <!-- <h1>Add Project</h1>  -->
 
-   <div class="form_group text-light">
+   <div class="form_group ">
        <form class="mt-3" method="POST" action="{% url 'add_project' %}?next={{ request.path }}" enctype="multipart/form-data">
            {% csrf_token %}
            {{ form.as_p }}

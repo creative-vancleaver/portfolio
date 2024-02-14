@@ -61,7 +61,7 @@
             </div>
 
             <div class="col-md-7 pe-0 me-0">
-                <p class="text-light">
+                <p class="">
                     The original aim of this software was to assist pathologists by digitizing and streamlining the cell classification process. It has since evolved to include deep learning to predict cell classifications as well as plans to include cell detection.
                 </p>
             </div>
@@ -90,30 +90,30 @@
         <div class="row">
 
             <div class="col-md-12">
-                <p class="text-light">
+                <p class="">
                     The software is built in Django with the help of vanilla JavaScript as well as several JavaScript libraries. The project was well under way by the time I joined the team. After familiarizing myself with the code base and overall operations, I got to work designing the user interface as well as building useer capabilities. I used Django's default User model and enabled Django's User authentication system. this required the creation of new code in addition to adding appropriate permissions to existing code. In the end, the site is now able to track individual users' projects, uploaded slides, created regions, and labelled cells.
                 </p>        
             </div>
 
             <!-- <div class="col-md-6">
-                <p class="text-light">
+                <p class="">
                     The posts are displayed in list form with titles, username(if any), date created and a short snippet of the post's content. The list display then provides a link to 'Read More' that directs user to the specified post's detail page. On the detail page, users can like the post, comment on the post and reply to previous comments. In addition to being able to read any post, authenticated users have the ability to update, edit, and deletee posts that they created. These features can be accessed via links on the post list or post detail pages.
                 </p>
             </div> -->
 
         </div>
 
-        <!-- <p class="text-light">
+        <!-- <p class="">
             The idea of the site is pretty straight forward - an online forum for users to communicate about a multitude of topics via posts, likes, comments and replies. I developed the site with Django and utilized vanilla JavaScript and the Bootstrap library to ensure responsiveness.
         </p>
 
 
 
-        <p class="text-light">
+        <p class="">
             The posts are displayed in list form with titles, username(if any), date created and a short snippet of the post's content. The list display then provides a link to 'Read More' that directs user to the specified post's detail page. On the detail page, users can like the post, comment on the post and reply to previous comments. In addition to being able to read any post, authenticated users have the ability to update, edit, and deletee posts that they created. These features can be accessed via links on the post list or post detail pages.
         </p>
 
-        <p class="text-light">
+        <p class="">
             In order to maintain a clean and seemless user experience, I opted to include the post creation form, along with the comment and reply forms direclty on the web page. When the page is initially loaded, the forms are hidden using JavaScript and only displayed when a user clicks the corresponding button. 
         </p> -->
 
@@ -152,13 +152,13 @@
         <div class="row">
 
             <div class="col-md-6">
-                <p class="text-light">
+                <p class="">
                     I built the software's 'projects' page and features. This included creating a form that allows users to create a project to consolidate their slides, regions, and cells into a single place. These 'projects' could then be used as a jumping off point for a user profile, as well as sharing data between users.
                 </p>        
             </div>
 
             <div class="col-md-6">
-                <p class="text-light">
+                <p class="">
                     I created the ability to add other registered users to a project. In effect, creating the ablity to 'share' the project between users. When a project is created, only the user who created it has access to it. This abilty to add collaborator to a project gives the specified user access to all data within the project and facilitates teamwork within the software.
                 </p>
             </div>
@@ -188,7 +188,7 @@
         <div class="row">
 
             <div class="col-md-12">
-                <p class="text-light">
+                <p class="">
                     Originally, each slide object was created by manually adding it to the database via the admin panel. I was tasked with creating a system for uploading large .tif images. To do this, I took advantage of JavaScript's Dropzone library which enabled the ability to drag and drop files for uplaod. I customized this library to handle mutliple image files at once and used JQuery and AJAX to laod the newly created slide object to the page as soon as they were processed.
                 </p>        
             </div>
@@ -218,13 +218,13 @@
         <div class="row">
 
             <div class="col-md-6">
-                <p class="text-light">
+                <p class="">
                     I took the initiative to restyle some of the large pages to provide the user with a less overwhelming and cluttered view. I perfected the slide info box using JavaScript and JQuery to create drop-down elements to display/hide the cell summary for each slide. Additionally, I made it a priority to create consisten button and link styles to ensure optimal accessability. 
                 </p>        
             </div>
 
             <div class="col-md-6">
-                <p class="text-light">
+                <p class="">
                     I was also asked to create forms for selecting each slide's tissue type and diagnosis. These forms were created using Django Model Forms. I then used AJAX to automatically display the submitted from data in the slide info box, as well as AJAX calls to remove the selected eleemnt form the display and simultaneously delete the corresponding database entry.
                 </p>
             </div>
@@ -254,13 +254,13 @@
         <div class="row">
 
             <div class="col-md-6">
-                <p class="text-light">
+                <p class="">
                     On the cell labeler page, I was asked to create a preview thumbnail for the selected cell. This mini popout container needed to contain an image of the selected cell as well as any relevant information - ID, AI Predicted Label, Etc. It also became necessary for the user to be able to move the popout window around the screen. To achieve this I used a combination of CSS, JQuery, and JavaScript. 
                 </p>        
             </div>
 
             <div class="col-md-6">
-                <p class="text-light">
+                <p class="">
                     When it came time to deploy the project, I was selected as the point person. I taught myself how to create an Amazon Web Services EC2 Instance, launch a development server using Apache2, and tie the whole thing together with a custom domain. I implemented hte SSL Certificate and designed a git branching system to separate development code from production code in order to facilitate a smoother workflow.
                 </p>
             </div>
@@ -289,11 +289,11 @@
 
         <h3></h3>
 
-        <p class="text-light">
+        <p class="">
             One of the top priorities for this project was to allow users to users to post anonymously. The idea behind the site is to create a welcoming and comfortable environment where womxn can discuss openly a range of, often times sensitive, topics Anonymous posting is aimed at helping womxn open up to themselves and others while allowing for an option of discretion and privacy.
         </p>
 
-        <p class="text-light">
+        <p class="">
             When a user selects to make a post anonymous all of the user's information is hidden from view on the site. In order to maintain the interactive aspect of a forum, a primary key associated with each user is used to track all posts, including those made anonymously. This means that users can edit, delete and track activity on their all of their own posts.
         </p>
 

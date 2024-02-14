@@ -1,3 +1,34 @@
+<div class="about-container">
+<div class="row g-0 about_card">
+  <div id="bioImage" class="col">
+    <!--  style="margin: 0 2rem !important;" -->
+
+    {% if about.image %}
+      <img src="{{ about.image.url }}" alt="" class="self round float-start w-50 col-sm-8 me-3">
+    {% endif %}
+
+    {% if about %}
+      <p class="text-start">
+        {{ about.text }}
+      </p>
+    {% endif %}
+  </div>
+
+</div>
+
+{% if request.user.is_superuser %}
+<div class="align-items-center container-fluid mt-3">
+  <buton id="updateProjectBrief" class="btn btn-primary container-fluid" data-bs-toggle="modal" data-bs-target="#updateBioModal">
+    Update bio
+  </buton>
+</div>
+
+{% include 'resume/modals/update_bio.html' %}
+{% endif %}
+</div>
+
+
+{% comment %}
 <div class="about_card round card">
     <div class="row g-0">
       <div id="bioImage" class="">
@@ -37,3 +68,4 @@
       </div>
     </div>
   </div>
+{% endcomment %}

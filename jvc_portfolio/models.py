@@ -40,6 +40,8 @@ class Project(models.Model):
     project_type = models.CharField(max_length=3, choices=PROJECT_TYPE, default=DEVELOPMENT, blank=True,  null=True)
     image = models.ImageField(null=True, blank=True, upload_to=project_path)
     about = models.TextField(blank=True, null=True)
+    description = models.TextField(blank=True, null=True)
+    link = models.CharField(max_length=500, blank=True, null=True)
     
     sub_title = models.CharField(max_length=200, blank=True, null=True)
     year = models.CharField(max_length=4, blank=True, null=True)

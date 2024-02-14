@@ -4,6 +4,7 @@ from django.urls import reverse_lazy
 from django.views import generic
 from django.views.generic import ListView, TemplateView
 from django.shortcuts import get_object_or_404
+from django.core.mail import send_mail
 
 from .models import About, Employment, ProgrammingProjects, SupplimentalEducation, TechnicalSkills, Program
 from .utils import redirect_to_self
@@ -19,7 +20,6 @@ from .serializers import AboutSerializer, SupplimentalEducationSerializer, Progr
     
 #     def get_context_data(self, *args, **kwargs):
 #         context = super(ResumeListView, self).get_context_data(*args, **kwargs)
-        
 
 class AboutView(generic.TemplateView):
     template_name = 'resume/partials/resume_partial.html'

@@ -1,0 +1,68 @@
+<div class="text-start mt-3 contact-form">
+    <form method="POST" enctype="multipart/form-data" id="contactForm">
+        
+        {% csrf_token %}
+        {{ contact_form.as_p }}
+
+        <!-- <label for="name">Your Name</label>
+        <br>
+        <input type="text" name="name" class="form-control mb-3" />
+
+        <label for="email">Your Email</label>
+        <br>
+        <input type="email" name="email" label="Your Email" class="form-control mb-3" required>
+
+        <label for="subject">Subject</label>
+        <br>
+        <input type="text" name="subject" label="Subject" class="form-control mb-3">
+
+        <label for="message">Message</label>
+        <br>
+        <textarea type="textfield" name="message" label="Message" class="form-control mb-4" required>
+        </textarea> -->
+
+        <div class="modal-footer">
+            <button class="btn btn-primary mt-3" type="submit" data-bs-dismiss="modal">
+                Say Hi! <span>&#x1F44B;</span>
+            </button>
+            <button class="btn btn-secondary mt-3 clear-form" type="button">
+                Clear
+            </button>
+        </div>
+    </form>
+</div>
+
+<script>
+    $(document).ready(function() {
+        
+        Project.clearForm();
+
+        $('#contactForm').submit(function(e) {
+            e.preventDefault()
+
+            var formData = $(this).serialize();
+
+            $.ajax({
+                type: 'POST',
+                url: '/contact/',
+                data: formData,
+                success: function(response) {
+                    if (response.success) {
+                        $('#contactForm').trigger('reset');
+                        $('#successModal').modal('show');
+                    } else {
+                        var errorMessage = '';
+                        $.each(response.errors, function(field, errors) {
+                            errorMessage += field + ': ' + errors.join(', ') + '\n';
+                        });
+                        alert('There was an error submitting the form:\n' + errorMessage);
+                    }
+                },
+                error: function(xhr, status, error) {
+                    $('#contactForm').trigger('reset');
+                    $('#errorMessage').modal('show');
+                }
+            });
+        });
+    });
+</script>

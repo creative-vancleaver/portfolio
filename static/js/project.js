@@ -221,7 +221,7 @@ class Project {
 
             var processIDiv = `<div class="row align-items-center"><div class="col-md-5">`;
             processIDiv += `<h2 id="bannerTextI" class="text-center">${ banner_textI }</h2></div>`;
-            processIDiv += `<div class="col-md-7 pe-0 me-0"><p id="processI" class="text-light">`;
+            processIDiv += `<div class="col-md-7 pe-0 me-0"><p id="processI" class="">`;
             processIDiv += `${ processI }</p></div></div>`;
 
             $bannerTextIandProcessI.addClass('mb-5');
@@ -240,7 +240,7 @@ class Project {
 
             var processIDiv = `<div class="row justify-content-center">`;
             processIDiv += `<div id="processICol12" class="col-md-12">`;
-            processIDiv += `<p id="processI" class="text-light">${ processI }`;
+            processIDiv += `<p id="processI" class="">${ processI }`;
             processIDiv += `</p></div></div>`;
             
             $bannerTextIandProcessI.addClass('mb-5');
@@ -465,10 +465,10 @@ class Project {
             // var $processIV = $('#processIV');
             // $processIV.html(project.processIV);
             var processIIIandIVCols = `<div class="col-md-6">`;
-            processIIIandIVCols += `<p id="processIII" class="text-light">${ project.processIII }`;
+            processIIIandIVCols += `<p id="processIII" class="">${ project.processIII }`;
             processIIIandIVCols += `</p></div>`;
             processIIIandIVCols += `<div class="col-md-6">`;
-            processIIIandIVCols += `<p id="processIV" class="text-light">${ project.processIV }`;
+            processIIIandIVCols += `<p id="processIV" class="">${ project.processIV }`;
             processIIIandIVCols += `</p></div>`;
 
             $processIIIandprocessIV.append(processIIIandIVCols);
@@ -478,7 +478,7 @@ class Project {
             // var $processIII = $('#processIII');
 
             var processIIICol = `<div id="processIIICol12" class="col-md-12">`;
-            processIIICol += `<p id="processIII" class="text-light">${ project.processIII}`;
+            processIIICol += `<p id="processIII" class="">${ project.processIII}`;
             processIIICol += `</p></div>`;
 
             // $processIII.html(project.processIII);
@@ -490,7 +490,7 @@ class Project {
             $processIIICol12.removeClass('col-md-12').addClass('col-md-6');
 
             var processIVCol = `<div class="col-md-12">`;
-            processIVCol += `<p id="processIV" class="text-light">${ project.processIV }`;
+            processIVCol += `<p id="processIV" class="">${ project.processIV }`;
             processIVCol += `</p></div>`;
 
             $processIIIandprocessIV.append(processIVCol);
@@ -660,24 +660,24 @@ class Project {
 
         if (project.processVI != '' && project.processVII != '') {
             var processVIandVIICols = `<div class="col-md-6">`;
-            processVIandVIICols += `<p id="processVI" class="text-light">${ project.processVI }`;
+            processVIandVIICols += `<p id="processVI" class="">${ project.processVI }`;
             processVIandVIICols += `</p></div>`;
             processVIandVIICols += `<div class="col-md-6">`;
-            processVIandVIICols += `<p id="processVII" class="text-light">${ project.processVII }`;
+            processVIandVIICols += `<p id="processVII" class="">${ project.processVII }`;
             processVIandVIICols += `</p></div>`;
 
             $processVIandporcessVII.append(processVIandVIICols);
 
         } else if (project.processVI != '' && project.processVII == '') {
             var processVICol = `<div id="processVICol12" class="col-md-12">`;
-            processVICol += `<p id="processVI" class="text-light">${ project.processVI }`;
+            processVICol += `<p id="processVI" class="">${ project.processVI }`;
             processVICol += `</p></div>`;
 
             $processVIandporcessVII.append(processVICol);
 
         } else if (project.processVII != '' && project.processVI == '') {
             var processVIICol = `<div id="processVIICol12" class="col-md-12">`;
-            processVIICol += `<p id="processVII" class="text-light">${ project.processVII }`;
+            processVIICol += `<p id="processVII" class="">${ project.processVII }`;
             processVIICol += `</p></div>`;
 
             $processVIandporcessVII.append(processVIICol);
@@ -766,10 +766,10 @@ class Project {
         if (project.processVIII != '' && project.processIX != '') {
 
             var processVIIIandIX = `<div class="col-md-6">`;
-            processVIIIandIX += `<p id="processVIII" class="text-light">${ project.processVIII }`;
+            processVIIIandIX += `<p id="processVIII" class="">${ project.processVIII }`;
             processVIIIandIX += `</p></div>`;
             processVIIIandIX += `<div class="col-md-6">`;
-            processVIIIandIX += `<p id="processIX" class="text-light">${ project.processIX }`;
+            processVIIIandIX += `<p id="processIX" class="">${ project.processIX }`;
             processVIIIandIX += `</p></div>`;
 
             $processVIIIandprocessIX.append(processVIIIandIX);
@@ -777,7 +777,7 @@ class Project {
         } else if (project.processVIII != '' && project.processIX == '') {
 
             var processVIII = `<div id="processVIIICol12" class="col-md-12">`;
-            processVIII += `<p id="processVIII" class="text-light">${ project.processVIII }`;
+            processVIII += `<p id="processVIII" class="">${ project.processVIII }`;
             processVIII += `</p></div>`;
 
             $processVIIIandprocessIX.append(processVIII);
@@ -785,7 +785,7 @@ class Project {
         } else if (project.processVIII == '' && project.processIX != '') {
 
             var processIX = `<div id="processIXCol12" class="col-md-12">`;
-            processIX += `<p id="processIX" class="text-light">${ project.processIX }`;
+            processIX += `<p id="processIX" class="">${ project.processIX }`;
             processIX += `</p></div>`;
 
             $processVIIIandprocessIX.append(processIX);
