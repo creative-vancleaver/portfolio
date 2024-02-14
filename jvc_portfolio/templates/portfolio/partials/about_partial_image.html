@@ -1,26 +1,37 @@
 <div class="about-container">
 <div class="row g-0 about_card">
-  <div id="bioImage" class="col">
+  <div id="" class="col">
     <!--  style="margin: 0 2rem !important;" -->
 
     {% if about.image %}
-      <img src="{{ about.image.url }}" alt="" class="self round float-start w-50 col-sm-8 me-3">
+      <div id="bioImage">
+        <img src="{{ about.image.url }}" alt="Photo of Jacob" class="self round-img float-start w-50 col-sm-8 me-3">
+      </div>
     {% endif %}
 
-    {% if about %}
-      <p class="text-start">
-        {{ about.text }}
-      </p>
-    {% endif %}
+    <div class="mt-md-5">
+      <h2 id="bioHeader" class="sub-title text-start">
+        {% if about.header %}
+            {{ about.header }}
+        {% endif %}
+      </h2>
+
+      <h5 id="bioText" class="text-start sub-title">
+        {% if about.text %}
+            {{ about.text }}
+        {% endif %}
+      </h5>
+    </div>
+
   </div>
 
 </div>
 
 {% if request.user.is_superuser %}
 <div class="align-items-center container-fluid mt-3">
-  <buton id="updateProjectBrief" class="btn btn-primary container-fluid" data-bs-toggle="modal" data-bs-target="#updateBioModal">
+  <button id="updateProjectBrief" class="btn btn-primary container-fluid" data-bs-toggle="modal" data-bs-target="#updateBioModal">
     Update bio
-  </buton>
+  </button>
 </div>
 
 {% include 'resume/modals/update_bio.html' %}

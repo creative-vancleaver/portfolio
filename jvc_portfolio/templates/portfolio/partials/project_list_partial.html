@@ -18,12 +18,12 @@
 
             {% if not forloop.counter|divisibleby:2 %}
 
-                <div class="row mb-5 mt-5 pt-5 pb-5">
+                <div class="row mb-3 mt-3 pt-3 pb-3 mb-md-5 mt-md-5 pb-md-5 pt-md-5">
                     
                     <div class="col-md-8 mb-5">
 
                         {% if project.link %}
-                            <a href="{{ project.link }}" class="project-img-link" id="project-link-{{project.id }}">
+                            <a href="{{ project.link }}" class="project-img-link" id="project-link-{{project.id }}" target="_blank" rel="noreferrer noopener">
                                 <div class="img-wrapper" id="img-wrapper-{{ projec.id }}">
                                     <img src="{{ project.image.url }}" alt="" class="proj-card-img" id="proj-card-img-{{ project.id }}">
                                 </div>   
@@ -39,10 +39,10 @@
                     </div>
 
                     <div class="col-md-4 proj-card-text mt-3">
-                        <h3 class="text-start sub-title">
+                        <h3 class="text-start project-title">
                             {{ project.title }}
                         </h3>
-                        <h5 class="text-start mt-3">
+                        <h5 class="text-start mt-3 sub-title">
                             {{ project.about }}
                         </h5>
                         <p class="text-start mt-3">
@@ -61,31 +61,33 @@
 
             {% else %}
 
-                <div class="row mb-5 mt-5 pt-5 pb-5">
+                <div class="row mb-3 mt-3 pt-3 pb-3 mb-md-5 mt-md-5 pb-md-5 pt-md-5">
 
-                    <div class="col-md-4 proj-card-text mt-3">
-                        <h3 class="text-start sub-title">
-                            {{ project.title }}
-                        </h3>
-                        <h5 class="text-start mt-3">
-                            {{ project.about }}
-                        </h5>
-                        <p class="text-start mt-3">
-                            {{ project.description }}
-                        </p>
-                        <p class="text-start mt-5">
-                            <a href="{% url 'project_detail' project.name project.pk %}" class="card-link">
-                                <small class="text-muted">
-                                    Read More
-                                </small>
-                            </a>
-                        </p>
+                    <div class="col-md-4 mb-5 order-2 order-md-1">
+                        <div class="proj-card-text mt-3">
+                            <h3 class="text-start project-title">
+                                {{ project.title }}
+                            </h3>
+                            <h5 class="text-start mt-3 sub-title">
+                                {{ project.about }}
+                            </h5>
+                            <p class="text-start mt-3">
+                                {{ project.description }}
+                            </p>
+                            <p class="text-start mt-5">
+                                <a href="{% url 'project_detail' project.name project.pk %}" class="card-link">
+                                    <small class="text-muted">
+                                        Read More
+                                    </small>
+                                </a>
+                            </p>
+                        </div>
                     </div>
 
-                    <div class="col-md-8 mb-5">
+                    <div class="col-md-8 mb-5 order-1 order-md-2">
 
                         {% if project.link %}
-                            <a href="{{ project.link }}" class="project-img-link">
+                            <a href="{{ project.link }}" class="project-img-link" target="_blank" rel="noreferrer noopener">
                                 <div class="img-wrapper">
                                     <img src="{{ project.image.url }}" alt="" class="proj-card-img">
                                 </div>

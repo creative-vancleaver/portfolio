@@ -5,7 +5,8 @@
 }
 
 html, body {
-  font-family: 'Open Sans Condensed', sans-serif;
+  font-family: 'Open Sans', sans-serif;
+  /* font-family: 'Open Sans Condensed', sans-serif; */
   /* background-color: rgb(0, 0, 0); */
   /* background-color: rgb(21, 12, 9); */
   
@@ -25,6 +26,7 @@ h3 {
 
 p {
   margin-bottom: 0 !important;
+  font-weight: lighter !important;
 }
 
 @media (max-width: 768px) {
@@ -43,14 +45,6 @@ p {
 }
 
 /* Custom default button */
-.btn-secondary,
-.btn-secondary:hover,
-.btn-secondary:focus {
-  color: #333;
-  /* color: #cfcbc9; */
-  text-shadow: none;
-  /* Prevent inheritance from `body` */
-}
 
 /*
  * Base structure
@@ -149,6 +143,7 @@ p {
 }
 
 .nav-masthead .nav-link {
+  font-family: 'Open Sans Condensed', sans-serif;
   padding: .25rem 0;
   font-weight: 700;
   /* color: rgba(255, 255, 255, 0.5); */
@@ -174,6 +169,8 @@ p {
 .logo-link {
   text-decoration: none;
   color: black;
+  display: block;
+  width: 50px;
   /* color: white; */
   /* color: #cfcbc9; */
 }
@@ -201,8 +198,8 @@ p {
 .btn-primary {
   /* background-color: #f13a2c;
   border-color: #f13a2c; */
-  background-color: #80301d;
-  border-color: #80301d;
+  background-color: #32468b;
+  border-color: #32468b;
 }
 
 button.btn.btn-primary:hover,
@@ -216,8 +213,26 @@ button.btn.btn-primary:active:focus {
   /* background-color: #806857; */
   /* border-color: #806857; */
   /* color: rgb(21, 12, 9); */
+
+  color: #32468b;
   background-color: transparent;
-  border-color: #80301d;
+  border-color: #32468b;
+  
+}
+
+.btn-secondary {
+  background-color: #8b3232;
+  border-color: #8b3232;
+}
+
+.btn-secondary:hover,
+.btn-secondary:focus {
+  color: #8b3232;
+  background-color: transparent;
+  border-color: #8b3232;
+  /* color: #cfcbc9; */
+  /* text-shadow: none; */
+  /* Prevent inheritance from `body` */
 }
 
 .modal-height {
@@ -261,6 +276,7 @@ button.btn.btn-primary:active:focus {
   margin-bottom: 5rem;
 }
 
+.project-title,
 .sub-title {
   font-family: 'Open Sans Condensed', sans-serif;
 }
@@ -268,6 +284,11 @@ button.btn.btn-primary:active:focus {
 .round {
   /* border-radius: 50px; */
   border-radius: 25px;
+}
+
+.round-img {
+  border-radius: 50% !important;
+  max-width: 500px;
 }
 
 .card-body {
@@ -473,6 +494,10 @@ button.btn.btn-primary:active:focus {
   text-decoration: none;
   /* color: white; */
   color: rgba(0, 0, 0, 0.75);
+}
+
+.social-link .fa-xl {
+  font-size: 2rem !important;
 }
 
 .email {

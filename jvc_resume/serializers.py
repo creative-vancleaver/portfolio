@@ -7,7 +7,7 @@ class AboutSerializer(serializers.ModelSerializer):
     
     class Meta:
         model = About
-        fields = ['text', 'image', 'updated_on']
+        fields = ['text', 'header', 'image', 'updated_on']
         
 class SupplimentalEducationSerializer(serializers.ModelSerializer):
     

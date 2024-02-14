@@ -5,7 +5,7 @@ from .models import About, SupplimentalEducation, TechnicalSkills, ProgrammingPr
 # Register your models here.
 
 class AboutAdmin(admin.ModelAdmin):
-    list_display = ('text', 'pk', 'created_on')
+    list_display = ('pk', 'image', 'created_on')
  
 admin.site.register(About, AboutAdmin)
 

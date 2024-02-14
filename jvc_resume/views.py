@@ -134,10 +134,19 @@ class UpdateAboutView(generic.View):
         about = About.objects.get(pk=1)
         
         form_about = request.POST.get('text')
+        form_header = request.POST.get('header')
         form_image = request.FILES.get('image')
         
         about.text = form_about
-        about.image = form_image
+        print('about form text ', form_about)
+        about.header = form_header
+        print('about.header ', about.header)
+        if form_image:
+            about.image = form_image
+
+        if 'image-clear' in request.POST:
+            about.image = None
+
         about.save()
         
         serializer = AboutSerializer(about, many=False)

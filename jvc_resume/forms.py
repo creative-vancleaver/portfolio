@@ -9,14 +9,19 @@ from jvc_resume.models import About, SupplimentalEducation, TechnicalSkills, Pro
 
 current_year = datetime .now().year
 YEARS = [(year, str(year)) for year in range(current_year, current_year - 10, -1)]
+
 class AboutForm(forms.ModelForm):
     class Meta:
         model = About
-        fields = ('image', 'text')
+        fields = ('image', 'header', 'text')
         
         widgets = {
             
             'image': forms.ClearableFileInput(attrs={
+                'class': 'form-control mb-2',
+            }),
+            
+            'header': forms.TextInput(attrs={
                 'class': 'form-control mb-2',
             }),
             
