@@ -2,9 +2,13 @@
 
 {% block content %}
 
-    <h1>Login</h1>
+<div class="px-3 main d-flex flex-column cover-container mx-auto login-container">
 
-    <form method="post">
+    <div class="login-div">
+
+    <h1 class="login">Login</h1>
+
+    <form method="post" class="login-form">
 
         {% csrf_token %}
         {{ login_form.as_p }}
@@ -12,5 +16,8 @@
         <button type="submit" class="btn btn-primary mt-3">Login</button>
 
     </form>
+    </div>
+
+</div>
 
 {% endblock content%}
