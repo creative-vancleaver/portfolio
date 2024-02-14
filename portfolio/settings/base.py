@@ -37,6 +37,8 @@ ALLOWED_HOSTS = [
     'ip-172-31-24-22.ec2.internal',
     '3.211.90.66',
     'ec2-3-211-90-66.compute-1.amazonaws.com',
+    'jacobvancleave.com',
+    'www.jacobvancleave.com',
 ]
 
 
