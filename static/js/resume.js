@@ -8,21 +8,38 @@ class Resume {
 
     static addBio(about) {
         var text = about.text;
+        // console.log('add bio text ', text);
         var image = about.image;
+        var header = about.header;
+        console.log('add bio header ', header);
+
+        var bioImage = $('#bioImage');
+        var bioHeader = $('#bioHeader');
+        var bioText = $('#bioText');
 
         if (image != null) {
 
-            var new_image = `<img src="${ image }" class="self img-fluid round" alt="photo of JVC">`;
+            var new_image = `<img src="${ image }" class="self round float-start w-50 col-sm-8 me-3" alt="photo of Jacob">`;
 
             $('#bioImage').empty();
             $('#bioImage').append(new_image);
 
+        } else {
+            bioImage.empty();
         }
 
         if (text != '') {
 
             $('#bioText').html(text);
 
+        } else {
+            bioText.html('');
+        }
+
+        if (header != '') {
+            $('#bioHeader').html(header);
+        } else {
+            bioHeader.html('');
         }
     }
 
@@ -47,6 +64,7 @@ class Resume {
             contentType: false,
             success: function(response) {
                 Resume.addBio(response['updated_about'])
+                console.log(response['updated_about'])
             }
         })
 

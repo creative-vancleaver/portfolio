@@ -4,6 +4,7 @@ from django.urls import reverse_lazy
 from django.views import generic
 from django.views.generic import ListView, TemplateView
 from django.shortcuts import get_object_or_404
+from django.core.mail import send_mail
 
 from .models import About, Employment, ProgrammingProjects, SupplimentalEducation, TechnicalSkills, Program
 from .utils import redirect_to_self
@@ -19,7 +20,6 @@ from .serializers import AboutSerializer, SupplimentalEducationSerializer, Progr
     
 #     def get_context_data(self, *args, **kwargs):
 #         context = super(ResumeListView, self).get_context_data(*args, **kwargs)
-        
 
 class AboutView(generic.TemplateView):
     template_name = 'resume/partials/resume_partial.html'
@@ -134,10 +134,19 @@ class UpdateAboutView(generic.View):
         about = About.objects.get(pk=1)
         
         form_about = request.POST.get('text')
+        form_header = request.POST.get('header')
         form_image = request.FILES.get('image')
         
         about.text = form_about
-        about.image = form_image
+        print('about form text ', form_about)
+        about.header = form_header
+        print('about.header ', about.header)
+        if form_image:
+            about.image = form_image
+
+        if 'image-clear' in request.POST:
+            about.image = None
+
         about.save()
         
         serializer = AboutSerializer(about, many=False)

@@ -2,9 +2,13 @@ from django.shortcuts import render
 from django.views import generic
 from django.http import JsonResponse
 from django.shortcuts import get_object_or_404
+from django.core.mail import send_mail
+
+from decouple import config
 
 from jvc_portfolio.models import Design, Development, Project, Software, Program
 from jvc_portfolio.forms import ProjectForm, ProgramForm
+from jvc_core.forms import ContactForm
 
 from jvc_resume.models import About, Employment, ProgrammingProjects, SupplimentalEducation, TechnicalSkills
 from jvc_resume.views import AboutView
@@ -32,7 +36,9 @@ class HomeView(generic.TemplateView):
         
         program_form = ProgramForm()
         
-        context = { 'projects': projects, 'abouts': abouts, 'edu_list': edu_list, 'tech_skills_list': tech_skills_list, 'prog_proj_list': prog_proj_list, 'employment_list': employment_list, 'project_form': project_form, 'supp_edu_form': supp_edu_form, 'program_form': program_form }
+        contact_form = ContactForm()
+        
+        context = { 'projects': projects, 'abouts': abouts, 'edu_list': edu_list, 'tech_skills_list': tech_skills_list, 'prog_proj_list': prog_proj_list, 'employment_list': employment_list, 'project_form': project_form, 'supp_edu_form': supp_edu_form, 'program_form': program_form, 'contact_form':  contact_form }
         
         resume = AboutView().get_context_data()
         context.update(resume)
@@ -40,6 +46,34 @@ class HomeView(generic.TemplateView):
         
         return context
     
+def contact_form(request):
+    
+    if request.method == 'POST':
+        form = ContactForm(request.POST)
+        if form.is_valid():
+            sender_name = form.cleaned_data['name']
+            sender_email = form.cleaned_data['email']
+            subject = form.cleaned_data['subject']
+            message = form.cleaned_data['message']
+            print('message sent', sender_name, sender_email, subject, message)
+            
+            send_mail(
+                subject,
+                f'Name: { sender_name }\nEmail: { sender_email }\nMessage: { message }',
+                config('ADMIN_EMAIL'),
+                [sender_email],
+                # ['jacob@jacobvancleave.com'],
+                fail_silently=False
+            )
+            
+            return JsonResponse({ 'success': True })
+        else:
+            errors = dict(form.errors.items())
+            return JsonResponse({ 'success': False, 'errors': errors })
+        
+    else:
+        return JsonResponse({ 'success': False, 'errors': 'Invalid request method' })
+        
     # def get(self, request, *args, **kwargs):
         
     #     # if request.is_ajax():

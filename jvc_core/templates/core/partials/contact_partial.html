@@ -1,0 +1,67 @@
+<a id="contact_info">
+    <h2 class="connect-title">Let's Connect</h2>
+</a>
+<hr class="connect-bar">
+
+<div id="" class="row row-cols-1 row-cols-md-1 pb-5">
+    <!--  mt-3 pt-3 -->
+
+    <div class="col col-lg-6 pb-5">
+
+{% comment %}
+        <a href="#" id="contactForm" class="email-link" data-bs-toggle="modal" data-bs-target="#contactFormModal">
+            <h4 class="email text-start">
+                jacob@jacobvancleave.com
+            </h4>
+        </a>
+        <a href=mailto:jacob@jacobvancleave.com class="email-link">
+            <h4 class="email text-start">
+                jacob@jacobvancleave.com
+            </h4>
+        </a>
+{% endcomment %}
+
+        {% include 'core/partials/contact_form_partial.html' %}
+
+    </div>
+
+    <div class="col col-lg-2 col-md-4">
+    </div>
+
+    <div class="col col-lg-4 col-md-0">
+        <h4 class="email text-start">
+            jacob@jacobvancleave.com
+        </h4>
+        <ul class="media-list mt-3">
+
+            <li class="media-link"> 
+                <a href="https://www.linkedin.com/in/jacob-van-cleave-06b4a0158/" class="social-link" target="_blank" rel="noreferrer noopener">
+                    <i class="fa-brands fa-linkedin fa-xl"></i>
+                </a>
+            </li>
+
+            <li class="media-link">
+                <a href="https://github.com/creative-vancleaver" class="social-link" target="_blank" rel="noreferrer noopener">
+                    <i class="fa-brands fa-github fa-xl"></i>
+                </a>
+            </li>
+            <!-- <li class="media-link">
+                <i class="fa-brands fa-dribbble"></i>
+            </li> -->
+            <li class="media-link">
+                <a class="social-link" href="https://www.behance.net/jacobvancleave" target="_blank" rel="noreferrer noopener">
+                    <i class="fa-brands fa-behance fa-xl"></i>
+                </a>
+            </li>
+            <!-- <li class="media-link">
+                <i class="fa-brands fa-instagram"></i>
+            </li> -->
+        </ul>
+        <!-- <p class="text-muted text-start" style="margin-left: 2rem;">
+            Icons Provided by Font Awesome (https://fontawesome.com/)
+        </p> -->
+    </div>
+
+</div>
+
+{% include 'portfolio/modals/contact_form_modal.html' %}

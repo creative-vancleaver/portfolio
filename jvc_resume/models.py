@@ -8,7 +8,8 @@ def bio_path(instance, filename):
     return '/'.join(['images/bio', filename])
 class About(models.Model):
     
-    text = models.TextField()
+    text = models.TextField(blank=True, null=True)
+    header = models.CharField(max_length=250, blank=True, null=True)
     image = models.ImageField(null=True, blank=True, upload_to=bio_path)
     created_on = models.DateTimeField(auto_now_add=True)
     updated_on = models.DateTimeField(auto_now=True)

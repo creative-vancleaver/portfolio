@@ -3,35 +3,32 @@
 
 {% block content %}
 
-  <main class="hero text-center">
+  <main class="text-center">
     
-    {% if about.image %}
-    <div class="home-title-image">
-    {% else %}
     <div class="home-title">
-    {% endif %}
-      <h1>Jacob Van Cleave Design</h1>
-      <p class="lead">Full Stack Web Developer</p>
+      <h1 style="font-family: 'Cinzel Decorative', cursive;">Jacob Van Cleave</h1>
+      <h2 class="sub-title">Full Stack Web Developer</h2>
     </div>
 
 
     <!-- ABOUT SECTION -->
-    {% comment %}
-    {% if about.image %}
-      {% include 'portfolio/partials/about_partial_image.html' %}
-    {% else %}
-      {% include 'portfolio/partials/about_partial.html' %}
-    {% endif %}
-    {% endcomment %}
+    {% include 'portfolio/partials/about_partial_image.html' %}
 
-    <!-- DEV PROJECT LIST -->
 
-      {% include 'portfolio/partials/project_list_partial.html' %}
+    <!-- PROJECT LIST -->
+    {% include 'portfolio/partials/project_list_partial.html' %}
 
-    <!-- DES PROJECT LIST -->
+    <!-- CONTACT -->
+    {% include 'core/partials/contact_partial.html' %}
+    
+    <!-- ALERTS -->
+    {% include 'core/messages/success_message.html' %}
+    {% include 'core/messages/error_message.html' %}
 
       <!-- <script src="{% static 'portfolio/project.js' %}"></script> -->
+      {% comment %}
       {% include 'resume/partials/resume_partial.html' %}
+      {% endcomment %}
 
   </main>
 
