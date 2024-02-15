@@ -48,6 +48,9 @@ class HomeView(generic.TemplateView):
     
 def contact_form(request):
     
+    print(config('ADMIN_EMAIL'))
+    to_email = config('ADMIN_EMAIL')
+    
     if request.method == 'POST':
         form = ContactForm(request.POST)
         if form.is_valid():
@@ -60,8 +63,10 @@ def contact_form(request):
             send_mail(
                 subject,
                 f'Name: { sender_name }\nEmail: { sender_email }\nMessage: { message }',
-                config('ADMIN_EMAIL'),
-                [sender_email],
+                to_email,
+                [to_email],
+                # config('ADMIN_EMAIL'),
+                # [sender_email],
                 # ['jacob@jacobvancleave.com'],
                 fail_silently=False
             )
