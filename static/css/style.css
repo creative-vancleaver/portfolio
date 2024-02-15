@@ -710,6 +710,7 @@ button.btn.btn-primary:active:focus {
 
 .brief-header {
   /* font-size: larger; */
+  font-family: 'Open Sans Condensed', sans-serif;
   font-weight: 800;
   text-transform: uppercase;
 }
@@ -717,6 +718,7 @@ button.btn.btn-primary:active:focus {
 .program-list {
   list-style: none;
   padding-left: 0;
+  font-weight: lighter !important;
 }
 
 
